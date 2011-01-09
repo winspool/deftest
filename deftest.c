@@ -514,8 +514,9 @@ extern "C" {
 
 
 /* ########################################## */
-#define __my_stringify_1(x...) #x
-#define __my_stringify(x...)   __my_stringify_1(x)
+
+#define __my_stringify_1(x) #x
+#define __my_stringify(x)   __my_stringify_1(x)
 
 
 char *get_txt(char * buffer)

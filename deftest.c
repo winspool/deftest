@@ -1,7 +1,13 @@
-/* ####
- * ####
+/*
+ * Copyright (c) 2007-22 Detlef Riekenberg
  *
- */
+ * newest version:
+ * https://www.github.com/winspool/deftest
+ *
+ * A program to check for predefined macros/defines
+ * for various C and C++ compiler
+ *
+ * ############################## */
 
 
 #ifdef __cplusplus
@@ -9,7 +15,7 @@ extern "C" {
 #endif
 
 
-#define BUFFERSIZE 4096
+#define BUFFERSIZE 16384
 
 #define NO_GUI
 

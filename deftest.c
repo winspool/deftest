@@ -6420,19 +6420,14 @@ char *get_txt(char * buffer)
 #endif
 
 
-
 #ifdef WINVER
     sprintf(buffer + strlen(buffer), "WINVER  \t\t => 0x%x (%d.%d)\n", WINVER, 
         WINVER / 256, (WINVER & 255));
 #endif
 
 
-
-
-
-
-/* ################### */
-/* runtime type */
+/* ############# */
+/* runtime types */
 
 #ifdef _ATL_VER
     if ( (_ATL_VER + 1) > 1) {
@@ -6441,6 +6436,15 @@ char *get_txt(char * buffer)
         strcat(buffer, "_ATL_VER\n");
     }
 #endif
+
+#ifdef __BIONIC__
+    if ( (__BIONIC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__BIONIC__ \t\t => 0x%x\n", __BIONIC__ + 0);
+    } else {
+        strcat(buffer, "__BIONIC__\n");
+    }
+#endif
+
 
 #ifdef __CLR_VER
     if ( (__CLR_VER + 1) > 1) {
@@ -6452,11 +6456,21 @@ char *get_txt(char * buffer)
 
 #ifdef __cplusplus
     if ( (__cplusplus + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__cplusplus \t\t => %d\n", __cplusplus + 0);
+        sprintf(buffer + strlen(buffer), "__cplusplus\t\t => %ld (%s)\n", __cplusplus + 0,
+        (__cplusplus + 0 >= 202100) ? "C++23 / C++2b" :
+        (__cplusplus + 0 >= 202002) ? "C++20" :
+        (__cplusplus + 0 >= 201703) ? "C++17" :
+        (__cplusplus + 0 >= 201402) ? "C++14 / C++1y" :
+        (__cplusplus + 0 >= 201103) ? "C++11 / C++0x" :
+        (__cplusplus + 0 >= 200300) ? "C++03" :
+        (__cplusplus + 0 >= 199711) ? "C++98" : "C++");
+
     } else {
         strcat(buffer, "__cplusplus\n");
     }
 #endif
+
+
 #ifdef __cplusplus_cli
     if ( (__cplusplus_cli + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__cplusplus_cli \t\t => %d\n", __cplusplus_cli + 0);
@@ -6465,7 +6479,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef __cpp_exceptions
+    if ( (__cpp_exceptions + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__cpp_exceptions \t => %ld\n", __cpp_exceptions + 0);
+    } else {
+        strcat(buffer, "__cpp_exceptions\n");
+    }
+#endif
 
+/* drinkumware c++ lib */
 #ifdef _CPPLIB_VER
     if ( (_CPPLIB_VER + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_CPPLIB_VER \t\t => %d\n", _CPPLIB_VER + 0);
@@ -6481,6 +6503,17 @@ char *get_txt(char * buffer)
         strcat(buffer, "_CPPRTTI\n");
     }
 #endif
+
+
+#ifdef __cpp_rtti
+    if ( (__cpp_rtti + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__cpp_rtti \t\t => %ld\n", __cpp_rtti + 0);
+    } else {
+        strcat(buffer, "__cpp_rtti\n");
+    }
+#endif
+
+
 #ifdef _CPPUNWIND
     if ( (_CPPUNWIND + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_CPPUNWIND \t\t => %d\n", _CPPUNWIND + 0);
@@ -6489,8 +6522,282 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* vms libc */
+#ifdef __CRTL_VER
+    if ( (__CRTL_VER  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__CRTL_VER \t\t => %d\n", __CRTL_VER  + 0);
+    } else {
+        strcat(buffer, "__CRTL_VER\n");
+    }
+#endif
 
-/* ToDo: GLIBC */
+
+/* diet libc */
+#ifdef __dietlibc__
+    if ( (__dietlibc__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__dietlibc__\t\t => %d\n", __dietlibc__ + 0);
+    } else {
+        strcat(buffer, "__dietlibc__\n");
+    }
+#endif
+
+
+/* Intel CC */
+#ifdef __ICC__
+    if ( (__ICC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ICC__\t\t => %d\n", __ICC__ + 0);
+    } else {
+        strcat(buffer, "__ICC__\n");
+    }
+#endif
+#ifdef __ICC_VERSION
+    sprintf(buffer + strlen(buffer), "__ICC_VERSION\t\t => 0x%x\n", __ICC_VERSION);
+
+#endif
+
+
+#ifdef __GXX_RTTI
+    if ( (__GXX_RTTI + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GXX_RTTI \t\t => %d\n", __GXX_RTTI + 0);
+    } else {
+        strcat(buffer, "__GXX_RTTI\n");
+    }
+#endif
+
+#ifdef __GXX_WEAK__
+    if ( (__GXX_WEAK__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GXX_WEAK__\t\t => %d\n", __GXX_WEAK__ + 0);
+    } else {
+        strcat(buffer, "__GXX_WEAK__\n");
+    }
+#endif
+
+#ifdef __GXX_ABI_VERSION__
+    if ( (__GXX_ABI_VERSION__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GXX_ABI_VERSION__\t\t => %d\n", __GXX_ABI_VERSION__ + 0);
+    } else {
+        strcat(buffer, "__GXX_ABI_VERSION__\n");
+    }
+#endif
+
+
+#ifdef __DEPRECATED
+    if ( (__DEPRECATED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DEPRECATED\t\t => %d\n", __DEPRECATED + 0);
+    } else {
+        strcat(buffer, "__DEPRECATED\n");
+    }
+#endif
+
+
+
+/* exceptions */
+#ifdef __EXCEPTIONS
+    if ( (__EXCEPTIONS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__EXCEPTIONS\t\t => %d\n", __EXCEPTIONS + 0);
+    } else {
+        strcat(buffer, "__EXCEPTIONS\n");
+    }
+#endif
+#ifdef __USING_SJLJ_EXCEPTIONS__
+    if ( (__USING_SJLJ_EXCEPTIONS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__USING_SJLJ_EXCEPTIONS__=> %d\n", __USING_SJLJ_EXCEPTIONS__ + 0);
+    } else {
+        strcat(buffer, "__USING_SJLJ_EXCEPTIONS__\n");
+    }
+#endif
+
+
+/* stack protector */
+#ifdef __SSP__
+    if ( (__SSP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSP__\t\t\t => %d\n", __SSP__ + 0);
+    } else {
+        strcat(buffer, "__SSP__\n");
+    }
+#endif
+#ifdef __SSP_ALL__
+    if ( (__SSP_ALL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSP_ALL__\t\t => %d\n", __SSP_ALL__ + 0);
+    } else {
+        strcat(buffer, "__SSP_ALL__\n");
+    }
+#endif
+
+
+#ifdef __SSP_STRONG__
+    if ( (__SSP_STRONG__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSP_STRONG__\t\t => %d\n", __SSP_STRONG__ + 0);
+    } else {
+        strcat(buffer, "__SSP_STRONG__\n");
+    }
+#endif
+
+
+#ifdef __SSP_EXPLICIT__
+    if ( (__SSP_EXPLICIT__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSP_EXPLICIT__\t => %d\n", __SSP_EXPLICIT__ + 0);
+    } else {
+        strcat(buffer, "__SSP_EXPLICIT__\n");
+    }
+#endif
+
+
+/* software checking */
+#ifdef __SANTANIZE_ADDRESS__
+    if ( (__SANTANIZE_ADDRESS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SANTANIZE_ADDRESS__\t => %d\n", __SANTANIZE_ADDRESS__ + 0);
+    } else {
+        strcat(buffer, "__SANTANIZE_ADDRESS__\n");
+    }
+#endif
+
+
+#ifdef __SANTANIZE_THREAD__
+    if ( (__SANTANIZE_THREAD__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SANTANIZE_THREAD__\t => %d\n", __SANTANIZE_THREAD__ + 0);
+    } else {
+        strcat(buffer, "__SANTANIZE_THREAD__\n");
+    }
+#endif
+
+
+/* float */
+#ifdef __GCC_IEC_559
+    if ( (__GCC_IEC_559 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GCC_IEC_559\t\t => %d\n", __GCC_IEC_559 + 0);
+    } else {
+        strcat(buffer, "__GCC_IEC_559\n");
+    }
+#endif
+
+
+
+/* glibc v5 */
+#ifdef __GNU_LIBRARY__
+    if ( (__GNU_LIBRARY__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNU_LIBRARY__ \t\t => %d\n", __GNU_LIBRARY__ + 0);
+    } else {
+        strcat(buffer, "__GNU_LIBRARY__\n");
+    }
+#endif
+/* glibc v5 */
+#ifdef __GNU_LIBRARY_MINOR__
+    if ( (__GNU_LIBRARY__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNU_LIBRARY_MINOR__ \t => %d\n", __GNU_LIBRARY_MINOR__ + 0);
+    } else {
+        strcat(buffer, "__GNU_LIBRARY_MINOR__\n");
+    }
+#endif
+
+/* glibc v6 */
+#ifdef __GLIBC__
+    if ( (__GLIBC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GLIBC__ \t\t => %d\n", __GLIBC__ + 0);
+    } else {
+        strcat(buffer, "__GLIBC__\n");
+    }
+#endif
+/* glibc v6 */
+#ifdef __GLIBC_MAJOR__
+    if ( (__GLIBC_MAJOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GLIBC_MAJOR__ \t\t => %d\n", __GLIBC_MAJOR__ + 0);
+    } else {
+        strcat(buffer, "__GLIBC_MAJOR__\n");
+    }
+#endif
+
+#ifdef __GLIBC_MINOR__
+    if ( (__GLIBC_MINOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GLIBC_MINOR__ \t\t => %d\n", __GLIBC_MINOR__ + 0);
+    } else {
+        strcat(buffer, "__GLIBC_MINOR__\n");
+    }
+#endif
+
+
+#ifdef __GLIBC_PREREQ
+    sprintf(buffer+strlen(buffer), "__GLIBC_PREREQ\t\t => %s\n", __my_stringify( __GLIBC_PREREQ ) );
+
+#endif
+
+/* GNU libstd++ */
+#ifdef __GLIBCPP__
+    if ( (__GLIBCPP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GLIBCPP__ \t\t => %d\n", __GLIBCPP__ + 0);
+    } else {
+        strcat(buffer, "__GLIBCPP__\n");
+    }
+#endif
+
+
+/* Intel C++ runtime */
+#ifdef __INTEL_CXXLIB_ICC
+    if ( (__INTEL_CXXLIB_ICC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__INTEL_CXXLIB_ICC \t\t => %d\n", __INTEL_CXXLIB_ICC + 0);
+    } else {
+        strcat(buffer, "__INTEL_CXXLIB_ICC\n");
+    }
+#endif
+
+
+/* intel c++ runtime  */
+#ifdef __LIBCPP_VERSION
+    if ( (__LIBCPP_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LIBCPP_VERSION \t\t => %d\n", __LIBCPP_VERSION + 0);
+    } else {
+        strcat(buffer, "__LIBCPP_VERSION\n");
+    }
+#endif
+
+/* checked in uClibc */
+#ifdef __LIBC__
+    if ( (__LIBC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LIBC__ \t\t => %d\n", __LIBC__ + 0);
+    } else {
+        strcat(buffer, "__LIBC__\n");
+    }
+#endif
+
+
+/* intel c++ runtime */
+#ifdef __LIBCPP_ABI_VERSION
+    if ( (__LIBCPP_ABI_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LIBCPP_ABI_VERSION \t\t => %d\n", __LIBCPP_ABI_VERSION + 0);
+    } else {
+        strcat(buffer, "__LIBCPP_ABI_VERSION\n");
+    }
+#endif
+/* intel c++ runtime  */
+#ifdef __LIBCPP_VERSION
+    if ( (__LIBCPP_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LIBCPP_VERSION \t\t => %d\n", __LIBCPP_VERSION + 0);
+    } else {
+        strcat(buffer, "__LIBCPP_VERSION\n");
+    }
+#endif
+
+
+
+/* zOS libc */
+#ifdef __LIBREL__
+    if ( (__LIBREL__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LIBREL__ \t\t => %d\n", __LIBREL__  + 0);
+    } else {
+        strcat(buffer, "__LIBREL__\n");
+    }
+#endif
+/* zOS libc */
+#ifdef __TARGET_LIB__
+    if ( (__TARGET_LIB__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TARGET_LIB__ \t => %d\n", __TARGET_LIB__  + 0);
+    } else {
+        strcat(buffer, "__TARGET_LIB__\n");
+    }
+#endif
+
+
+/* there is no define for __MUSL__  */
 
 
 #ifdef _MANAGED
@@ -6511,8 +6818,6 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-
 #ifdef _MSVC_RUNTIME_CHECKS
     if ( (_MSVC_RUNTIME_CHECKS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_MSVC_RUNTIME_CHECKS\t => %d\n", _MSVC_RUNTIME_CHECKS + 0);
@@ -6520,8 +6825,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "_MSVC_RUNTIME_CHECKS\n");
     }
 #endif
-
-
 
 
 #ifdef MSVCRT
@@ -6598,6 +6901,47 @@ char *get_txt(char * buffer)
             __MSVCRT_VERSION__ + 0, (__MSVCRT_VERSION__ + 0) / 256, (__MSVCRT_VERSION__ + 0) & 255);
     } else {
         strcat(buffer, "__MSVCRT_VERSION__\n");
+    }
+#endif
+
+
+/* uclibc */
+#ifdef __UCLIBC__
+    if ( (__UCLIBC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__UCLIBC__ \t\t => %d\n", __UCLIBC__ + 0);
+    } else {
+        strcat(buffer, "__UCLIBC__\n");
+    }
+#endif
+#ifdef __UCLIBC_MAJOR__
+    if ( (__UCLIBC_MAJOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__UCLIBC_MAJOR__ \t\t => %d\n", __UCLIBC_MAJOR__ + 0);
+    } else {
+        strcat(buffer, "__UCLIBC_MAJOR__\n");
+    }
+#endif
+
+#ifdef __UCLIBC_MINOR__
+    if ( (__UCLIBC_MINOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__UCLIBC_MINOR__ \t\t => %d\n", __UCLIBC_MINOR__ + 0);
+    } else {
+        strcat(buffer, "__UCLIBC_MINOR__\n");
+    }
+#endif
+
+#ifdef __UCLIBC_MINOR__
+    if ( (__UCLIBC_MINOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__UCLIBC_MINOR__ \t\t => %d\n", __UCLIBC_MINOR__ + 0);
+    } else {
+        strcat(buffer, "__UCLIBC_MINOR__\n");
+    }
+#endif
+
+#ifdef __UCLIBC_SUBLEVEL__
+    if ( (__UCLIBC_SUBLEVEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__UCLIBC_SUBLEVEL__ \t\t => %d\n", __UCLIBC_SUBLEVEL__ + 0);
+    } else {
+        strcat(buffer, "__UCLIBC_SUBLEVEL__\n");
     }
 #endif
 

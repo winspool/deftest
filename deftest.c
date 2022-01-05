@@ -8439,6 +8439,217 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* ################# */
+/* portability types */
+
+#ifdef __PTRDIFF_TYPE__
+    sprintf(buffer+strlen(buffer), "__PTRDIFF_TYPE__ \t => size is %zd: %s\n",
+            sizeof( __PTRDIFF_TYPE__ ), __my_stringify( __PTRDIFF_TYPE__ ));
+#endif
+
+
+#ifdef __SIZE_TYPE__
+     sprintf(buffer+strlen(buffer), "__SIZE_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __SIZE_TYPE__ ), __my_stringify( __SIZE_TYPE__ ) );
+#endif
+
+#ifdef __INTMAX_TYPE__
+    sprintf(buffer+strlen(buffer), "__INTMAX_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INTMAX_TYPE__ ), __my_stringify( __INTMAX_TYPE__ ) );
+#endif
+
+#ifdef __UINTMAX_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINTMAX_TYPE__ \t => size is %zd: %s\n",
+            sizeof( __UINTMAX_TYPE__ ), __my_stringify( __UINTMAX_TYPE__ ) );
+#endif
+
+#ifdef __INTPTR_TYPE__
+    sprintf(buffer+strlen(buffer), "__INTPTR_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INTPTR_TYPE__ ), __my_stringify( __INTPTR_TYPE__ ) );
+#endif
+#ifdef __UINTPTR_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINTPTR_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __UINTPTR_TYPE__ ), __my_stringify( __UINTPTR_TYPE__ ) );
+#endif
+
+
+#ifdef __CHAR16_TYPE__
+    sprintf(buffer+strlen(buffer), "__CHAR16_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __CHAR16_TYPE__ ), __my_stringify( __CHAR16_TYPE__ ) );
+#endif
+
+#ifdef __CHAR32_TYPE__
+    sprintf(buffer+strlen(buffer), "__CHAR32_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __CHAR32_TYPE__ ), __my_stringify( __CHAR32_TYPE__ ) );
+#endif
+
+
+#ifdef __INT8_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT8_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INT8_TYPE__ ), __my_stringify( __INT8_TYPE__ ) );
+#endif
+#ifdef __INT16_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT16_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INT16_TYPE__ ), __my_stringify( __INT16_TYPE__ ) );
+#endif
+#ifdef __INT32_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT32_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INT32_TYPE__ ), __my_stringify( __INT32_TYPE__ ) );
+#endif
+#ifdef __INT64_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT64_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __INT64_TYPE__ ), __my_stringify( __INT64_TYPE__ ) );
+#endif
+
+
+#ifdef __int16
+    sprintf(buffer+strlen(buffer), "__int16\t\t\t => size is %zd: %s\n",
+            sizeof( __int16 ), __my_stringify( __int16 ) );
+#endif
+#ifdef __int32
+    sprintf(buffer+strlen(buffer), "__int32\t\t\t => size is %zd: %s\n",
+            sizeof( __int32 ), __my_stringify( __int32 ) );
+#endif
+#ifdef __int64
+    sprintf(buffer+strlen(buffer), "__int64\t\t\t => size is %zd: %s\n",
+            sizeof( __int64 ), __my_stringify( __int64 ) );
+#endif
+
+
+#ifdef __UINT8_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT8_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __UINT8_TYPE__ ), __my_stringify( __UINT8_TYPE__ ) );
+#endif
+#ifdef __UINT16_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT16_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __UINT16_TYPE__ ), __my_stringify( __UINT16_TYPE__ ) );
+#endif
+#ifdef __UINT32_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT32_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __UINT32_TYPE__ ), __my_stringify( __UINT32_TYPE__ ) );
+#endif
+#ifdef __UINT64_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT64_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __UINT64_TYPE__ ), __my_stringify( __UINT64_TYPE__ ) );
+#endif
+#ifdef __INT_LEAST8_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_LEAST8_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_LEAST8_TYPE__ ), __my_stringify( __INT_LEAST8_TYPE__ ) );
+#endif
+#ifdef __INT_LEAST16_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_LEAST16_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_LEAST16_TYPE__ ), __my_stringify( __INT_LEAST16_TYPE__ ) );
+#endif
+#ifdef __INT_LEAST32_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_LEAST32_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_LEAST32_TYPE__ ), __my_stringify( __INT_LEAST32_TYPE__ ) );
+#endif
+#ifdef __INT_LEAST64_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_LEAST64_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_LEAST64_TYPE__ ), __my_stringify( __INT_LEAST64_TYPE__ ) );
+#endif
+
+#ifdef __UINT_LEAST8_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_LEAST8_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_LEAST8_TYPE__ ), __my_stringify( __UINT_LEAST8_TYPE__ ) );
+#endif
+
+#ifdef __UINT_LEAST16_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_LEAST16_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_LEAST16_TYPE__ ), __my_stringify( __UINT_LEAST16_TYPE__ ) );
+#endif
+
+#ifdef __UINT_LEAST32_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_LEAST32_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_LEAST32_TYPE__ ), __my_stringify( __UINT_LEAST32_TYPE__ ) );
+#endif
+
+#ifdef __UINT_LEAST64_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_LEAST64_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_LEAST64_TYPE__ ), __my_stringify( __UINT_LEAST64_TYPE__ ) );
+#endif
+
+#ifdef __INT_FAST8_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_FAST8_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_FAST8_TYPE__ ), __my_stringify( __INT_FAST8_TYPE__ ) );
+#endif
+
+#ifdef __INT_FAST16_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_FAST16_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_FAST16_TYPE__ ), __my_stringify( __INT_FAST16_TYPE__ ) );
+#endif
+
+#ifdef __INT_FAST32_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_FAST32_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_FAST32_TYPE__ ), __my_stringify( __INT_FAST32_TYPE__ ) );
+#endif
+
+#ifdef __INT_FAST64_TYPE__
+    sprintf(buffer+strlen(buffer), "__INT_FAST64_TYPE__\t => size is %zd: %s\n",
+            sizeof( __INT_FAST64_TYPE__ ), __my_stringify( __INT_FAST64_TYPE__ ) );
+#endif
+
+#ifdef __UINT_FAST8_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_FAST8_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_FAST8_TYPE__ ), __my_stringify( __UINT_FAST8_TYPE__ ) );
+#endif
+
+#ifdef __UINT_FAST16_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_FAST16_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_FAST16_TYPE__ ), __my_stringify( __UINT_FAST16_TYPE__ ) );
+#endif
+
+#ifdef __UINT_FAST32_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_FAST32_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_FAST32_TYPE__ ), __my_stringify( __UINT_FAST32_TYPE__ ) );
+#endif
+
+#ifdef __UINT_FAST64_TYPE__
+    sprintf(buffer+strlen(buffer), "__UINT_FAST64_TYPE__\t => size is %zd: %s\n",
+            sizeof( __UINT_FAST64_TYPE__ ), __my_stringify( __UINT_FAST64_TYPE__ ) );
+#endif
+
+
+#ifdef HOST_WIDEST_INT
+    sprintf(buffer+strlen(buffer), "HOST_WIDEST_INT  \t => size is %zd: %s\n",
+            sizeof( HOST_WIDEST_INT ), __my_stringify( HOST_WIDEST_INT ) );
+#endif
+#ifdef HOST_WIDEST_LONG
+    sprintf(buffer+strlen(buffer), "HOST_WIDEST_LONG  \t => size is %zd: %s\n",
+            sizeof( HOST_WIDEST_LONG ), __my_stringify( HOST_WIDEST_LONG ) );
+#endif
+
+
+#ifdef __SIG_ATOMIC_TYPE__
+    sprintf(buffer+strlen(buffer), "__SIG_ATOMIC_TYPE__\t => size is %zd: %s\n",
+            sizeof( __SIG_ATOMIC_TYPE__ ), __my_stringify( __SIG_ATOMIC_TYPE__ ) );
+#endif
+
+#ifdef __WCHAR_TYPE__
+     sprintf(buffer+strlen(buffer), "__WCHAR_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __WCHAR_TYPE__ ), __my_stringify( __WCHAR_TYPE__ ) );
+#endif
+
+
+#ifdef __WINT_TYPE__
+    sprintf(buffer+strlen(buffer), "__WINT_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __WINT_TYPE__ ), __my_stringify( __WINT_TYPE__ ) );
+#endif
+
+
+
+/* other */
+#ifdef __REGISTER_PREFIX__
+    sprintf(buffer+strlen(buffer), "__REGISTER_PREFIX__\t => '%s'\n",
+            __my_stringify( __REGISTER_PREFIX__ ) );
+
+#endif
+
+#ifdef __USER_LABEL_PREFIX__
+    sprintf(buffer+strlen(buffer), "__USER_LABEL_PREFIX__\t => '%s'\n",
+            __my_stringify( __USER_LABEL_PREFIX__ ) );
+#endif
+
 /* #################### */
 /* supported math types */
 
@@ -8661,86 +8872,6 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__FLT128_MANT_DIG__\t => %d\n", __FLT128_MANT_DIG__);
 #endif
 
-
-/* ################### */
-/* types */
-
-
-#define DUMP_TYPE(EXP) \
-        do { if (sizeof( EXP ) > 0) \
-             sprintf(buffer+strlen(buffer), "" #EXP "\n" ); \
-             } while (0)
-
-
-#ifdef __PTRDIFF_TYPE__
-    sprintf(buffer+strlen(buffer), "__PTRDIFF_TYPE__ \t => size is %d: %s\n",
-            sizeof( __PTRDIFF_TYPE__ ), __my_stringify( __PTRDIFF_TYPE__ ));
-#endif
-
-
-#ifdef __SIZE_TYPE__
-     sprintf(buffer+strlen(buffer), "__SIZE_TYPE__\t\t => size is %d: %s\n",
-            sizeof( __SIZE_TYPE__ ), __my_stringify( __SIZE_TYPE__ ) );
-#endif
-
-#ifdef __WCHAR_TYPE__
-     sprintf(buffer+strlen(buffer), "__WCHAR_TYPE__\t\t => size is %d: %s\n",
-            sizeof( __WCHAR_TYPE__ ), __my_stringify( __WCHAR_TYPE__ ) );
-#endif
-#ifdef _WCHAR_T_DEFINED
-    if ( (_WCHAR_T_DEFINED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_WCHAR_T_DEFINED \t\t => %d\n", _WCHAR_T_DEFINED + 0);
-    } else {
-        strcat(buffer, "_WCHAR_T_DEFINED\n");
-    }
-#endif
-#ifdef _NATIVE_WCHAR_T_DEFINED
-    if ( (_NATIVE_WCHAR_T_DEFINED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_NATIVE_WCHAR_T_DEFINED \t\t => %d\n", _NATIVE_WCHAR_T_DEFINED + 0);
-    } else {
-        strcat(buffer, "_NATIVE_WCHAR_T_DEFINED\n");
-    }
-#endif
-
-#ifdef __WINT_TYPE__
-    sprintf(buffer+strlen(buffer), "__WINT_TYPE__\t\t => size is %d: %s\n",
-            sizeof( __WINT_TYPE__ ), __my_stringify( __WINT_TYPE__ ) );
-#endif
-
-#ifdef __INTMAX_TYPE__
-    sprintf(buffer+strlen(buffer), "__INTMAX_TYPE__\t\t => size is %d: %s\n",
-            sizeof( __INTMAX_TYPE__ ), __my_stringify( __INTMAX_TYPE__ ) );
-#endif
-
-#ifdef __UINTMAX_TYPE__
-    sprintf(buffer+strlen(buffer), "__UINTMAX_TYPE__ \t => size is %d: %s\n",
-            sizeof( __UINTMAX_TYPE__ ), __my_stringify( __UINTMAX_TYPE__ ) );
-#endif
-
-#ifdef __INTPTR_TYPE__
-    sprintf(buffer+strlen(buffer), "__INTPTR_TYPE__\t\t => size is %d: %s\n",
-            sizeof( __INTPTR_TYPE__ ), __my_stringify( __INTPTR_TYPE__ ) );
-#endif
-
-
-
-#ifdef HOST_WIDEST_INT
-    sprintf(buffer+strlen(buffer), "HOST_WIDEST_INT  \t => size is %d: %s\n",
-            sizeof( HOST_WIDEST_INT ), __my_stringify( HOST_WIDEST_INT ) );
-#endif
-
-
-/* other */
-#ifdef __REGISTER_PREFIX__
-    sprintf(buffer+strlen(buffer), "__REGISTER_PREFIX__\t => '%s'\n",
-            __my_stringify( __REGISTER_PREFIX__ ) );
-
-#endif
-
-#ifdef __USER_LABEL_PREFIX__
-    sprintf(buffer+strlen(buffer), "__USER_LABEL_PREFIX__\t => '%s'\n",
-            __my_stringify( __USER_LABEL_PREFIX__ ) );
-#endif
 
 
 /* ############# */
@@ -9705,7 +9836,7 @@ char *get_txt(char * buffer)
 #endif
 #endif
 
-    sprintf(buffer+strlen(buffer), "(need %d byte)", strlen(buffer) + 16);
+    sprintf(buffer+strlen(buffer), "(need %zd byte)", strlen(buffer) + 16);
 
 #endif
 

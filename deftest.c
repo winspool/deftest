@@ -8817,6 +8817,12 @@ char *get_txt(char * buffer)
 
 
 /* more math limits. builtins or from float.h */
+#ifdef DECIMAL_BITS
+    sprintf(buffer+strlen(buffer), "DECIMAL_BITS\t\t => %d\n", DECIMAL_BITS);
+#endif
+#ifdef DECIMAL_DIG
+    sprintf(buffer+strlen(buffer), "DECIMAL_DIG\t\t => %d\n", DECIMAL_DIG);
+#endif
 #ifdef __DECIMAL_DIG__
     sprintf(buffer+strlen(buffer), "__DECIMAL_DIG__\t\t => %d\n", __DECIMAL_DIG__);
 #endif
@@ -8831,9 +8837,16 @@ char *get_txt(char * buffer)
 #ifdef __FLT_DIG__
     sprintf(buffer+strlen(buffer), "__FLT_DIG__\t\t => %d\n", __FLT_DIG__);
 #endif
+#ifdef FLT_MANT_BITS
+    sprintf(buffer+strlen(buffer), "FLT_MANT_BITS \t => %d\n", FLT_MANT_BITS);
+#endif
+#ifdef FLT_MANT_DIG
+    sprintf(buffer+strlen(buffer), "FLT_MANT_DIG \t => %d\n", FLT_MANT_DIG);
+#endif
 #ifdef __FLT_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__FLT_MANT_DIG__ \t => %d\n", __FLT_MANT_DIG__);
 #endif
+
 
 
 
@@ -8847,10 +8860,15 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__DBL_DIG__\t\t => %d\n", __DBL_DIG__);
 #endif
 
+#ifdef DBL_MANT_BITS
+    sprintf(buffer+strlen(buffer), "DBL_MANT_BITS \t => %d\n", DBL_MANT_BITS);
+#endif
+#ifdef DBL_MANT_DIG
+    sprintf(buffer+strlen(buffer), "DBL_MANT_DIG \t => %d\n", DBL_MANT_DIG);
+#endif
 #ifdef __DBL_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__DBL_MANT_DIG__ \t => %d\n", __DBL_MANT_DIG__);
 #endif
-
 
 #ifdef __LDBL_DECIMAL_DIG__
     sprintf(buffer+strlen(buffer), "__LDBL_DECIMAL_DIG__\t => %d\n", __LDBL_DECIMAL_DIG__);
@@ -8861,9 +8879,17 @@ char *get_txt(char * buffer)
 #ifdef __LDBL_DIG__
     sprintf(buffer+strlen(buffer), "__LDBL_DIG__\t\t => %d\n", __LDBL_DIG__);
 #endif
+#ifdef LDBL_MANT_BITS
+    sprintf(buffer+strlen(buffer), "LDBL_MANT_BITS \t => %d\n", LDBL_MANT_BITS);
+#endif
+#ifdef LDBL_MANT_DIG
+    sprintf(buffer+strlen(buffer), "LDBL_MANT_DIG \t => %d\n", LDBL_MANT_DIG);
+#endif
 #ifdef __LDBL_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__LDBL_MANT_DIG__ \t => %d\n", __LDBL_MANT_DIG__);
 #endif
+
+
 
 
 /* additional float sizes */

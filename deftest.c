@@ -7525,11 +7525,11 @@ char *get_txt(char * buffer)
         strcat(buffer, "_ILP32_\n");
     }
 #endif
-#ifdef __ILP32__
-    if ( (__ILP32__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ILP32__\t\t\t => %d\n", __ILP32__ + 0);
+#ifdef __ILP32
+    if ( (__ILP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ILP32\t\t\t => %d\n", __ILP32 + 0);
     } else {
-        strcat(buffer, "__ILP32__\n");
+        strcat(buffer, "__ILP32\n");
     }
 #endif
 #ifdef __ILP32__

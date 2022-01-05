@@ -1959,6 +1959,17 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* feature test macro */
+#ifdef _SVR4_SOURCE
+    if ( (_SVR4_SOURCE  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SVR4_SOURCE \t\t => %d\n", _SVR4_SOURCE  + 0);
+    } else {
+        strcat(buffer, "_SVR4_SOURCE\n");
+    }
+#endif
+
+
+
 /* ## STRICT ## */
 #ifdef STRICT
     if ( (STRICT + 1) > 1) {

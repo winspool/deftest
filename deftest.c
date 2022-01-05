@@ -1829,9 +1829,17 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* feature test macro */
+#ifdef _SGI_SOURCE
+    if ( (_SGI_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SGI_SOURCE\t => %d\n", _SGI_SOURCE + 0);
+    } else {
+        strcat(buffer, "_SGI_SOURCE\n");
+    }
+#endif
+
 
 /* STDC */
-
 #ifdef _STDC
     if ( (_STDC + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_STDC \t\t => %d\n", _STDC + 0);

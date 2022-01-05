@@ -7648,6 +7648,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* ############ */
 /* cpu features */
 #ifdef __ALTIVEC__
     if ( (__ALTIVEC__ + 1) > 1) {
@@ -7713,27 +7714,42 @@ char *get_txt(char * buffer)
 #endif
 #ifdef _LITTLE_ENDIAN_
     if ( (_LITTLE_ENDIAN_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_LITTLE_ENDIAN_\t\t => %d\n", _LITTLE_ENDIAN_ + 0);
+        sprintf(buffer + strlen(buffer), "_LITTLE_ENDIAN_ \t => %d\n", _LITTLE_ENDIAN_ + 0);
     } else {
         strcat(buffer, "_LITTLE_ENDIAN_\n");
     }
 #endif
 #ifdef __LITTLE_ENDIAN
     if ( (__LITTLE_ENDIAN + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__LITTLE_ENDIAN\t\t => %d\n", __LITTLE_ENDIAN + 0);
+        sprintf(buffer + strlen(buffer), "__LITTLE_ENDIAN \t => %d\n", __LITTLE_ENDIAN + 0);
     } else {
         strcat(buffer, "__LITTLE_ENDIAN\n");
     }
 #endif
 #ifdef __LITTLE_ENDIAN__
     if ( (__LITTLE_ENDIAN__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__LITTLE_ENDIAN__\t\t => %d\n", __LITTLE_ENDIAN__ + 0);
+        sprintf(buffer + strlen(buffer), "__LITTLE_ENDIAN__\t => %d\n", __LITTLE_ENDIAN__ + 0);
     } else {
         strcat(buffer, "__LITTLE_ENDIAN__\n");
     }
 #endif
 
 
+#ifdef __ORDER_BIG_ENDIAN__
+    if ( (__ORDER_BIG_ENDIAN__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ORDER_BIG_ENDIAN__\t => %d\n", __ORDER_BIG_ENDIAN__ + 0);
+    } else {
+        strcat(buffer, "__ORDER_BIG_ENDIAN__\n");
+    }
+#endif
+
+#ifdef __ORDER_LITTLE_ENDIAN__
+    if ( (__ORDER_LITTLE_ENDIAN__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ORDER_LITTLE_ENDIAN__\t => %d\n", __ORDER_LITTLE_ENDIAN__ + 0);
+    } else {
+        strcat(buffer, "__ORDER_LITTLE_ENDIAN__\n");
+    }
+#endif
 
 
 #ifdef BYTE_ORDER
@@ -7770,12 +7786,23 @@ char *get_txt(char * buffer)
 
 #ifdef __BYTE_ORDER__
     if ( (__BYTE_ORDER__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__BYTE_ORDER__ \t\t => %d\n", __BYTE_ORDER__ + 0);
+        sprintf(buffer + strlen(buffer), "__BYTE_ORDER__  \t => %d (%s)\n", __BYTE_ORDER__ + 0,
+        (__BYTE_ORDER__==1234) ? "__ORDER_LITTLE_ENDIAN__" :
+        (__BYTE_ORDER__==4321) ? "__ORDER_BIG_ENDIAN__" : "unknown" );
     } else {
         strcat(buffer, "__BYTE_ORDER__\n");
     }
 #endif
 
+#ifdef __FLOAT_WORD_ORDER__
+    if ( (__FLOAT_WORD_ORDER__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FLOAT_WORD_ORDER__\t => %d (%s)\n",
+        __FLOAT_WORD_ORDER__ + 0, (__FLOAT_WORD_ORDER__==1234) ? "__ORDER_LITTLE_ENDIAN__" :
+        (__FLOAT_WORD_ORDER__==4321) ? "__ORDER_BIG_ENDIAN__" : "unknown" );
+    } else {
+        strcat(buffer, "__FLOAT_WORD_ORDER__\n");
+    }
+#endif
 
 
 /* ################### */

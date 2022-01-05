@@ -546,9 +546,13 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __FUNCNAME__
+     sprintf(buffer+strlen(buffer), "__FUNCNAME__\t\t => '%s'\n", __FUNCNAME__ );
+#endif
 #ifdef __FUNCDNAME__
      sprintf(buffer+strlen(buffer), "__FUNCDNAME__\t\t => '%s'\n", __FUNCDNAME__ );
 #endif
+
 #ifdef __FUNCSIG__
      sprintf(buffer+strlen(buffer), "__FUNCSIG__\t\t => '%s'\n", __FUNCSIG__ );
 #endif
@@ -580,8 +584,151 @@ char *get_txt(char * buffer)
 /* ##################### */
 /* compiler */
 
+/* Borland C, TurboC */
 
-/* cygwin */
+#ifdef __BORLANDC__
+    sprintf(buffer + strlen(buffer), "__BORLANDC__\t\t => 0x%x (%d.%x)\n",
+        __BORLANDC__, __BORLANDC__ >>8, __BORLANDC__ & 0xff);
+#endif
+
+#ifdef __CODEGEARC__
+    sprintf(buffer + strlen(buffer), "__CODEGEARC__\t\t => 0x%x (%d.%x)\n",
+        __CODEGEARC__, __CODEGEARC__ >>8, __CODEGEARC__ & 0xff);
+#endif
+
+#ifdef __CODEGEARC_VERSION__
+    sprintf(buffer + strlen(buffer), "__CODEGEARC_VERSION__\t\t => 0x%x (%d.%d.%d)\n",
+        __CODEGEARC_VERSION__, __CODEGEARC_VERSION__ >>24,
+        (__CODEGEARC_VERSION__ >>16) & 0xff, __CODEGEARC_VERSION__ & 0xffff);
+#endif
+
+
+#ifdef __TURBOC__
+    sprintf(buffer + strlen(buffer), "__TURBOC__\t\t => 0x%x (%d,%x)\n",
+        __TURBOC__, __TURBOC__ >>8, __TURBOC__ & 0xff);
+#endif
+
+/* what is ARC?  includes mwdth.h after __CCAC__ check */
+#ifdef __CCAC__
+    if ( (__CCAC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__CCAC__\t\t => %d\n", __CCAC__ + 0);
+    } else {
+        strcat(buffer, "__CCAC__\n");
+    }
+#endif
+#ifdef _ASMLANGUAGE
+    if ( (_ASMLANGUAGE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ASMLANGUAGE\t => %d\n", _ASMLANGUAGE + 0);
+    } else {
+        strcat(buffer, "_ASMLANGUAGE\n");
+    }
+#endif
+
+
+
+/* clang */
+#ifdef __clang__
+    if ( (__clang__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__clang__ \t\t => %d\n", __clang__ + 0);
+    } else {
+        strcat(buffer, "__clang__\n");
+    }
+#endif
+
+#ifdef __clang_major__
+    if ( (__clang_major__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__clang_major__ \t => %d\n", __clang_major__ + 0);
+    } else {
+        strcat(buffer, "__clang_major__\n");
+    }
+#endif
+
+#ifdef __clang_minor__
+    if ( (__clang_minor__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__clang_minor__ \t => %d\n", __clang_minor__ + 0);
+    } else {
+        strcat(buffer, "__clang_minor__\n");
+    }
+#endif
+
+#ifdef __clang_patchlevel__
+    if ( (__clang_patchlevel__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__clang_patchlevel__ \t => %d\n", __clang_patchlevel__ + 0);
+    } else {
+        strcat(buffer, "__clang_patchlevel__\n");
+    }
+#endif
+
+#ifdef __clang_version__
+    sprintf(buffer + strlen(buffer), "__clang_version__\t => '%s'\n", __clang_version__ );
+#endif
+
+
+
+/* comeau C++ */
+#ifdef __COMO__
+    if ( (__COMO__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__COMO__ \t\t => %d\n", __COMO__ + 0);
+    } else {
+        strcat(buffer, "__COMO__\n");
+    }
+#endif
+#ifdef __COMO_VERSION__
+    sprintf(buffer + strlen(buffer), "__COMO_VERSION__\t\t => 0x%d (%d.%d)\n",
+        __COMO_VERSION__, __COMO_VERSION__ /100, __COMO_VERSION__ % 100 );
+
+#endif
+
+
+/* cray C/C++ */
+#ifdef _CRAYC
+    if ( (_CRAYC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_CRAYC\t\t => %x (%d)\n", _CRAYC , __CRAYC/1000);
+    } else {
+        strcat(buffer, "_CRAYC\n");
+    }
+#endif
+
+#ifdef _REVISION
+    if ( (_REVISION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_REVISION\t\t => %d\n", _REVISION + 0);
+    } else {
+        strcat(buffer, "_REVISION\n");
+    }
+#endif
+
+#ifdef _RELEASE_MAJOR
+    if ( (_RELEASE_MAJOR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_RELEASE_MAJOR\t => %d\n", _RELEASE_MAJOR + 0);
+    } else {
+        strcat(buffer, "_RELEASE_MAJOR\n");
+    }
+#endif
+#ifdef _RELEASE_MAINOR
+    if ( (_RELEASE_MAINOR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_RELEASE_MAINOR\t => %d\n", _RELEASE_MAINOR + 0);
+    } else {
+        strcat(buffer, "_RELEASE_MAINOR\n");
+    }
+#endif
+#ifdef _RELEASE_PATCHLEVEL
+    if ( (_RELEASE_PATCHLEVEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_RELEASE_PATCHLEVEL\t => %d\n", _RELEASE_PATCHLEVEL + 0);
+    } else {
+        strcat(buffer, "_RELEASE_PATCHLEVEL\n");
+    }
+#endif
+
+
+
+/* cygwin: gcc for DOS */
+#ifdef __CYGWIN__
+    if ( (__CYGWIN__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__CYGWIN__\t\t => %d\n", __CYGWIN__ + 0);
+    } else {
+        strcat(buffer, "__CYGWIN__\n");
+    }
+#endif
 #ifdef __CYGWIN32
     if ( (__CYGWIN32 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__CYGWIN32\t\t => %d\n", __CYGWIN32 + 0);
@@ -598,25 +745,124 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* Compa1 C++ */
+/* decstation, vax, .... */
 
-/* Digital Mars, Symantec C, (Zortech C: missing), (Datalight C: missing) */
+#ifdef __DECC
+    if ( (__DECC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DECC\t\t => %d\n", __DECC + 0);
+    } else {
+        strcat(buffer, "__DECC\n");
+    }
+#endif
+#ifdef __DECCXX
+    if ( (__DECCXX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DECCXX\t\t => %d\n", __DECCXX + 0);
+    } else {
+        strcat(buffer, "__DECCXX\n");
+    }
+#endif
+#ifdef __DECC_VER
+    if ( (__DECC_VER + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DECC_VER\t\t => %d\n", __DECC_VER + 0);
+    } else {
+        strcat(buffer, "__VAXC\n");
+    }
+#endif
+#ifdef __osf__
+    if ( (__osf__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__osf__\t\t => %d\n", __osf__ + 0);
+    } else {
+        strcat(buffer, "__osf__\n");
+    }
+#endif
+#ifdef VAXC
+    if ( (VAXC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "VAXC\t\t => %d\n", VAXC + 0);
+    } else {
+        strcat(buffer, "VAXC\n");
+    }
+#endif
+
+
+#ifdef __VAXC
+    if ( (__VAXC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__VAXC\t\t => %d\n", __VAXC + 0);
+    } else {
+        strcat(buffer, "__VAXC\n");
+    }
+#endif
+
+
+
+
+
+/* Digital Mars, Symantec C, Zortech C, (Datalight C: missing) */
 #ifdef __DMC_VERSION__
     sprintf(buffer + strlen(buffer), "__DMC_VERSION__\t => '%s'\n", __DMC_VERSION__ );
 #endif
+/* __DMC_VERSION_STRING__ is referenced in boost */
+#ifdef __DMC_VERSION_STRING__
+    sprintf(buffer + strlen(buffer), "__DMC_VERSION_STRING__\t => '%s'\n", __DMC_VERSION_STRING__ );
+#endif
+
 
 #ifdef __DMC__
     sprintf(buffer + strlen(buffer), "__DMC__ \t\t => 0x%x (DMC %d.%d)\n", __DMC__,
         __DMC__ / 256, (__DMC__ & 0xf0 ) / 16 * 10 + (__DMC__ & 0x0f));
 #endif
 
+#ifdef __SC__
+    sprintf(buffer + strlen(buffer), "__SC__\t\t\t => 0x%x (%s %d.%d)\n", __SC__,
+# ifdef __DMC__
+    "DMC",
+# else
+    "SC",
+# endif
+    __SC__ / 256, (__SC__ & 0xf0 ) / 16 * 10 + (__SC__ & 0x0f));
 
-/* GNU C */
-#ifdef __VERSION__
-    sprintf(buffer + strlen(buffer), "__VERSION__\t\t => '%s'\n", __VERSION__ );
 #endif
 
 
+
+#ifdef __ZTC__
+    sprintf(buffer + strlen(buffer), "__ZTC__\t\t\t => 0x%x (%s %d.%d)\n", __ZTC__,
+# ifdef __DMC__
+    "DMC",
+# else
+#  ifdef __SC__
+    "SC",
+#  else
+    "ZTC",
+#  endif
+# endif
+    __ZTC__ / 256, (__ZTC__ & 0xf0 ) / 16 * 10 + (__ZTC__ & 0x0f));
+
+
+#endif
+
+
+/*  edg based compiler */
+#ifdef __EDG__
+    if ( (__EDG__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__EDG__\t\t => %d\n", __EDG__ + 0);
+    } else {
+        strcat(buffer, "__EDG__\n");
+    }
+#endif
+#ifdef __EDG_VERSION__
+    if ( (__EDG_VERSION__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__EDG_VERSION__\t\t => %d\n", __EDG_VERSION__ + 0);
+    } else {
+        strcat(buffer, "__EDG_VERSION__\n");
+    }
+#endif
+
+
+
+/* GNU C */
 #ifdef __GNUC__
+#ifdef __GNUC_MINOR__
 #ifdef __GNUC_PATCHLEVEL__
     sprintf(buffer + strlen(buffer), "__GNUC__ \t\t => %d (GCC %d.%d.%d)\n",
                 __GNUC__ , __GNUC__ ,  __GNUC_MINOR__ + 0,  __GNUC_PATCHLEVEL__ + 0 );
@@ -624,11 +870,26 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__GNUC__ \t\t => %d (GCC %d.%d)\n",
                 __GNUC__ , __GNUC__ ,  __GNUC_MINOR__ + 0 );
 #endif
+#else
+    if ( (__GNUC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNUC__\t\t => %d\n", __GNUC__ + 0);
+    } else {
+        strcat(buffer, "__GNUC__\n");
+    }
+#endif
+#endif
+
+#ifdef __GNUC_MAJOR__
+    if ( (__GNUC_MAJOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNUC_MAJOR__\t\t => %d\n", __GNUC_MAJOR__ + 0);
+    } else {
+        strcat(buffer, "__GNUC_MAJOR__\n");
+    }
 #endif
 
 #ifdef __GNUC_MINOR__
     if ( (__GNUC_MINOR__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GNUC_MINOR__ \t\t => %d\n", __GNUC_MINOR__ + 0);
+        sprintf(buffer + strlen(buffer), "__GNUC_MINOR__\t\t => %d\n", __GNUC_MINOR__ + 0);
     } else {
         strcat(buffer, "__GNUC_MINOR__\n");
     }
@@ -641,13 +902,71 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* GNU c++ */
 #ifdef __GNUG__
     if ( (__GNUG__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GNUG__ \t => %d\n", __GNUG__ + 0);
+        sprintf(buffer + strlen(buffer), "__GNUG__\t\t => %d\n", __GNUG__ + 0);
     } else {
         strcat(buffer, "__GNUG__\n");
     }
 #endif
+
+
+#ifdef __GNUG_MAJOR__
+    if ( (__GNUG_MAJOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNUG_MAJOR__\t\t => %d\n", __GNUG_MAJOR__ + 0);
+    } else {
+        strcat(buffer, "__GNUG_MAJOR__\n");
+    }
+#endif
+#ifdef __GNUG_MINOR__
+    if ( (__GNUG_MINOR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNUG_MINOR__\t\t => %d\n", __GNUG_MINOR__ + 0);
+    } else {
+        strcat(buffer, "__GNUG_MINOR__\n");
+    }
+#endif
+#ifdef __GNUG_PATCHLEVEL__
+    if ( (__GNUG_PATCHLEVEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNUG_PATCHLEVEL__ \t => %d\n", __GNUG_PATCHLEVEL__ + 0);
+    } else {
+        strcat(buffer, "__GNUG_PATCHLEVEL__\n");
+    }
+#endif
+
+
+/*  HP C++: latest for PA-RISC is 38000, for HP-UX/ia64 is 61300 */
+#ifdef __HP_aCC
+    if ( (__HP_aCC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__HP_aCC\t\t => %ld  (A.%2d.%2d)\n", __HP_aCC ,
+                __HP_aCC  / 10000, (__HP_aCC % 10000) / 100);
+    } else {
+        strcat(buffer, "__HP_aCC\n");
+    }
+#endif
+#ifdef __HP_cc
+    if ( (__HP_cc + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__HP_cc\t\t => %d\n", __HP_cc + 0);
+    } else {
+        strcat(buffer, "__HP_cc\n");
+    }
+#endif
+#ifdef __hpux
+    if ( (__hpux + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__hpux\t\t => %d\n", __hpux + 0);
+    } else {
+        strcat(buffer, "__hpux\n");
+    }
+#endif
+#ifdef __hpxstd98
+    if ( (__hpxstd98 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__hpxstd98\t\t => %d\n", __hpxstd98 + 0);
+    } else {
+        strcat(buffer, "__hpxstd98\n");
+    }
+#endif
+/* are options for higher versions available? */
 
 
 
@@ -669,21 +988,86 @@ char *get_txt(char * buffer)
 #endif
 
 /* Intel CC */
-#ifdef __INTEL_COMPILER
-    sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t\t => 0x%x/%d\n", __INTEL_COMPILER, __INTEL_COMPILER);
+#ifdef __ICC__
+    if ( (__ICC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ICC__\t\t => %d\n", __ICC__ + 0);
+    } else {
+        strcat(buffer, "__ICC__\n");
+    }
 #endif
+#ifdef __ICC_VERSION
+    sprintf(buffer + strlen(buffer), "__ICC_VERSION\t\t => 0x%x\n", __ICC_VERSION);
+
+#endif
+
+
+
+/* Intel CC */
+#ifdef __INTEL_COMPILER
+    if (__INTEL_COMPILER % 10)
+    {
+        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t\t => 0x%x (%d.%d.%d)\n",
+                __INTEL_COMPILER,
+                __INTEL_COMPILER/100, (__INTEL_COMPILER %100) /10, __INTEL_COMPILER % 10);
+    }
+    else
+    {
+        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t\t => 0x%x (%d.%d)\n",
+                __INTEL_COMPILER, __INTEL_COMPILER/100, (__INTEL_COMPILER %100) /10);
+    }
+#endif
+
 #ifdef __INTEL_COMPILER_BUILD_DATE
     sprintf(buffer + strlen(buffer), "__INTEL_COMPILER_BUILD_DATE\t => 0x%lx (ICC %x.%x.%x)\n",
     __INTEL_COMPILER_BUILD_DATE, __INTEL_COMPILER_BUILD_DATE >>16,
     (__INTEL_COMPILER_BUILD_DATE >> 8) & 255, __INTEL_COMPILER_BUILD_DATE & 255);
 #endif
 
+/* KAI C++ */
+#ifdef __KCC
+    if ( (__KCC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__KCC\t\t => %d\n", __KCC + 0);
+    } else {
+        strcat(buffer, "__KCC\n");
+    }
+#endif
+
+#ifdef __KCC_VERSION
+    sprintf(buffer + strlen(buffer), "__KCC_VERSION\t\t => 0x%x\n", __KCC_VERSION);
+
+#endif
+
 
 /* lcc */
 #ifdef __LCC__
-    sprintf(buffer + strlen(buffer), "__LCC__ \t\t => %d\n", __LCC__);
-#endif   
+    if ( (__LCC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LCC__\t\t\t => %d\n", __LCC__ + 0);
+    } else {
+        strcat(buffer, "__LCC__\n");
+    }
+#endif
 
+#ifdef __LCC64__
+    if ( (__LCC64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LCC64__\t\t => %d\n", __LCC64__ + 0);
+    } else {
+        strcat(buffer, "__LCC64__\n");
+    }
+#endif
+#ifdef __LCCDEBUGLEVEL
+    if ( (__LCCDEBUGLEVEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LCCDEBUGLEVEL\t\t => %d\n", __LCCDEBUGLEVEL + 0);
+    } else {
+        strcat(buffer, "__LCCDEBUGLEVEL\n");
+    }
+#endif
+#ifdef __LCCOPTIMLEVEL
+    if ( (__LCCOPTIMLEVEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LCCOPTIMLEVEL\t\t => %d\n", __LCCOPTIMLEVEL + 0);
+    } else {
+        strcat(buffer, "__LCCOPTIMLEVEL\n");
+    }
+#endif
 
 
 /* mingw */
@@ -799,6 +1183,26 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+
+#ifdef __MINGW32_MAJOR
+    if ( (__MINGW32_MAJOR   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MINGW32_MAJOR\t => %d\n", __MINGW32_MAJOR  + 0);
+    } else {
+        strcat(buffer, "__MINGW32_MAJOR\n");
+    }
+#endif
+
+
+
+#ifdef __MINGW32_MINOR
+    if ( (__MINGW32_MINOR  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MINGW32_MINOR\t => %d\n", __MINGW32_MINOR + 0);
+    } else {
+        strcat(buffer, "__MINGW32_MINOR\n");
+    }
+#endif
+
 #ifdef __MINGW32_MAJOR_VERSION
     if ( (__MINGW32_MAJOR_VERSION   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MINGW32_MAJOR_VERSION\t => %d\n", __MINGW32_MAJOR_VERSION  + 0);
@@ -806,8 +1210,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__MINGW32_MAJOR_VERSION\n");
     }
 #endif
-
-
 
 #ifdef __MINGW32_MINOR_VERSION
     if ( (__MINGW32_MINOR_VERSION  + 1) > 1) {
@@ -819,8 +1221,6 @@ char *get_txt(char * buffer)
 
 
 
-
-
 /* MS visual C */
 #ifdef _MSC_BUILD
     sprintf(buffer + strlen(buffer), "_MSC_BUILD\t\t => 0x%lx/%ld )\n", _MSC_BUILD, _MSC_BUILD);
@@ -829,7 +1229,7 @@ char *get_txt(char * buffer)
 
 #ifdef _MSC_EXTENSIONS
     if ( (_MSC_EXTENSIONS + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_MSC_EXTENSIONS\t\t => %d\n", _MSC_EXTENSIONS + 0);
+        sprintf(buffer + strlen(buffer), "_MSC_EXTENSIONS\t => %d\n", _MSC_EXTENSIONS + 0);
     } else {
         strcat(buffer, "_MSC_EXTENSIONS\n");
     }
@@ -847,6 +1247,60 @@ char *get_txt(char * buffer)
             _MSC_VER / 100 - (_MSC_VER < 900) ? 7 : 6, (_MSC_VER %100));
 #endif
 
+
+/*  Apple MPW  C++  */
+#ifdef __MRC__
+    sprintf(buffer + strlen(buffer), "__MRC__\t\t => 0x%x (%d.%d)\n", __MRC__,
+            __MRC__ >> 8, (__MRC__ & 0xff));
+#endif
+#ifdef MPW_C
+    sprintf(buffer + strlen(buffer), "MPW_C\t\t => %d (Visual C++ %d.%d)\n", MPW_C,
+            MPW_C / 100 - (MPW_C < 900) ? 7 : 6, (MPW_C %100));
+#endif
+#ifdef MPW_CPLUS
+    sprintf(buffer + strlen(buffer), "MPW_CPLUS\t\t => %d (Visual C++ %d.%d)\n", MPW_CPLUS,
+            MPW_CPLUS / 100 - (MPW_CPLUS < 900) ? 7 : 6, (MPW_CPLUS %100));
+#endif
+
+
+/*  Metrowerks Codewarrior */
+#ifdef __MWERKS__
+    if ( (__MWERKS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MWERKS__\t\t => 0x%x (%s)\n", __MWERKS__ ,
+        __MWERKS__ >= 0x3208 ? ">9.6" :
+        __MWERKS__ >= 0x3200 ? "9.x" :
+        __MWERKS__ >= 0x3000 ? "8.x" : "7.x or older");
+    } else {
+        strcat(buffer, "__MWERKS__\n");
+    }
+#endif
+
+/*  NORCROFT C */
+#ifdef __CC_NORCROFT
+    if ( (__CC_NORCROFT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__CC_NORCROFT\t\t => 0x%x\n", __CC_NORCROFT + 0);
+    } else {
+        strcat(buffer, "__CC_NORCROFT\n");
+    }
+#endif
+
+
+/* PathScale EKOPath C++ compiler is based on clang */
+
+#ifdef __PATHCC__
+    if ( (__PATHCC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__PATHCC__\t\t => 0x%x\n", __PATHCC__ + 0);
+    } else {
+        strcat(buffer, "__PATHCC__\n");
+    }
+#endif
+#ifdef __PATHSCALE__
+    if ( (__PATHSCALE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__PATHSCALE__\t\t => 0x%x\n", __PATHSCALE__ + 0);
+    } else {
+        strcat(buffer, "__PATHSCALE__\n");
+    }
+#endif
 
 
 
@@ -873,18 +1327,77 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* Digital Mars, Symantec C, (Zortech C: missing), (Datalight C: missing) */
-#ifdef __SC__
-    sprintf(buffer + strlen(buffer), "__SC__\t\t\t => 0x%x (%s %d.%d)\n", __SC__,
-#ifdef __DMC__
-    "DMC",
-#else
-    "SC",
-#endif
-    __SC__ / 256, (__SC__ & 0xf0 ) / 16 * 10 + (__SC__ & 0x0f));
-
+/*  SCO OpenServer */
+#ifdef _SCO_DS
+    if ( (_SCO_DS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SCO_DS\t\t => 0x%x\n", _SCO_DS + 0);
+    } else {
+        strcat(buffer, "_SCO_DS\n");
+    }
 #endif
 
+
+/* MIPSpro / sgi */
+#ifdef _COMPILER_VERSION
+#ifdef sgi
+    if ( (sgi + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "sgi\t\t\t => %x\n", sgi + 0);
+    } else {
+        strcat(buffer, "sgi\n");
+    }
+#endif
+#ifdef __sgi
+    if ( (__sgi + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sgi\t\t\t => %x\n", __sgi + 0);
+    } else {
+        strcat(buffer, "__sgi\n");
+    }
+#endif
+#endif
+
+
+/* Sun Forte C/C++ (Workshop Pro) */
+#ifdef __SUNPRO_C
+    if ( (__SUNPRO_C + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SUNPRO_C\t\t => 0x%x\n", __SUNPRO_C + 0);
+    } else {
+        strcat(buffer, "__SUNPRO_C\n");
+    }
+#endif
+#ifdef __SUNPRO_CC
+    if ( (__SUNPRO_CC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SUNPRO_CC\t\t => 0x%x\n", __SUNPRO_CC + 0);
+    } else {
+        strcat(buffer, "__SUNPRO_CC\n");
+    }
+#endif
+
+/* TenDRA */
+#ifdef __TenDRA__
+    if ( (__TenDRA__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TenDRA__\t\t => 0x%x\n", __TenDRA__ + 0);
+    } else {
+        strcat(buffer, "__TenDRA__\n");
+    }
+#endif
+
+
+/* USL C */
+#ifdef __USLC__
+    if ( (__USLC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__USLC__\t\t => 0x%x\n", __USLC__ + 0);
+    } else {
+        strcat(buffer, "__USLC__\n");
+    }
+#endif
+
+#ifdef __SCO_VERSION__
+    if ( (__SCO_VERSION__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SCO_VERSION__\t\t => 0x%x\n", __SCO_VERSION__ + 0);
+    } else {
+        strcat(buffer, "__SCO_VERSION__\n");
+    }
+#endif
 
 
 /* TinyC Compiler */
@@ -901,19 +1414,111 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-/* Borland C, TurboC */
-#ifdef __TURBOC__
-    sprintf(buffer + strlen(buffer), "__TURBOC__\t\t => 0x%x/%04d\n", __TURBOC__, __TURBOC__);
+#ifdef TCC_GITHASH
+    sprintf(buffer + strlen(buffer), "TCC_GITHASH \t\t => '%s'\n", TCC_GITHASH);
 #endif
 
 
+/* Since version 11: OpenWatcom */
 #ifdef __WATCOMC__
     sprintf(buffer + strlen(buffer), "__WATCOMC__\t\t => %d (%sWatcom %d.%-1d)\n",
         __WATCOMC__, (__WATCOMC__ > 1100) ? "Open " : "",
         (__WATCOMC__ > 1100) ? (__WATCOMC__ - 1100) / 100 : (__WATCOMC__ / 100),
         (__WATCOMC__ > 1100) ? (__WATCOMC__ - 1100) % 100 : (__WATCOMC__ % 100));
 #endif
+
+
+/* zig from ziglang.org */
+#ifdef _ZIG
+    if ( (_ZIG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ZIG\t\t\t => %x\n", _ZIG + 0);
+    } else {
+        strcat(buffer, "_ZIG\n");
+    }
+#endif
+#ifdef __ZIG
+    if ( (__ZIG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ZIG\t\t\t => %x\n", __ZIG + 0);
+    } else {
+        strcat(buffer, "__ZIG__\n");
+    }
+#endif
+#ifdef __ZIG__
+    if ( (__ZIG__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ZIG__\t\t\t => %x\n", __ZIG__ + 0);
+    } else {
+        strcat(buffer, "__ZIG__\n");
+    }
+#endif
+
+
+/* ################### */
+/* compiler versions */
+
+/* for IBM z/OS XL X/C++ */
+#ifdef __COMPILER_VER__
+    if ( (__COMPILER_VER__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__COMPILER_VER__\t\t => %x\n", __COMPILER_VER__ + 0);
+    } else {
+        strcat(buffer, "__COMPILER_VER__\n");
+    }
+#endif
+
+/* an ARM compiler */
+#ifdef __ARMCOMPILER_VERSION
+    if ( (_ARMCOMPILER_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t\t => %s\n", _my_stringify( __ARMCOMPILER_VERSION ));
+        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t\t => %x\n", __ARMCOMPILER_VERSION + 0);
+    } else {
+        strcat(buffer, "__ARMCOMPILER_VERSION\n");
+    }
+#endif
+
+
+/* for __sgi */
+#ifdef _COMPILER_VERSION
+    if ( (_COMPILER_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_COMPILER_VERSION\t\t => %x\n", _COMPILER_VERSION + 0);
+    } else {
+        strcat(buffer, "_COMPILER_VERSION\n");
+    }
+#endif
+
+/* for __osf__ */
+#ifdef __LANGUAGE_C__
+    if ( (__LANGUAGE_C__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LANGUAGE_C__\t\t => %d\n", __LANGUAGE_C__ + 0);
+    } else {
+        strcat(buffer, "__LANGUAGE_C__\n");
+    }
+#endif
+
+/* for gcc */
+#ifdef __VERSION__
+    sprintf(buffer + strlen(buffer), "__VERSION__\t\t => '%s'\n", __VERSION__ );
+#endif
+
+/* for __DCC__ */
+#ifdef __VERSION_NUMBER__
+    if ( (__VERSION_NUMBER__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__VERSION_NUMBER__\t\t => %x\n", __VERSION_NUMBER__ + 0);
+    } else {
+        strcat(buffer, "__VERSION_NUMBER__\n");
+    }
+#endif
+
+/* gcc has linker items */
+#ifdef _LINKER
+    if ( (_LINKER + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LINKER\t\t => %x\n", _LINKER + 0);
+    } else {
+        strcat(buffer, "_LINKER\n");
+    }
+#endif
+#ifdef _GCC_LINKER_CMD__
+    sprintf(buffer + strlen(buffer), "_GCC_LINKER_CMD__\t\t => %s\n", _GCC_LINKER_CMD__ );
+#endif
+
 
 /* ################### */
 /* language version */

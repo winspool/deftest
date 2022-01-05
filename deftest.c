@@ -1521,7 +1521,7 @@ char *get_txt(char * buffer)
 
 
 /* ################### */
-/* language version */
+/* used c dialect / c standard versions */
 
 /* ANSI */
 #ifdef ANSI
@@ -1605,45 +1605,673 @@ char *get_txt(char * buffer)
     }
 #endif
 
-/* BSD */
-#ifdef BSD_SOURCE
-    if ( (BSD_SOURCE   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "BSD_SOURCE  \t\t => %d\n", BSD_SOURCE   + 0);
+
+/* feature test macro */
+#ifdef _ATFILE_SOURCE
+    if ( (_ATFILE_SOURCE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ATFILE_SOURCE\t\t => %d\n", _ATFILE_SOURCE   + 0);
     } else {
-        strcat(buffer, "BSD_SOURCE\n");
+        strcat(buffer, "_ATFILE_SOURCE  \n");
     }
 #endif
+
+
+/* feature test macro */
 #ifdef _BSD_SOURCE
     if ( (_BSD_SOURCE   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_BSD_SOURCE  \t\t => %d\n", _BSD_SOURCE   + 0);
+        sprintf(buffer + strlen(buffer), "_BSD_SOURCE\t\t => %d\n", _BSD_SOURCE   + 0);
     } else {
         strcat(buffer, "_BSD_SOURCE  \n");
     }
 #endif
-#ifdef _BSD_SOURCE_
-    if ( (_BSD_SOURCE_   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_BSD_SOURCE_  \t\t => %d\n", _BSD_SOURCE_   + 0);
+
+/* feature test macro */
+#ifdef _DEFAULT_SOURCE
+    if ( (_DEFAULT_SOURCE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_DEFAULT_SOURCE\t\t => %d\n", _DEFAULT_SOURCE   + 0);
     } else {
-        strcat(buffer, "_BSD_SOURCE_  \n");
+        strcat(buffer, "_DEFAULT_SOURCE  \n");
     }
 #endif
-#ifdef __BSD_SOURCE
-    if ( (__BSD_SOURCE   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__BSD_SOURCE  \t\t => %d\n", __BSD_SOURCE   + 0);
+
+/* feature test macro. define to 64 to enable 64bit aware types/functions */
+#ifdef _FILE_OFFSET_BITS
+    if ( (_FILE_OFFSET_BITS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_FILE_OFFSET_BITS\t => %d\n", _FILE_OFFSET_BITS + 0);
     } else {
-        strcat(buffer, "__BSD_SOURCE  \n");
+        strcat(buffer, "_FILE_OFFSET_BITS\n");
     }
 #endif
-#ifdef __BSD_SOURCE__
-    if ( (__BSD_SOURCE__   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__BSD_SOURCE__  \t\t => %d\n", __BSD_SOURCE__   + 0);
+
+/* feature test macro */
+#ifdef _FORTIFY_SOURCE
+    if ( (_FORTIFY_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_FORTIFY_SOURCE \t => %d\n", _FORTIFY_SOURCE + 0);
     } else {
-        strcat(buffer, "__BSD_SOURCE__  \n");
+        strcat(buffer, "_FORTIFY_SOURCE\n");
     }
 #endif
 
 
-/* C99 */
+/* feature test macro */
+#ifdef _GNU_SOURCE
+    if ( (_GNU_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_GNU_SOURCE \t => %d\n", _GNU_SOURCE + 0);
+    } else {
+        strcat(buffer, "_GNU_SOURCE\n");
+    }
+#endif
+
+#ifdef __GNU_SOURCE__
+    if ( (__GNU_SOURCE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNU_SOURCE__ \t => %d\n", __GNU_SOURCE__ + 0);
+    } else {
+        strcat(buffer, "__GNU_SOURCE__\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _ISOC95_SOURCE
+    if ( (_ISOC95_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC95_SOURCE \t => %d\n", _ISOC95_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC95_SOURCE\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _ISOC99_SOURCE
+    if ( (_ISOC99_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC99_SOURCE \t => %d\n", _ISOC99_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC99_SOURCE\n");
+    }
+#endif
+
+
+
+
+/* feature test macro, when C99 was still work in progress */
+#ifdef _ISOC9X_SOURCE
+    if ( (_ISOC9X_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC9X_SOURCE \t => %d\n", _ISOC9X_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC9X_SOURCE\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _ISOC11_SOURCE
+    if ( (_ISOC11_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC11_SOURCE \t => %d\n", _ISOC11_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC11_SOURCE\n");
+    }
+#endif
+
+
+
+
+#ifdef __INTEL_STRICT_ANSI__
+    if ( (__INTEL_STRICT_ANSI__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__INTEL_STRICT_ANSI__\t => %d\n", __INTEL_STRICT_ANSI__ + 0);
+    } else {
+        strcat(buffer, "__INTEL_STRICT_ANSI__\n");
+    }
+#endif
+
+
+#ifdef _LARGEFILE_SOURCE
+    if ( (_LARGEFILE_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LARGEFILE_SOURCE\t => %d\n", _LARGEFILE_SOURCE + 0);
+    } else {
+        strcat(buffer, "_LARGEFILE_SOURCE\n");
+    }
+#endif
+
+#ifdef _LARGEFILE64_SOURCE
+    if ( (_LARGEFILE64_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LARGEFILE64_SOURCE\t => %d\n", _LARGEFILE64_SOURCE + 0);
+    } else {
+        strcat(buffer, "_LARGEFILE64_SOURCE\n");
+    }
+#endif
+
+
+
+/* posix */
+#ifdef POSIX
+    if ( (POSIX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "POSIX\t\t => %d\n", POSIX + 0);
+    } else {
+        strcat(buffer, "POSIX\n");
+    }
+#endif
+#ifdef _POSIX
+    if ( (_POSIX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_POSIX\t\t => %d\n", _POSIX + 0);
+    } else {
+        strcat(buffer, "_POSIX\n");
+    }
+#endif
+#ifdef _POSIX_
+    if ( (_POSIX_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_POSIX_\t\t => %d\n", _POSIX_ + 0);
+    } else {
+        strcat(buffer, "_POSIX_\n");
+    }
+#endif
+#ifdef __POSIX
+    if ( (__POSIX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__POSIX\t\t => %d\n", __POSIX + 0);
+    } else {
+        strcat(buffer, "__POSIX\n");
+    }
+#endif
+#ifdef __POSIX__
+    if ( (__POSIX__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__POSIX__\t\t => %d\n", __POSIX__ + 0);
+    } else {
+        strcat(buffer, "__POSIX__\n");
+    }
+#endif
+
+/* obsolete feature test macro, replaced by _POSIX_C_SOURCE */
+#ifdef _POSIX_SOURCE
+    if ( (_POSIX_SOURCE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_POSIX_SOURCE  \t\t => %d\n", _POSIX_SOURCE   + 0);
+    } else {
+        strcat(buffer, "_POSIX_SOURCE\n");
+    }
+#endif
+
+
+
+#ifdef __POSIX_SOURCE__
+    if ( (__POSIX_SOURCE__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__POSIX_SOURCE__  \t\t => %d\n", __POSIX_SOURCE__  + 0);
+    } else {
+        strcat(buffer, "__POSIX_SOURCE\n");
+    }
+#endif
+
+
+/* glibc feature test macro, referenced in man2 / nanosleep()  */
+#ifdef _POSIX_C_SOURCE
+    if ( (_POSIX_C_SOURCE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_POSIX_C_SOURCE\t\t => %ld (POSIX.%s)\n", _POSIX_C_SOURCE  + 0,
+        _POSIX_C_SOURCE >= 200809L ? "1-2008" :
+        _POSIX_C_SOURCE >= 200112L ? "1-2001" :
+        _POSIX_C_SOURCE >= 199506L ? "1c" :
+        _POSIX_C_SOURCE >= 199309L ? "1b" :
+        _POSIX_C_SOURCE >= 2 ? "1-1992" : "1-1990" );
+    } else {
+        strcat(buffer, "_POSIX_C_SOURCE\n");
+    }
+#endif
+
+#ifdef _POSIX_VERSION
+    if ( (_POSIX_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_POSIX_VERSION \t => %ld\n", _POSIX_VERSION + 0);
+    } else {
+        strcat(buffer, "_POSIX_VERSION\n");
+    }
+#endif
+
+
+/* obsolete feature test macro */
+#ifdef _REENTRANT
+    if ( (_REENTRANT   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_REENTRANT  \t\t => %d\n", _REENTRANT   + 0);
+    } else {
+        strcat(buffer, "_REENTRANT  \n");
+    }
+#endif
+
+
+
+/* STDC */
+
+#ifdef _STDC
+    if ( (_STDC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STDC \t\t => %d\n", _STDC + 0);
+    } else {
+        strcat(buffer, "_STDC\n");
+    }
+#endif
+
+#ifdef _STDC_
+    if ( (_STDC_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STDC_ \t\t => %d\n", _STDC_ + 0);
+    } else {
+        strcat(buffer, "_STDC_\n");
+    }
+#endif
+
+#ifdef __STDC
+    if ( (__STDC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC \t\t => %d\n", __STDC + 0);
+    } else {
+        strcat(buffer, "__STDC\n");
+    }
+#endif
+
+
+#ifdef __STDC__
+    if ( (__STDC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC__ \t\t => %d %s\n", __STDC__ + 0,
+#ifdef __STDC_VERSION__
+        "");
+#else
+        "(c89)");
+#endif
+    } else {
+        strcat(buffer, "__STDC__\n");
+    }
+#endif
+
+
+#ifdef __STDC_CONSTANT_MACROS
+    if ( (__STDC_CONSTAND_MACROS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_CONSTANT_MACROS\t => %d\n", __STDC_CONSTANT_MACROS + 0);
+    } else {
+        strcat(buffer, "__STDC_CONSTANT_MACROS\n");
+    }
+#endif
+
+
+#ifdef __STDC_HOSTED__
+    if ( (__STDC_HOSTED__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_HOSTED__ \t => %d\n", __STDC_HOSTED__ + 0);
+    } else {
+        strcat(buffer, "__STDC_HOSTED__\n");
+    }
+
+#endif
+
+
+/* IEC 60559 float in use */
+#ifdef __STDC_IEC_559__
+    if ( (__STDC_IEC_559__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_IEC_559__ \t => %d\n", __STDC_IEC_559__ + 0);
+    } else {
+        strcat(buffer, "__STDC_IEC_559__\n");
+    }
+
+#endif
+
+
+/* IEC 60559 complex float in use */
+#ifdef __STDC_IEC_559_COMPLEX__
+    sprintf(buffer + strlen(buffer), "__STDC_IEC_559_COMPLEX__ => %d\n", __STDC_IEC_559_COMPLEX__ + 0);
+#endif
+
+/* ToDo: unicode versions */
+#ifdef __STDC_ISO_10646__
+    if ( (__STDC_ISO_10646__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_ISO_10646__ \t => %ld\n", __STDC_ISO_10646__ + 0);
+    } else {
+        strcat(buffer, "__STDC_ISO_10646__\n");
+    }
+#endif
+
+#ifdef __STDCPP_THREADS__
+    sprintf(buffer + strlen(buffer), "__STDCPP_THREADS__ \t => %d\n", __STDCPP_THREADS__ + 0);
+#endif
+
+
+#ifdef __STDC_UTF_16__
+    if ( (__STDC_UTF_16__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_UTF_16__ \t => %d\n", __STDC_UTF_16__ + 0);
+    } else {
+        strcat(buffer, "__STDC_UTF_16__\n");
+    }
+#endif
+#ifdef __STDC_UTF_32__
+    if ( (__STDC_UTF_32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_UTF_32__ \t => %d\n", __STDC_UTF_32__ + 0);
+    } else {
+        strcat(buffer, "__STDC_UTF_32__\n");
+    }
+#endif
+
+
+#ifdef __STDC_VERSION__
+    if ( (__STDC_VERSION__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_VERSION__ \t => %ld (%s)\n", __STDC_VERSION__ + 0,
+        (__STDC_VERSION__ + 0 >= 202000) ? "C2x / C23" :
+        (__STDC_VERSION__ + 0 >= 201710) ? "C17 / C18" :
+        (__STDC_VERSION__ + 0 >= 201112) ? "C11" :
+        (__STDC_VERSION__ + 0 >= 199901) ? "C99" :
+        (__STDC_VERSION__ + 0 >= 199409) ? "C95" : "ANSI: C89/ISO: C90");
+
+    } else {
+        strcat(buffer, "__STDC_VERSION__ \t\t(ANSI:C89) / (ISO:C90)\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _SVID_SOURCE
+    if ( (_SVID_SOURCE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SVID_SOURCE  \t\t => %d\n", _SVID_SOURCE   + 0);
+    } else {
+        strcat(buffer, "_SVID_SOURCE  \n");
+    }
+#endif
+
+/* ## STRICT ## */
+#ifdef STRICT
+    if ( (STRICT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "STRICT\t\t\t => %d\n", STRICT + 0);
+    } else {
+        strcat(buffer, "STRICT\n");
+    }
+#endif
+
+
+#ifdef _STRICT
+    if ( (_STRICT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STRICT\t\t\t => %d\n", _STRICT + 0);
+    } else {
+        strcat(buffer, "_STRICT\n");
+    }
+#endif
+
+#ifdef _STRICT_
+    if ( (_STRICT_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STRICT_ \t\t => %d\n", _STRICT_ + 0);
+    } else {
+        strcat(buffer, "_STRICT_\n");
+    }
+#endif
+
+#ifdef __STRICT
+    if ( (__STRICT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STRICT \t\t => %d\n", __STRICT + 0);
+    } else {
+        strcat(buffer, "__STRICT\n");
+    }
+#endif
+
+#ifdef __STRICT__
+    if ( (__STRICT__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STRICT__ \t\t => %d\n", __STRICT__ + 0);
+    } else {
+        strcat(buffer, "__STRICT__\n");
+    }
+#endif
+
+
+#ifdef __STRICT_ANSI
+    if ( (__STRICT_ANSI + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STRICT_ANSI \t => %d\n", __STRICT_ANSI + 0);
+    } else {
+        strcat(buffer, "__STRICT_ANSI\n");
+    }
+#endif
+
+
+/* used in glibc as feature test macro */
+#ifdef __STRICT_ANSI__
+    if ( (__STRICT_ANSI__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STRICT_ANSI__ \t => %d\n", __STRICT_ANSI__ + 0);
+    } else {
+        strcat(buffer, "__STRICT_ANSI__\n");
+    }
+#endif
+
+
+/* obsolete feature test macro */
+#ifdef THREAD_SAFE
+    if ( (THREAD_SAFE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "THREAD_SAFE  \t\t => %d\n", THREAD_SAFE   + 0);
+    } else {
+        strcat(buffer, "THREAD_SAFE  \n");
+    }
+#endif
+
+#ifdef _XOPEN_UNIX
+    if ( (_XOPEN_UNIX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_XOPEN_UNIX \t\t => %d\n", _XOPEN_UNIX + 0);
+    } else {
+        strcat(buffer, "_XOPEN_UNIX\n");
+    }
+#endif
+
+/* used in glibc as feature test macro */
+#ifdef _XOPEN_SOURCE
+    if ( (_XOPEN_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_XOPEN_SOURCE \t\t => %d\n", _XOPEN_SOURCE + 0);
+    } else {
+        strcat(buffer, "_XOPEN_SOURCE\n");
+    }
+#endif
+/* should be avoided in new sources */
+#ifdef _XOPEN_SOURCE_EXTENDED
+    if ( (_XOPEN_SOURCE_EXTENDED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_XOPEN_SOURCE_EXTENDED \t => %d\n", _XOPEN_SOURCE_EXTENDED + 0);
+    } else {
+        strcat(buffer, "_XOPEN_SOURCE_EXTENDED\n");
+    }
+#endif
+
+
+#ifdef _XOPEN_VERSION
+    if ( (_XOPEN_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_XOPEN_VERSION \t => %d \t%s\n", _XOPEN_VERSION + 0,
+        (_XOPEN_VERSION + 0 >= 600) ? "(SUSv3 / UNIX03)" :
+        (_XOPEN_VERSION + 0 >= 500) ? "(SUSv2 / UNIX98)" :
+#ifdef _XOPEN_UNIX
+        (_XOPEN_VERSION + 0 >= 4) ? "(SUS / UNIX95)" :
+#endif
+        (_XOPEN_VERSION + 0 >= 4) ? "(XPG4 / 1992)" :
+        (_XOPEN_VERSION + 0 >= 3) ? "(XPG3 / 1989)" : "" );
+    } else {
+        strcat(buffer, "_XOPEN_VERSION\n");
+    }
+#endif
+
+
+/* ################# */
+/* language features */
+
+#ifdef _MD
+    if ( (_MD + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MD \t\t => %d\n", _MD + 0);
+    } else {
+        strcat(buffer, "_MD\n");
+    }
+#endif
+
+
+#ifdef _STDCALL_SUPPORTED
+    if ( (_STDCALL_SUPPORTED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STDCALL_SUPPORTED\t => %d\n", _STDCALL_SUPPORTED + 0);
+    } else {
+        strcat(buffer, "_STDCALL_SUPPORTED\n");
+    }
+#endif
+
+
+#ifdef _PUSHPOP_SUPPORTED
+    if ( (_PUSHPOP_SUPPORTED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_PUSHPOP_SUPPORTED\t => %d\n", _PUSHPOP_SUPPORTED + 0);
+    } else {
+        strcat(buffer, "_PUSHPOP_SUPPORTED\n");
+    }
+#endif
+
+
+#ifdef _CHAR_EQ_UCHAR
+    if ( (_CHAR_EQ_UCHAR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_CHAR_EQ_UCHAR \t\t => %d\n", _CHAR_EQ_UCHAR + 0);
+    } else {
+        strcat(buffer, "_CHAR_EQ_UCHAR\n");
+    }
+#endif
+
+
+/* some limits */
+#ifdef BUFSIZ
+    if ( (BUFSIZ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "BUFSIZ\t\t\t => %d\n", BUFSIZ + 0);
+    } else {
+        strcat(buffer, "BUFSIZ\n");
+    }
+#endif
+
+#ifdef __STDIO_BUFSIZ
+    if ( (__STDIO_BUFSIZ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO_BUFSIZ\t\t\t => %d\n", __STDIO_BUFSIZ + 0);
+    } else {
+        strcat(buffer, "__STDIO_BUFSIZ\n");
+    }
+#endif
+
+/* stdio uses buffers */
+#ifdef __STDIO_BUFFERS
+    if ( (__STDIO_BUFFERS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO_BUFFERS\t\t\t => %d\n", __STDIO_BUFFERS + 0);
+    } else {
+        strcat(buffer, "__STDIO_BUFFERS\n");
+    }
+#endif
+
+/* fully buffered */
+#ifdef __STDIO__IOFBF
+    if ( (__STDIO__IOFBF + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO__IOFBF\t\t\t => %d\n", __STDIO__IOFBF + 0);
+    } else {
+        strcat(buffer, "__STDIO__IOFBF\n");
+    }
+#endif
+/* line buffered */
+#ifdef __STDIO__IOLBF
+    if ( (__STDIO__IOLBF + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO__IOLBF\t\t\t => %d\n", __STDIO__IOLBF + 0);
+    } else {
+        strcat(buffer, "__STDIO__IOLBF\n");
+    }
+#endif
+/* no buffereing */
+#ifdef __STDIO__IONBF
+    if ( (__STDIO__IONBF + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO__IONBF\t\t\t => %d\n", __STDIO__IONBF + 0);
+    } else {
+        strcat(buffer, "__STDIO__IONBF\n");
+    }
+#endif
+
+
+#ifdef __STDIO_MBSTATE
+    if ( (__STDIO_MBSTATE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDIO_MBSTATE\t\t\t => %d\n", __STDIO_MBSTATE + 0);
+    } else {
+        strcat(buffer, "__STDIO_MBSTATE\n");
+    }
+#endif
+
+
+
+
+#ifdef MAX_PATH
+    if ( (MAX_PATH + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "MAX_PATH \t\t => %d\n", MAX_PATH + 0);
+    } else {
+        strcat(buffer, "MAX_PATH\n");
+    }
+#endif
+#ifdef PATH_MAX
+    if ( (PATH_MAX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "PATH_MAX \t\t => %d\n", PATH_MAX + 0);
+    } else {
+        strcat(buffer, "PATH_MAX\n");
+    }
+#endif
+
+
+
+/* <stdint.h> printf format selector */
+#ifdef PRId32
+     sprintf(buffer+strlen(buffer), "PRId32\t\t => %s\n", __my_stringify( PRId32 ) );
+#endif
+#ifdef PRIi32
+     sprintf(buffer+strlen(buffer), "PRIi32\t\t\t => %s\n", __my_stringify( PRIi32 ) );
+#endif
+#ifdef PRIu32
+     sprintf(buffer+strlen(buffer), "PRIu32\t\t\t => %s\n", __my_stringify( PRIu32 ) );
+#endif
+#ifdef PRIx32
+     sprintf(buffer+strlen(buffer), "PRIx32\t\t\t => %s\n", __my_stringify( PRIx32 ) );
+#endif
+#ifdef PRIX32
+     sprintf(buffer+strlen(buffer), "PRIX32\t\t\t => %s\n", __my_stringify( PRIX32 ) );
+#endif
+
+
+#ifdef PRId64
+     sprintf(buffer+strlen(buffer), "PRId64\t\t\t => %s\n", __my_stringify( PRId64 ) );
+#endif
+#ifdef PRIi64
+     sprintf(buffer+strlen(buffer), "PRIi64\t\t\t => %s\n", __my_stringify( PRIi64 ) );
+#endif
+#ifdef PRIu64
+     sprintf(buffer+strlen(buffer), "PRIu64\t\t\t => %s\n", __my_stringify( PRIu64 ) );
+#endif
+#ifdef PRIx64
+     sprintf(buffer+strlen(buffer), "PRIx64\t\t\t => %s\n", __my_stringify( PRIx64 ) );
+#endif
+#ifdef PRIX64
+     sprintf(buffer+strlen(buffer), "PRIX64\t\t\t => %s\n", __my_stringify( PRIX64 ) );
+#endif
+
+#ifdef PRIdPTR
+     sprintf(buffer+strlen(buffer), "PRIdPTR\t\t\t => %s\n", __my_stringify( PRIdPTR ) );
+#endif
+#ifdef PRIiPTR
+     sprintf(buffer+strlen(buffer), "PRIiPTR\t\t\t => %s\n", __my_stringify( PRIiPTR ) );
+#endif
+#ifdef PRIuPTR
+     sprintf(buffer+strlen(buffer), "PRIuPTR\t\t\t => %s\n", __my_stringify( PRIuPTR ) );
+#endif
+
+
+#ifdef PRIxPTR
+     sprintf(buffer+strlen(buffer), "PRIxPTR\t\t\t => %s\n", __my_stringify( PRIxPTR ) );
+#endif
+#ifdef PRIXPTR
+     sprintf(buffer+strlen(buffer), "PRIXPTR\t\t\t => %s\n", __my_stringify( PRIXPTR ) );
+#endif
+
+
+
+/* various int types */
+#ifdef int32_t
+     sprintf(buffer+strlen(buffer), "int32_t\t\t => %s\n", __my_stringify( int32_t ) );
+#endif
+
+#ifdef uint32_t
+     sprintf(buffer+strlen(buffer), "uint32_t\t\t => %s\n", __my_stringify( uint32_t ) );
+#endif
+
+#ifdef int64_t
+     sprintf(buffer+strlen(buffer), "int64_t\t\t => %s\n", __my_stringify( int64_t ) );
+#endif
+
+#ifdef uint64_t
+     sprintf(buffer+strlen(buffer), "uint64_t\t\t => %s\n", __my_stringify( uint64_t ) );
+#endif
+
+
+
+/* language features: C99 */
+#ifdef __C99
+    if ( (__C99 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__C99\t\t\t => %d\n", __C99 + 0);
+    } else {
+        strcat(buffer, "__C99\n");
+    }
+#endif
 #ifdef __C99_BOOL
     if ( (__C99_BOOL + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__C99_BOOL \t\t => %d\n", __C99_BOOL + 0);
@@ -1870,240 +2498,18 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* language features: c++ */
 
-#ifdef _GNU_SOURCE
-    if ( (_GNU_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_GNU_SOURCE \t => %d\n", _GNU_SOURCE + 0);
-    } else {
-        strcat(buffer, "_GNU_SOURCE\n");
-    }
+#ifdef __has_cpp_attribute
+    strcat(buffer, "__has_cpp_attribute\t => is supported\n");
 #endif
-#ifdef __GNU_SOURCE
-    if ( (__GNU_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GNU_SOURCE \t => %d\n", __GNU_SOURCE + 0);
-    } else {
-        strcat(buffer, "__GNU_SOURCE\n");
-    }
+#ifdef __has_include
+    strcat(buffer, "__has_include\t\t => is supported\n");
 #endif
 
 
 
-#ifdef __INTEL_STRICT_ANSI__
-    if ( (__INTEL_STRICT_ANSI__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__INTEL_STRICT_ANSI__\t => %d\n", __INTEL_STRICT_ANSI__ + 0);
-    } else {
-        strcat(buffer, "__INTEL_STRICT_ANSI__\n");
-    }
-#endif
-
-
-/* posix */
-#ifdef POSIX
-    if ( (POSIX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "POSIX\t\t => %d\n", POSIX + 0);
-    } else {
-        strcat(buffer, "POSIX\n");
-    }
-#endif
-#ifdef _POSIX
-    if ( (_POSIX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_POSIX\t\t => %d\n", _POSIX + 0);
-    } else {
-        strcat(buffer, "_POSIX\n");
-    }
-#endif
-#ifdef _POSIX_
-    if ( (_POSIX_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_POSIX_\t\t => %d\n", _POSIX_ + 0);
-    } else {
-        strcat(buffer, "_POSIX_\n");
-    }
-#endif
-#ifdef __POSIX
-    if ( (__POSIX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__POSIX\t\t => %d\n", __POSIX + 0);
-    } else {
-        strcat(buffer, "__POSIX\n");
-    }
-#endif
-#ifdef __POSIX__
-    if ( (__POSIX__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__POSIX__\t\t => %d\n", __POSIX__ + 0);
-    } else {
-        strcat(buffer, "__POSIX__\n");
-    }
-#endif
-
-#ifdef _POSIX_SOURCE
-    if ( (_POSIX_SOURCE   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_POSIX_SOURCE  \t\t => %d\n", _POSIX_SOURCE   + 0);
-    } else {
-        strcat(buffer, "_POSIX_SOURCE\n");
-    }
-#endif
-
-
-
-#ifdef _POSIX_VERSION
-    if ( (_POSIX_VERSION + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_POSIX_VERSION \t => %ld\n", _POSIX_VERSION + 0);
-    } else {
-        strcat(buffer, "_POSIX_VERSION\n");
-    }
-#endif
-
-
-/* STDC */
-#ifdef STDC
-    if ( (STDC + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "STDC \t\t => %d\n", STDC + 0);
-    } else {
-        strcat(buffer, "STDC\n");
-    }
-#endif
-
-
-#ifdef _STDC
-    if ( (_STDC + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_STDC \t\t => %d\n", _STDC + 0);
-    } else {
-        strcat(buffer, "_STDC\n");
-    }
-#endif
-
-#ifdef _STDC_
-    if ( (_STDC_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_STDC_ \t\t => %d\n", _STDC_ + 0);
-    } else {
-        strcat(buffer, "_STDC_\n");
-    }
-#endif
-
-#ifdef __STDC
-    if ( (__STDC + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STDC \t\t => %d\n", __STDC + 0);
-    } else {
-        strcat(buffer, "__STDC\n");
-    }
-#endif
-
-#ifdef __STDC__
-    if ( (__STDC__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STDC__ \t\t => %d %s\n", __STDC__ + 0,
-#ifdef __STDC_VERSION__
-        "");
-#else
-        "(c89)");
-#endif
-    } else {
-        strcat(buffer, "__STDC__\n");
-    }
-#endif
-
-
-#ifdef __STDC_HOSTED__
-    sprintf(buffer + strlen(buffer), "__STDC_HOSTED__ \t => %d\n", __STDC_HOSTED__ + 0);
-# if 0
-    if ( (__STDC_HOSTED__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STDC_HOSTED__ \t => %d\n", __STDC_HOSTED__ + 0);
-    } else {
-        strcat(buffer, "__STDC_HOSTED__\n");
-    }
-#endif
-#endif
-
-#ifdef __STDC_VERSION__
-    if ( (__STDC_VERSION__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STDC_VERSION__ \t => %ld %s\n", __STDC_VERSION__ + 0,
-        (__STDC_VERSION__ + 0 >= 199901) ? "(c99)" :
-        (__STDC_VERSION__ + 0 >= 199409) ? "(c95)" : "");
-
-    } else {
-        strcat(buffer, "__STDC_VERSION__ \t\t(c89)\n");
-    }
-#endif
-
-
-/* ## STRICT ## */
-#ifdef STRICT
-    if ( (STRICT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "STRICT\t\t\t => %d\n", STRICT + 0);
-    } else {
-        strcat(buffer, "STRICT\n");
-    }
-#endif
-
-
-#ifdef _STRICT
-    if ( (_STRICT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_STRICT\t\t\t => %d\n", _STRICT + 0);
-    } else {
-        strcat(buffer, "_STRICT\n");
-    }
-#endif
-
-#ifdef _STRICT_
-    if ( (_STRICT_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_STRICT_ \t\t => %d\n", _STRICT_ + 0);
-    } else {
-        strcat(buffer, "_STRICT_\n");
-    }
-#endif
-
-#ifdef __STRICT
-    if ( (__STRICT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STRICT \t\t => %d\n", __STRICT + 0);
-    } else {
-        strcat(buffer, "__STRICT\n");
-    }
-#endif
-
-#ifdef __STRICT__
-    if ( (__STRICT__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STRICT__ \t\t => %d\n", __STRICT__ + 0);
-    } else {
-        strcat(buffer, "__STRICT__\n");
-    }
-#endif
-
-
-#ifdef __STRICT_ANSI__
-    if ( (__STRICT_ANSI__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__STRICT_ANSI__ \t => %d\n", __STRICT_ANSI__ + 0);
-    } else {
-        strcat(buffer, "__STRICT_ANSI__\n");
-    }
-#endif
-
-
-
-#ifdef _XOPEN_UNIX
-    if ( (_XOPEN_UNIX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_XOPEN_UNIX \t\t => %d\n", _XOPEN_UNIX + 0);
-    } else {
-        strcat(buffer, "_XOPEN_UNIX\n");
-    }
-#endif
-
-
-#ifdef _XOPEN_VERSION
-    if ( (_XOPEN_VERSION + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_XOPEN_VERSION \t => %d \t%s\n", _XOPEN_VERSION + 0,
-        (_XOPEN_VERSION + 0 >= 600) ? "(SUSv3 / UNIX03)" :
-        (_XOPEN_VERSION + 0 >= 500) ? "(SUSv2 / UNIX98)" :
-#ifdef _XOPEN_UNIX
-        (_XOPEN_VERSION + 0 >= 4) ? "(SUS / UNIX95)" :
-#endif
-        (_XOPEN_VERSION + 0 >= 4) ? "(XPG4 / 1992)" :
-        (_XOPEN_VERSION + 0 >= 3) ? "(XPG3 / 1989)" : "" );
-    } else {
-        strcat(buffer, "_XOPEN_VERSION\n");
-    }
-#endif
-
-
-
-/* ################### */
+/*  ## is this c or c++? ## */
 
 #ifdef REDIRECT
     if ( (REDIRECT + 1) > 1) {
@@ -2138,7 +2544,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__REDIRECT__\n");
     }
 #endif
-
 
 
 

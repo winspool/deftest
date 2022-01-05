@@ -2140,6 +2140,34 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __CHAR_ALIGN__
+    sprintf(buffer + strlen(buffer), "__CHAR_ALIGN__\t\t => %d\n", __CHAR_ALIGN__ + 0);
+#endif
+#ifdef __SHORT_ALIGN__
+    sprintf(buffer + strlen(buffer), "__SHORT_ALIGN__\t\t => %d\n", __SHORT_ALIGN__ + 0);
+
+#endif
+#ifdef __INT_ALIGN__
+    sprintf(buffer + strlen(buffer), "__INT_ALIGN__\t\t => %d\n", __INT_ALIGN__ + 0);
+#endif
+#ifdef __LONG_ALIGN__
+    sprintf(buffer + strlen(buffer), "__LONG_ALIGN__\t => %d\n", __LONG_ALIGN__ + 0);
+#endif
+#ifdef __LONG_LONG_ALIGN__
+    sprintf(buffer + strlen(buffer), "__LONG_LONG_ALIGN__ => %d\n", __LONG_LONG_ALIGN__ + 0);
+#endif
+#ifdef __FLOAT_ALIGN__
+    sprintf(buffer + strlen(buffer), "__FLOAT_ALIGN__\t\t => %d\n", __FLOAT_ALIGN__ + 0);
+#endif
+#ifdef __DOUBLE_ALIGN__
+    sprintf(buffer + strlen(buffer), "__DOUBLE_ALIGN__\t\t => %d\n", __DOUBLE_ALIGN__ + 0);
+#endif
+#ifdef __LONG_DOUBLE_ALIGN__
+    sprintf(buffer + strlen(buffer), "__LONG_DOUBLE_ALIGN__\t\t => %d\n", __LONG_DOUBLE_ALIGN__ + 0);
+#endif
+
+
+
 /* some limits */
 #ifdef BUFSIZ
     if ( (BUFSIZ + 1) > 1) {

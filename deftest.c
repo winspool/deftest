@@ -7536,6 +7536,66 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* ### INT LONG POINTER modes ### */
+#ifdef ILP32
+    if ( (ILP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "ILP32\t\t\t => %d\n", ILP32 + 0);
+    } else {
+        strcat(buffer, "ILP32\n");
+    }
+#endif
+#ifdef _ILP32
+    if ( (_ILP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ILP32\t\t\t => %d\n", _ILP32 + 0);
+    } else {
+        strcat(buffer, "_ILP32\n");
+    }
+#endif
+#ifdef _ILP32_
+    if ( (_ILP32_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ILP32_\t\t\t => %d\n", _ILP32_ + 0);
+    } else {
+        strcat(buffer, "_ILP32_\n");
+    }
+#endif
+#ifdef __ILP32__
+    if ( (__ILP32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ILP32__\t\t\t => %d\n", __ILP32__ + 0);
+    } else {
+        strcat(buffer, "__ILP32__\n");
+    }
+#endif
+#ifdef __ILP32__
+    if ( (__ILP32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ILP32__\t\t => %d\n", __ILP32__ + 0);
+    } else {
+        strcat(buffer, "__ILP32__\n");
+    }
+#endif
+
+
+#ifdef LL64
+    if ( (LL64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "LL64\t\t\t => %d\n", LL64 + 0);
+    } else {
+        strcat(buffer, "LL64\n");
+    }
+#endif
+#ifdef _LL64
+    if ( (_LL64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LL64\t\t\t => %d\n", _LL64 + 0);
+    } else {
+        strcat(buffer, "_LL64\n");
+    }
+#endif
+#ifdef _LL64_
+    if ( (_LL64_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LL64_\t\t\t => %d\n", _LL64_ + 0);
+    } else {
+        strcat(buffer, "_LL64_\n");
+    }
+#endif
 #ifdef __LL64
     if ( (__LL64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__LL64\t\t\t => %d\n", __LL64 + 0);
@@ -7550,7 +7610,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__LL64__\n");
     }
 #endif
-
 
 
 #ifdef LP64
@@ -7583,7 +7642,7 @@ char *get_txt(char * buffer)
 #endif
 #ifdef __LP64__
     if ( (__LP64__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__LP64__\t\t\t => %d\n", __LP64__ + 0);
+        sprintf(buffer + strlen(buffer), "__LP64__\t\t => %d\n", __LP64__ + 0);
     } else {
         strcat(buffer, "__LP64__\n");
     }

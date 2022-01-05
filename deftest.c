@@ -8362,26 +8362,131 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* ################### */
-/* float */
-/* see also: _FP_INLINE */
+/* ############### */
+/* supported types */
 
-#ifdef _SOFT_FLOAT
-    if ( (_SOFT_FLOAT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_SOFT_FLOAT\t\t\t => %d\n", _SOFT_FLOAT + 0);
+#ifdef _BOOL_DEFINED
+    if ( (_BOOL_DEFINED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_BOOL_DEFINED \t\t => %d\n", _BOOL_DEFINED + 0);
     } else {
         strcat(buffer, "_SOFT_FLOAT\n");
+        strcat(buffer, "_BOOL_DEFINED\n");
     }
 #endif
 
-
-#ifdef __MATH__
-    if ( (__MATH__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__MATH__\t\t\t => %d\n", __MATH__ + 0);
+#ifdef _WCHAR_T_DEFINED
+    if ( (_WCHAR_T_DEFINED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_WCHAR_T_DEFINED \t => %d\n", _WCHAR_T_DEFINED + 0);
     } else {
-        strcat(buffer, "__MATH__\n");
+        strcat(buffer, "_WCHAR_T_DEFINED\n");
     }
 #endif
+
+#ifdef _NATIVE_WCHAR_T_DEFINED
+    if ( (_NATIVE_WCHAR_T_DEFINED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_NATIVE_WCHAR_T_DEFINED \t => %d\n", _NATIVE_WCHAR_T_DEFINED + 0);
+    } else {
+        strcat(buffer, "_NATIVE_WCHAR_T_DEFINED\n");
+    }
+#endif
+
+#ifdef _LONG_LONG
+    if ( (_LONG_LONG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LONG_LONG \t\t => %d\n", _LONG_LONG + 0);
+    } else {
+        strcat(buffer, "__LONGDOUBLE64\n");
+        strcat(buffer, "_LONG_LONG\n");
+    }
+#endif
+
+#ifdef __LONG_LONG
+    if ( (__LONG_LONG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LONG_LONG \t\t => %d\n", __LONG_LONG + 0);
+    } else {
+        strcat(buffer, "__LONG_LONG\n");
+    }
+#endif
+
+/*  alias for _LONG_LONG */
+#ifdef __LL
+    if ( (__LL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LL \t\t\t => %d\n", __LL + 0);
+    } else {
+        strcat(buffer, "__LL\n");
+    }
+#endif
+
+#ifdef __IBMCPP_C99_LONG_LONG
+    if ( (__IBMCPP_C99_LONG_LONG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__IBMCPP_C99_LONG_LONG \t\t => %d\n", __IBMCPP_C99_LONG_LONG + 0);
+    } else {
+        strcat(buffer, "__IBMCPP_C99_LONG_LONG\n");
+    }
+#endif
+#ifdef __NO_LONG_LONG
+    if ( (__NO_LONG_LONG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__NO_LONG_LONG \t\t => %d\n", __NO_LONG_LONG + 0);
+    } else {
+        strcat(buffer, "__NO_LONG_LONG\n");
+    }
+#endif
+#ifdef __DARWIN_NO_LONG_LONG
+    if ( (__DARWIN_NO_LONG_LONG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DARWIN_NO_LONG_LONG \t\t => %d\n", __DARWIN_NO_LONG_LONG + 0);
+    } else {
+        strcat(buffer, "__DARWIN_NO_LONG_LONG\n");
+    }
+#endif
+
+
+/* #################### */
+/* supported math types */
+
+
+#ifdef __FAST_MATH__
+    if ( (__FAST_MATH__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FAST_MATH__\t\t => %d\n", __FAST_MATH__ + 0);
+    } else {
+        strcat(buffer, "__FAST_MATH__\n");
+    }
+#endif
+
+/* ARM CC with EDG frontend */
+#ifdef __FP_FAST
+    if ( (__FP_FAST + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FP_FAST\t\t => %d\n", __FP_FAST + 0);
+    } else {
+        strcat(buffer, "__FP_FAST\n");
+    }
+#endif
+
+/* ARM CC with EDG frontend */
+#ifdef __FP_IEEE
+    if ( (__FP_IEEE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FP_IEEE\t\t => %d\n", __FP_IEEE + 0);
+    } else {
+        strcat(buffer, "__FP_IEEE\n");
+    }
+#endif
+
+
+#ifdef _HARD_FLOAT
+    if ( (_HARD_FLOAT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_HARD_FLOAT\t\t\t => %d\n", _HARD_FLOAT + 0);
+    } else {
+        strcat(buffer, "_HARD_FLOAT\n");
+    }
+#endif
+
+
+#ifdef __INLINE_8087
+    if ( (__INLINE_8087 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__INLINE_8087\t\t => %d\n", __INLINE_8087 + 0);
+    } else {
+        strcat(buffer, "__INLINE_8087\n");
+    }
+#endif
+
 
 #ifdef __LONGDOUBLE64
     if ( (__LONGDOUBLE64 + 1) > 1) {
@@ -8405,6 +8510,41 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+#ifdef __MATH__
+    if ( (__MATH__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MATH__\t\t\t => %d\n", __MATH__ + 0);
+    } else {
+        strcat(buffer, "__MATH__\n");
+    }
+#endif
+
+
+#ifdef __NO_FPRS__
+    if ( (__NO_FPRS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__NO_FPRS__\t\t\t => %d\n", __NO_FPRS__ + 0);
+    } else {
+        strcat(buffer, "__NO_FPRS__\n");
+    }
+#endif
+
+
+#ifdef _SOFT_FLOAT
+    if ( (_SOFT_FLOAT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SOFT_FLOAT\t\t\t => %d\n", _SOFT_FLOAT + 0);
+    } else {
+        strcat(buffer, "_SOFT_FLOAT\n");
+    }
+#endif
+
+/* used by ARM CC with EDG frontend */
+#ifdef __SOFTFP__
+    if ( (__SOFTFP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SOFTFP__\t\t\t => %d\n", __SOFTFP__ + 0);
+    } else {
+        strcat(buffer, "__SOFTFP__\n");
+    }
+#endif
 
 
 /* ################### */

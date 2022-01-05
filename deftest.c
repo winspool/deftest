@@ -5043,6 +5043,91 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __amigaos__
+    if ( (__amigaos__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__amigaos__\t\t => %d\n", __amigaos__ + 0);
+    } else {
+        strcat(buffer, "__amigaos__\n");
+    }
+#endif
+#ifdef AMIGA
+    if ( (AMIGA + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "AMIGA\t\t => %d\n", AMIGA + 0);
+    } else {
+        strcat(buffer, "AMIGA\n");
+    }
+#endif
+#ifdef _AMIGA
+    if ( (_AMIGA + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_AMIGA\t\t => %d\n", _AMIGA + 0);
+    } else {
+        strcat(buffer, "_AMIGA\n");
+    }
+#endif
+#ifdef _AMIGA_
+    if ( (_AMIGA_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_AMIGA_\t\t => %d\n", _AMIGA_ + 0);
+    } else {
+        strcat(buffer, "_AMIGA_\n");
+    }
+#endif
+#ifdef __AMIGA
+    if ( (__AMIGA + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AMIGA\t\t => %d\n", __AMIGA + 0);
+    } else {
+        strcat(buffer, "__AMIGA\n");
+    }
+#endif
+#ifdef __AMIGA__
+    if ( (__AMIGA__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AMIGA__\t\t => %d\n", __AMIGA__ + 0);
+    } else {
+        strcat(buffer, "__AMIGA__\n");
+    }
+#endif
+
+/* ### Android ### */
+
+/* checked in stb/whereami */
+#ifdef ANDROID
+    if ( (ANDROID   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "ANDROID  \t => %d\n", ANDROID   + 0);
+    } else {
+        strcat(buffer, "ANDROID\n");
+    }
+#endif
+#ifdef _ANDROID
+    if ( (_ANDROID   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ANDROID  \t => %d\n", _ANDROID   + 0);
+    } else {
+        strcat(buffer, "ANDROID\n");
+    }
+#endif
+#ifdef _ANDROID_
+    if ( (_ANDROID_   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ANDROID_  \t => %d\n", _ANDROID_   + 0);
+    } else {
+        strcat(buffer, "_ANDROID_\n");
+    }
+#endif
+#ifdef __ANDROID
+    if ( (__ANDROID   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ANDROID  \t => %d\n", __ANDROID   + 0);
+    } else {
+        strcat(buffer, "__ANDROID\n");
+    }
+#endif
+
+/* checked in stb/whereami */
+#ifdef __ANDROID__
+    if ( (__ANDROID__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ANDROID__  \t => %d\n", __ANDROID__   + 0);
+    } else {
+        strcat(buffer, "__ANDROID__\n");
+    }
+#endif
+
+
 
 /* APPLE */
 #ifdef APPLE
@@ -5080,6 +5165,41 @@ char *get_txt(char * buffer)
         strcat(buffer, "__APPLE__\n");
     }
 #endif
+
+
+/* BEOS */
+#ifdef __BEOS__
+    if ( (__BEOS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__BEOS__\t\t => %d\n", __BEOS__ + 0);
+    } else {
+        strcat(buffer, "__BEOS__\n");
+    }
+#endif
+#ifdef bsdi
+    if ( (bsdi + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "bsdi\t\t => %d\n", bsdi + 0);
+    } else {
+        strcat(buffer, "bsdi\n");
+    }
+#endif
+#ifdef __bsdi__
+    if ( (__bsdi__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__bsdi__\t\t => %d\n", __bsdi__ + 0);
+    } else {
+        strcat(buffer, "__bsdi__\n");
+    }
+#endif
+
+
+
+#ifdef _CRAY
+    if ( (_CRAY + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_CRAY\t\t => %d\n", _CRAY + 0);
+    } else {
+        strcat(buffer, "_CRAY\n");
+    }
+#endif
+
 
 /* ## DOS ## */
 #ifdef DOS
@@ -5122,8 +5242,59 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* DOS16RM:  16bit DOS extender */
+#ifdef DOS16RM
+    if ( (DOS16RM  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "DOS16RM \t\t => %d\n", DOS16RM  + 0);
+    } else {
+        strcat(buffer, "DOS16RM\n");
+    }
+#endif
+
+/*  The DOS386 DOS extender */
+#ifdef DOS386
+    if ( (DOS386  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "DOS386 \t\t => %d\n", DOS386  + 0);
+    } else {
+        strcat(buffer, "DOS386\n");
+    }
+#endif
+
+
+#ifdef DGUX
+    if ( (DGUX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "DGUX\t => %d\n", DGUX + 0);
+    } else {
+        strcat(buffer, "DGUX\n");
+    }
+#endif
+
+#ifdef __DGUX__
+    if ( (__DGUX__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DGUX__\t => %d\n", __DGUX__ + 0);
+    } else {
+        strcat(buffer, "__DGUX__\n");
+    }
+#endif
+
+#ifdef __dgux__
+    if ( (__dgux__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__dgux__\t => %d\n", __dgux__ + 0);
+    } else {
+        strcat(buffer, "__dgux__\n");
+    }
+#endif
+
+
 /* ToDo: DragonFly */
 
+#ifdef __DragonFly__
+    if ( (__DragonFly__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DragonFly__\t => %d\n", __DragonFly__ + 0);
+    } else {
+        strcat(buffer, "__DragonFly__\n");
+    }
+#endif
 
 #ifdef FreeBSD
     if ( (FreeBSD + 1) > 1) {
@@ -5165,7 +5336,16 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef __FreeBSD_kernel__
+    if ( (__FreeBSD_kernel__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FreeBSD_kernel__ \t\t => %d\n", __FreeBSD_kernel__ + 0);
+    } else {
+        strcat(buffer, "__FreeBSD_kernel__\n");
+    }
+#endif
 
+
+/* __HOS_*__ is used by ibmcpp */
 #ifdef __HOS_AIX__
     if ( (__HOS_AIX__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__HOS_AIX__\t\t => %d\n", __HOS_AIX__ + 0);
@@ -5200,6 +5380,40 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+
+#ifdef hpux
+    if ( (hpux + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "hpux\t => %d\n", hpux + 0);
+    } else {
+        strcat(buffer, "hpux\n");
+    }
+#endif
+
+#ifdef __hpux
+    if ( (__hpux + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__hpux\t => %d\n", __hpux + 0);
+    } else {
+        strcat(buffer, "__hpux\n");
+    }
+#endif
+
+#ifdef _HPUX_SOURCE
+    if ( (_HPUX_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_HPUX_SOURCE\t => %d\n", _HPUX_SOURCE + 0);
+    } else {
+        strcat(buffer, "_HPUX_SOURCE\n");
+    }
+#endif
+
+/* GNU: HURD */
+#ifdef __GNU__
+    if ( (__GNU__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__GNU__\t => %d\n", __GNU__ + 0);
+    } else {
+        strcat(buffer, "__GNU__\n");
+    }
+#endif
 
 
 #ifdef i386BSD
@@ -5318,10 +5532,32 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef __gnu_linux__
+    if ( (__gnu_linux__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__gnu_linux__\t\t => %d\n", __gnu_linux__ + 0);
+    } else {
+        strcat(buffer, "__gnu_linux__\n");
+    }
+#endif
 
 
 
-/* MACOS */
+/* Apple Macintosh / MACOS */
+#ifdef macintosh
+    if ( (macintosh   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "macintosh  \t\t => %d\n", macintosh   + 0);
+    } else {
+        strcat(buffer, "macintosh\n");
+    }
+#endif
+#ifdef Macintosh
+    if ( (Macintosh   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "Macintosh  \t\t => %d\n", Macintosh   + 0);
+    } else {
+        strcat(buffer, "Macintosh\n");
+    }
+#endif
+
 #ifdef MACOS
     if ( (MACOS   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "MACOS  \t\t => %d\n", MACOS   + 0);
@@ -5357,7 +5593,34 @@ char *get_txt(char * buffer)
         strcat(buffer, "__MACOS__\n");
     }
 #endif
+#ifdef __MACOSX__
+    if ( (__MACOSX__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MACOSX__  \t\t => %d\n", __MACOSX__   + 0);
+    } else {
+        strcat(buffer, "__MACOSX__\n");
+    }
+#endif
 
+
+/* what is mpeix? */
+#ifdef mpeix
+    if ( (mpeix   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "mpeix  \t\t => %d\n", mpeix   + 0);
+    } else {
+        strcat(buffer, "mpeix\n");
+    }
+#endif
+#ifdef __mpexl
+    if ( (__mpexl   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__mpexl  \t\t => %d\n", __mpexl   + 0);
+    } else {
+        strcat(buffer, "__mpexl\n");
+    }
+#endif
+
+
+
+/* More MSDOS / __MSDOS__ / _MSDOS / __DOS__ */
 
 #ifdef MSDOS
     if ( (MSDOS    + 1) > 1) {
@@ -5411,7 +5674,7 @@ char *get_txt(char * buffer)
 
 
 
-
+/* __NetBSD__ */
 #ifdef NetBSD
     if ( (NetBSD + 1) > 1) {
         sprintf(buffer + strlen(buffer), "NetBSD \t\t => %d\n", NetBSD + 0);
@@ -5453,6 +5716,7 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* Target is WIndows NT or WIn32s. obsolete. replaced by _WIN32 */
 #ifdef __NT__
     if ( (__NT__   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__NT__\t\t\t => %d\n", __NT__   + 0);
@@ -5503,7 +5767,36 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* ## OS2 ## */
+/* ## OS2 / _OS2 / __OS2__ / __TOS_OS2__ ## */
+#ifdef OS2
+    if ( (OS2  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "OS2 \t\t\t => %d\n", OS2  + 0);
+    } else {
+        strcat(buffer, "OS2\n");
+    }
+#endif
+#ifdef _OS2
+    if ( (_OS2  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_OS2 \t\t => %d\n", _OS2  + 0);
+    } else {
+        strcat(buffer, "_OS2\n");
+    }
+#endif
+#ifdef _OS2_
+    if ( (_OS2_  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_OS2_ \t\t => %d\n", _OS2_  + 0);
+    } else {
+        strcat(buffer, "_OS2_\n");
+    }
+#endif
+#ifdef __OS2
+    if ( (__OS2  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OS2 \t\t => %d\n", __OS2  + 0);
+    } else {
+        strcat(buffer, "__OS2\n");
+    }
+#endif
+
 #ifdef __OS2__
     if ( (__OS2__  + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__OS2__ \t\t => %d\n", __OS2__  + 0);
@@ -5511,7 +5804,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__OS2__\n");
     }
 #endif
-
 #ifdef __OS2V2__
     if ( (__OS2V2__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__OS2V2__\t\t => %d\n", __OS2V2__ + 0);
@@ -5522,12 +5814,118 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __osf
+    if ( (__osf  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__osf \t\t => %d\n", __osf  + 0);
+    } else {
+        strcat(buffer, "__osf\n");
+    }
+#endif
+#ifdef __osf__
+    if ( (__osf__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__osf__ \t\t => %d\n", __osf__  + 0);
+    } else {
+        strcat(buffer, "__osf__\n");
+    }
+#endif
 
 
+/*  __QNX__  / __QNXNTO__ */
+#ifdef __QNX__
+    if ( (__QNX__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__QNX__ \t\t => %d\n", __QNX__  + 0);
+    } else {
+        strcat(buffer, "__QNX__\n");
+    }
+#endif
+#ifdef __QNXNTO__
+    if ( (__QNXNTO__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__QNXNTO__ \t\t => %d\n", __QNXNTO__  + 0);
+    } else {
+        strcat(buffer, "__QNXNTO__\n");
+    }
+#endif
 
 
+/* SUNOS / SOLARIS */
+#ifdef sun
+    if ( (sun  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "sun \t\t => %d\n", sun  + 0);
+    } else {
+        strcat(buffer, "sun\n");
+    }
+#endif
+
+/* checked in stb/whereami */
+#ifdef __sun__
+    if ( (__sun__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sun__ \t\t => %d\n", __sun__  + 0);
+    } else {
+        strcat(buffer, "__sun__\n");
+    }
+#endif
 
 
+/* SGI: IRIX  */
+#ifdef sgi
+    if ( (sgi + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "sgi\t => %d\n", sgi + 0);
+    } else {
+        strcat(buffer, "sgi\n");
+    }
+#endif
+
+#ifdef __sgi
+    if ( (__sgi + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sgi\t => %d\n", __sgi + 0);
+    } else {
+        strcat(buffer, "__sgi\n");
+    }
+#endif
+
+
+/* SUN / SUNOS */
+#ifdef __SVR4
+    if ( (__SVR4  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SVR4 \t\t => %d\n", __SVR4  + 0);
+    } else {
+        strcat(buffer, "__SVR4\n");
+    }
+#endif
+#ifdef __svr4__
+    if ( (__svr4__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__svr4__ \t\t => %d\n", __svr4__  + 0);
+    } else {
+        strcat(buffer, "__svr4__\n");
+    }
+#endif
+
+/* __SYMBIAMN32__  */
+#ifdef __SYMBIAN32__
+    if ( (__SYMBIAN32__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SYMBIAN32__ \t\t => %d\n", __SYMBIAN32__  + 0);
+    } else {
+        strcat(buffer, "__SYMBIAN32__\n");
+    }
+#endif
+
+
+#ifdef __SYSTYPE_BSD
+    if ( (__SYSTYPE_BSD  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SYSTYPE_BSD \t\t => %d\n", __SYSTYPE_BSD  + 0);
+    } else {
+        strcat(buffer, "__SYSTYPE_BSD\n");
+    }
+#endif
+#ifdef _SYSTYPE_SVR4
+    if ( (_SYSTYPE_SVR4  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SYSTYPE_SVR4 \t\t => %d\n", _SYSTYPE_SVR4  + 0);
+    } else {
+        strcat(buffer, "_SYSTYPE_SVR4\n");
+    }
+#endif
+
+/* probably used by ibmcpp */
 #ifdef __TOS_AIX__
     if ( (__TOS_AIX__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__TOS_AIX__\t\t => %d\n", __TOS_AIX__ + 0);
@@ -5544,8 +5942,6 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-
 #ifdef __TOS_OS2__
     if ( (__TOS_OS2__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__TOS_OS2__\t\t => %d\n", __TOS_OS2__ + 0);
@@ -5561,6 +5957,86 @@ char *get_txt(char * buffer)
         strcat(buffer, "__TOS_WIN__\n");
     }
 #endif
+
+
+
+/* ARM in thumb mode */
+#ifdef __THUMB__
+    if ( (__THUMB__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__THUMB__ \t\t => %d\n", __THUMB__ + 0);
+    } else {
+        strcat(buffer, "__THUMB__\n");
+    }
+#endif
+
+#ifdef __thumb__
+    if ( (__thumb__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__thumb__ \t\t => %d\n", __thumb__ + 0);
+    } else {
+        strcat(buffer, "__thumb__\n");
+    }
+#endif
+#ifdef __thumb2__
+    if ( (__thumb2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__thumb2__ \t\t => %d\n", __thumb2__ + 0);
+    } else {
+        strcat(buffer, "__thumb2__\n");
+    }
+#endif
+
+
+/* ARM in thumb - little endian mode */
+#ifdef __THUMBEL__
+    if ( (__THUMBEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__THUMBEL__ \t\t => %d\n", __THUMBEL__ + 0);
+    } else {
+        strcat(buffer, "__THUMBEL__\n");
+    }
+#endif
+
+
+/* ARM in thumb - big endian mode */
+#ifdef __THUMBEB__
+    if ( (__THUMBEB__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__THUMBEB__ \t\t => %d\n", __THUMBEB__ + 0);
+    } else {
+        strcat(buffer, "__THUMBEB__\n");
+    }
+#endif
+
+
+/* ultrix / __ultrix / __ultrix__ */
+#ifdef ultrix
+    if ( (ultrix  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "ultrix \t\t => %d\n", ultrix  + 0);
+    } else {
+        strcat(buffer, "ultrix\n");
+    }
+#endif
+#ifdef __ultrix
+    if ( (__ultrix  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ultrix \t\t => %d\n", __ultrix  + 0);
+    } else {
+        strcat(buffer, "__ultrix\n");
+    }
+#endif
+#ifdef __ultrix__
+    if ( (__ultrix__  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ultrix__ \t\t => %d\n", __ultrix__  + 0);
+    } else {
+        strcat(buffer, "__ultrix__\n");
+    }
+#endif
+
+/* also CRAY */
+#ifdef _UNICOS
+    if ( (_UNICOS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_UNICOS\t\t => %d\n", _UNICOS + 0);
+    } else {
+        strcat(buffer, "_UNICOS\n");
+    }
+#endif
+
 
 /* ## unix ## */
 #ifdef unix
@@ -5637,8 +6113,25 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* VMS */
+#ifdef VMS
+    if ( (VMS  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "VMS \t\t => %d\n", VMS  + 0);
+    } else {
+        strcat(buffer, "VMS\n");
+    }
+#endif
+#ifdef __VMS
+    if ( (__VMS  + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__VMS \t\t => %d\n", __VMS  + 0);
+    } else {
+        strcat(buffer, "__VMS\n");
+    }
+#endif
 
 
+/* Windows target */
+/* _WIN32 target (NT win9x or win32s */
 #ifdef WIN32
     if ( (WIN32   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "WIN32\t\t\t => %d\n", WIN32   + 0);
@@ -5647,6 +6140,8 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/*  _WIN32 target (NT win9x or win32s) */
+/* used by clang */
 #ifdef _WIN32
     if ( (_WIN32   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_WIN32\t\t\t => %d\n", _WIN32   + 0);
@@ -5678,7 +6173,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__WIN32__\n");
     }
 #endif
-
 
 
 /* win CE */
@@ -5772,18 +6266,19 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-/* WIN64, WIN32, Win CE */
+/* WIN64 */
 #ifdef WIN64
     if ( (WIN64 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "WIN64 \t\t => %d\n", WIN64 + 0);
+        sprintf(buffer + strlen(buffer), "WIN64\t\t\t => %d\n", WIN64 + 0);
     } else {
         strcat(buffer, "WIN64\n");
     }
 #endif
+
+/* used by BCC */
 #ifdef _WIN64
     if ( (_WIN64 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_WIN64 \t\t => %d\n", _WIN64 + 0);
+        sprintf(buffer + strlen(buffer), "_WIN64\t\t\t => %d\n", _WIN64 + 0);
     } else {
         strcat(buffer, "_WIN64\n");
     }
@@ -5811,6 +6306,17 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* creating a windows dll */
+#ifdef _WINDLL
+    if ( (_WINDLL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_WINDLL \t\t => %d\n", _WINDLL + 0);
+    } else {
+        strcat(buffer, "_WINDLL\n");
+    }
+#endif
+
+
+/* creating a WINDOWS executable */
 #ifdef WINDOWS
     if ( (WINDOWS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "WINDOWS\t\t => %d\n", WINDOWS + 0);
@@ -5861,9 +6367,6 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-
-
 /* WinNT */
 #ifdef WINNT
     if ( (WINNT   + 1) > 1) {
@@ -5883,7 +6386,7 @@ char *get_txt(char * buffer)
 
 #ifdef _WINNT_
     if ( (_WINNT_   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_WINNT_\t\t\t => %d\n", _WINNT_   + 0);
+        sprintf(buffer + strlen(buffer), "_WINNT_\t\t => %d\n", _WINNT_   + 0);
     } else {
         strcat(buffer, "_WINNT_\n");
     }

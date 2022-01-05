@@ -7171,6 +7171,13 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef __OPTIMIZE_LEVEL__
+    if ( (__OPTIMIZE_LEVEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OPTIMIZE_LEVEL__ => %d\n", __OPTIMIZE_LEVEL__ + 0);
+    } else {
+        strcat(buffer, "__OPTIMIZE_LEVEL__\n");
+    }
+#endif
 
 #ifdef OPTIMIZE_SIZE
     if ( (OPTIMIZE_SIZE + 1) > 1) {
@@ -7245,6 +7252,14 @@ char *get_txt(char * buffer)
 
 /* ################### */
 /* target format */
+/* multithreeded */
+#ifdef _MD
+    if ( (_MD + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MD \t\t => %d\n", _MD + 0);
+    } else {
+        strcat(buffer, "_MD\n");
+    }
+#endif
 #ifdef _MT
     if ( (_MT + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_MT \t\t => %d\n", _MT + 0);
@@ -7252,6 +7267,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "_MT\n");
     }
 #endif
+/* used by BCC */
+#ifdef __MT__
+    if ( (__MT__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MT__ \t\t => %d\n", __MT__ + 0);
+    } else {
+        strcat(buffer, "__MT__\n");
+    }
+#endif
+
+
 
 #ifdef _OPENMP
     if ( (_OPENMP + 1) > 1) {
@@ -7278,6 +7303,30 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __ASSEMBLY__
+    if ( (__ASSEMBLY__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ASSEMBLY__\t => %d\n", __ASSEMBLY__ + 0);
+    } else {
+        strcat(buffer, "__ASSEMBLY__\n");
+    }
+#endif
+
+/* checked in musl for powerpc64 */
+#ifdef _CALL_ELF
+    if ( (_CALL_ELF + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_CALL_ELF\t\t\t => %d\n", _CALL_ELF + 0);
+    } else {
+        strcat(buffer, "_CALL_ELF\n");
+    }
+#endif
+#ifdef _CALL_ELF
+    if ( (_CALL_ELF + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_CALL_ELF\t\t\t => %d\n", _CALL_ELF + 0);
+    } else {
+        strcat(buffer, "_CALL_ELF\n");
+    }
+#endif
+
 
 #ifdef DLL
     if ( (DLL + 1) > 1) {
@@ -7286,6 +7335,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "DLL\n");
     }
 #endif
+
+/* RTL used is a DLL (otherwise a static runtime is in use) */
 #ifdef _DLL
     if ( (_DLL + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_DLL \t\t => %d\n", _DLL + 0);
@@ -7315,43 +7366,22 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-#ifdef SHARED
-    if ( (SHARED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "SHARED \t\t => %d\n", SHARED + 0);
+/* used in diet.c */
+#ifdef __DYN_LIB
+    if ( (__DYN_LIB + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DYN_LIB \t\t => %d\n", __DYN_LIB + 0);
     } else {
-        strcat(buffer, "SHARED\n");
-    }
-#endif
-#ifdef _SHARED
-    if ( (_SHARED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_SHARED \t\t => %d\n", _SHARED + 0);
-    } else {
-        strcat(buffer, "_SHARED\n");
-    }
-#endif
-#ifdef _SHARED_
-    if ( (_SHARED_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_SHARED_ \t\t => %d\n", _SHARED_ + 0);
-    } else {
-        strcat(buffer, "_SHARED_\n");
-    }
-#endif
-#ifdef __SHARED
-    if ( (__SHARED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__SHARED \t\t => %d\n", __SHARED + 0);
-    } else {
-        strcat(buffer, "__SHARED\n");
-    }
-#endif
-#ifdef __SHARED__
-    if ( (__SHARED__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__SHARED__ \t\t => %d\n", __SHARED__ + 0);
-    } else {
-        strcat(buffer, "__SHARED__\n");
+        strcat(buffer, "__DYN_LIB\n");
     }
 #endif
 
+#ifdef _DYNAMIC
+    if ( (_DYNAMIC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_DYNAMIC \t\t => %d\n", _DYNAMIC + 0);
+    } else {
+        strcat(buffer, "_DYNAMIC\n");
+    }
+#endif
 
 
 /* ## ELF ## */
@@ -7395,6 +7425,114 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__ELF__\t\t\t => %d\n", __ELF__ + 0);
     } else {
         strcat(buffer, "__ELF__\n");
+    }
+#endif
+
+
+/* ### pic / PIE ### */
+#ifdef __pic__
+    if ( (__pic__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pic__\t\t\t => %d\n", __pic__ + 0);
+    } else {
+        strcat(buffer, "__pic__\n");
+    }
+#endif
+#ifdef __PIC__
+    if ( (__PIC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__PIC__\t\t\t => %d\n", __PIC__ + 0);
+    } else {
+        strcat(buffer, "__PIC__\n");
+    }
+#endif
+
+
+#ifdef __pie__
+    if ( (__pie__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pie__\t\t\t => %d\n", __pie__ + 0);
+    } else {
+        strcat(buffer, "__pie__\n");
+    }
+#endif
+#ifdef __PIE__
+    if ( (__PIE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__PIE__\t\t\t => %d\n", __PIE__ + 0);
+    } else {
+        strcat(buffer, "__PIE__\n");
+    }
+#endif
+
+
+/* compiling as shared / static library/program */
+#ifdef SHARED
+    if ( (SHARED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "SHARED \t\t => %d\n", SHARED + 0);
+    } else {
+        strcat(buffer, "SHARED\n");
+    }
+#endif
+#ifdef _SHARED
+    if ( (_SHARED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SHARED \t\t => %d\n", _SHARED + 0);
+    } else {
+        strcat(buffer, "_SHARED\n");
+    }
+#endif
+#ifdef _SHARED_
+    if ( (_SHARED_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_SHARED_ \t\t => %d\n", _SHARED_ + 0);
+    } else {
+        strcat(buffer, "_SHARED_\n");
+    }
+#endif
+#ifdef __SHARED
+    if ( (__SHARED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SHARED \t\t => %d\n", __SHARED + 0);
+    } else {
+        strcat(buffer, "__SHARED\n");
+    }
+#endif
+#ifdef __SHARED__
+    if ( (__SHARED__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SHARED__ \t\t => %d\n", __SHARED__ + 0);
+    } else {
+        strcat(buffer, "__SHARED__\n");
+    }
+#endif
+
+
+#ifdef STATIC
+    if ( (STATIC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "STATIC \t\t => %d\n", STATIC + 0);
+    } else {
+        strcat(buffer, "STATIC\n");
+    }
+#endif
+#ifdef _STATIC
+    if ( (_STATIC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STATIC \t\t => %d\n", _STATIC + 0);
+    } else {
+        strcat(buffer, "_STATIC\n");
+    }
+#endif
+#ifdef _STATIC_
+    if ( (_STATIC_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STATIC_ \t\t => %d\n", _STATIC_ + 0);
+    } else {
+        strcat(buffer, "_STATIC_\n");
+    }
+#endif
+#ifdef __STATIC
+    if ( (__STATIC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STATIC \t\t => %d\n", __STATIC + 0);
+    } else {
+        strcat(buffer, "__STATIC\n");
+    }
+#endif
+#ifdef __STATIC__
+    if ( (__STATIC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STATIC__ \t\t => %d\n", __STATIC__ + 0);
+    } else {
+        strcat(buffer, "__STATIC__\n");
     }
 #endif
 

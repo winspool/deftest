@@ -8385,8 +8385,7 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-/* ################### */
+/* ############# */
 /* memory modell */
 #ifdef TINY
     if ( (TINY + 1) > 1) {
@@ -8412,7 +8411,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
+/* small memory model */
 #ifdef SMALL
     if ( (SMALL + 1) > 1) {
         sprintf(buffer + strlen(buffer), "SMALL\t\t\t => %d\n", SMALL + 0);
@@ -8437,6 +8436,14 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* medium memory model */
+#ifdef _MEDIUM
+    if ( (_MEDIUM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MEDIUM\t\t => %d\n", _MEDIUM + 0);
+    } else {
+        strcat(buffer, "_MEDIUM\n");
+    }
+#endif
 #ifdef __MEDIUM__
     if ( (__MEDIUM__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MEDIUM__\t\t => %d\n", __MEDIUM__ + 0);
@@ -8445,6 +8452,8 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* compact memory model */
 #ifdef __COMPACT__
     if ( (__COMPACT__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__COMPACT__\t\t => %d\n", __COMPACT__ + 0);
@@ -8453,7 +8462,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
+/* large memory model */
 #ifdef __LARGE__
     if ( (__LARGE__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__LARGE__\t\t => %d\n", __LARGE__ + 0);
@@ -8462,6 +8471,14 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* huge memory model */
+#ifdef __huge
+    if ( (__huge + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__huge\t\t => %d\n", __huge + 0);
+    } else {
+        strcat(buffer, "__huge\n");
+    }
+#endif
 #ifdef __HUGE__
     if ( (__HUGE__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__HUGE__\t\t => %d\n", __HUGE__ + 0);
@@ -8470,6 +8487,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
 #ifdef __FLAT__
     if ( (__FLAT__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__FLAT__\t\t => %d\n", __FLAT__ + 0);
@@ -8477,6 +8495,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "__FLAT__\n");
     }
 #endif
+
+/* VCM memory model */
+#ifdef __VCM__
+    if ( (__VCM__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__VCM__\t\t => %d\n", __VCM__ + 0);
+    } else {
+        strcat(buffer, "__VCM__\n");
+    }
+#endif
+
 
 /* ################### */
 /* calling convention */

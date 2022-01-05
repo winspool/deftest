@@ -7209,6 +7209,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* armcc from keil */
+#ifdef __OPTIMIZE_LEVEL
+    if ( (__OPTIMIZE_LEVEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OPTIMIZE_LEVEL => %d\n", __OPTIMIZE_LEVEL + 0);
+    } else {
+        strcat(buffer, "__OPTIMIZE_LEVEL\n");
+    }
+#endif
+
 #ifdef __OPTIMIZE_LEVEL__
     if ( (__OPTIMIZE_LEVEL__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__OPTIMIZE_LEVEL__ => %d\n", __OPTIMIZE_LEVEL__ + 0);
@@ -7250,6 +7259,23 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__OPTIMIZE_SIZE__ \t => %d\n", __OPTIMIZE_SIZE__ + 0);
     } else {
         strcat(buffer, "__OPTIMIZE_SIZE__\n");
+    }
+#endif
+
+/* armcc from keil */
+#ifdef __OPTIMIZE_SPACE
+    if ( (__OPTIMIZE_SPACE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OPTIMIZE_SPACE => %d\n", __OPTIMIZE_SPACE + 0);
+    } else {
+        strcat(buffer, "__OPTIMIZE_SPACE\n");
+    }
+#endif
+/* armcc from keil */
+#ifdef __OPTIMIZE_TIME
+    if ( (__OPTIMIZE_TIME + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OPTIMIZE_TIME => %d\n", __OPTIMIZE_TIME + 0);
+    } else {
+        strcat(buffer, "__OPTIMIZE_TIME\n");
     }
 #endif
 

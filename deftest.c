@@ -7216,40 +7216,6 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-/* stack protector */
-#ifdef __SSP__
-    if ( (__SSP__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__SSP__\t\t\t => %d\n", __SSP__ + 0);
-    } else {
-        strcat(buffer, "__SSP__\n");
-    }
-#endif
-#ifdef __SSP_ALL__
-    if ( (__SSP_ALL__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__SSP_ALL__\t\t => %d\n", __SSP_ALL__ + 0);
-    } else {
-        strcat(buffer, "__SSP_ALL__\n");
-    }
-#endif
-
-/* exceptions */
-#ifdef __EXCEPTIONS
-    if ( (__EXCEPTIONS + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__EXCEPTIONS\t\t => %d\n", __EXCEPTIONS + 0);
-    } else {
-        strcat(buffer, "__EXCEPTIONS\n");
-    }
-#endif
-#ifdef __USING_SJLJ_EXCEPTIONS__
-    if ( (__USING_SJLJ_EXCEPTIONS__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__USING_SJLJ_EXCEPTIONS__=> %d\n", __USING_SJLJ_EXCEPTIONS__ + 0);
-    } else {
-        strcat(buffer, "__USING_SJLJ_EXCEPTIONS__\n");
-    }
-#endif
-
-
 /* ################### */
 /* target format */
 /* multithreeded */

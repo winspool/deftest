@@ -8547,6 +8547,121 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* more math limits. builtins or from float.h */
+#ifdef __DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__DECIMAL_DIG__\t\t => %d\n", __DECIMAL_DIG__);
+#endif
+
+
+#ifdef __FLT_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT_DECIMAL_DIG__\t => %d\n", __FLT_DECIMAL_DIG__);
+#endif
+#ifdef FLT_DIG
+    sprintf(buffer+strlen(buffer), "FLT_DIG\t\t => %d\n", FLT_DIG);
+#endif
+#ifdef __FLT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT_DIG__\t\t => %d\n", __FLT_DIG__);
+#endif
+#ifdef __FLT_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT_MANT_DIG__ \t => %d\n", __FLT_MANT_DIG__);
+#endif
+
+
+
+#ifdef __DBL_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__DBL_DECIMAL_DIG__\t => %d\n", __DBL_DECIMAL_DIG__);
+#endif
+#ifdef DBL_DIG
+    sprintf(buffer+strlen(buffer), "DBL_DIG\t\t => %d\n", DBL_DIG);
+#endif
+#ifdef __DBL_DIG__
+    sprintf(buffer+strlen(buffer), "__DBL_DIG__\t\t => %d\n", __DBL_DIG__);
+#endif
+
+#ifdef __DBL_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__DBL_MANT_DIG__ \t => %d\n", __DBL_MANT_DIG__);
+#endif
+
+
+#ifdef __LDBL_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__LDBL_DECIMAL_DIG__\t => %d\n", __LDBL_DECIMAL_DIG__);
+#endif
+#ifdef LDBL_DIG
+    sprintf(buffer+strlen(buffer), "LDBL_DIG\t\t => %d\n", LDBL_DIG);
+#endif
+#ifdef __LDBL_DIG__
+    sprintf(buffer+strlen(buffer), "__LDBL_DIG__\t\t => %d\n", __LDBL_DIG__);
+#endif
+#ifdef __LDBL_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__LDBL_MANT_DIG__ \t => %d\n", __LDBL_MANT_DIG__);
+#endif
+
+
+/* additional float sizes */
+#ifdef __FLT16_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT16_DECIMAL_DIG__\t => %d\n", __FLT16_DECIMAL_DIG__);
+#endif
+#ifdef __FLT16_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT16_DIG__\t\t => %d\n", __FLT16_DIG__);
+#endif
+#ifdef __FLT16_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT16_MANT_DIG__\t => %d\n", __FLT16_MANT_DIG__);
+#endif
+
+#ifdef __FLT32_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32_DECIMAL_DIG__\t => %d\n", __FLT32_DECIMAL_DIG__);
+#endif
+#ifdef __FLT32_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32_DIG__\t\t => %d\n", __FLT32_DIG__);
+#endif
+#ifdef __FLT32_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32_MANT_DIG__\t => %d\n", __FLT32_MANT_DIG__);
+#endif
+
+
+#ifdef __FLT32X_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32X_DECIMAL_DIG__\t => %d\n", __FLT32X_DECIMAL_DIG__);
+#endif
+#ifdef __FLT32X_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32X_DIG__\t\t => %d\n", __FLT32X_DIG__);
+#endif
+#ifdef __FLT32X_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT32X_MANT_DIG__\t => %d\n", __FLT32X_MANT_DIG__);
+#endif
+
+
+#ifdef __FLT64_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64_DECIMAL_DIG__\t => %d\n", __FLT64_DECIMAL_DIG__);
+#endif
+#ifdef __FLT64_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64_DIG__ \t\t => %d\n", __FLT64_DIG__);
+#endif
+#ifdef __FLT64_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64_MANT_DIG__\t => %d\n", __FLT64_MANT_DIG__);
+#endif
+
+#ifdef __FLT64X_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64X_DECIMAL_DIG__\t => %d\n", __FLT64X_DECIMAL_DIG__);
+#endif
+#ifdef __FLT64X_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64X_DIG__\t\t => %d\n", __FLT64X_DIG__);
+#endif
+#ifdef __FLT64X_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT64X_MANT_DIG__\t => %d\n", __FLT64X_MANT_DIG__);
+#endif
+
+
+#ifdef __FLT128_DECIMAL_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT128_DECIMAL_DIG__\t => %d\n", __FLT128_DECIMAL_DIG__);
+#endif
+#ifdef __FLT128_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT128_DIG__\t\t => %d\n", __FLT128_DIG__);
+#endif
+#ifdef __FLT128_MANT_DIG__
+    sprintf(buffer+strlen(buffer), "__FLT128_MANT_DIG__\t => %d\n", __FLT128_MANT_DIG__);
+#endif
+
+
 /* ################### */
 /* types */
 

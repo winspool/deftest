@@ -8227,8 +8227,8 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__SIZEOF_PTRDIFF_T__\t => %d\n", __SIZEOF_PTRDIFF_T__);
 #endif
 
-
-/* maximun number of bits in the largest integral type */
+/* ####################### */
+/* maximun number of bits  */
 #ifdef _INTEGRAL_MAX_BITS
     sprintf(buffer+strlen(buffer), "_INTEGRAL_MAX_BITS\t => %d\n", _INTEGRAL_MAX_BITS);
 #endif
@@ -8256,6 +8256,109 @@ char *get_txt(char * buffer)
 #endif
 #ifdef __CHAR_BIT__
     sprintf(buffer+strlen(buffer), "__CHAR_BIT__\t\t => %d\n", __CHAR_BIT__);
+#endif
+
+#ifdef __BITS_PER_LONG
+    sprintf(buffer+strlen(buffer), "__BITS_PER_LONG\t => %d\n", __BITS_PER_LONG);
+#endif
+
+#ifdef WORD_BIT
+    sprintf(buffer+strlen(buffer), "WORD_BIT\t\t => %d\n", WORD_BIT);
+#endif
+#ifdef __WORD_BIT__
+    sprintf(buffer+strlen(buffer), "__WORD_BIT__\t\t => %d\n", __WORD_BIT__);
+#endif
+
+
+#ifdef INT_BIT
+    sprintf(buffer+strlen(buffer), "INT_BIT\t\t => %d\n", INT_BIT);
+#endif
+
+#ifdef LONG_BIT
+    sprintf(buffer+strlen(buffer), "LONG_BIT\t\t => %d\n", LONG_BIT);
+#endif
+
+/* width */
+#ifdef BOOL_WIDTH
+    sprintf(buffer+strlen(buffer), "BOOL_WIDTH\t\t => %d\n", BOOL_WIDTH);
+#endif
+#ifdef CHAR_WIDTH
+    sprintf(buffer+strlen(buffer), "CHAR_WIDTH\t\t => %d\n", CHAR_WIDTH);
+#endif
+#ifdef __CHAR_WIDTH__
+    sprintf(buffer+strlen(buffer), "__CHAR_WIDTH__\t\t => %d\n", __CHAR_WIDTH__);
+#endif
+#ifdef SCHAR_WIDTH
+    sprintf(buffer+strlen(buffer), "SCHAR_WIDTH\t\t => %d\n", SCHAR_WIDTH);
+#endif
+#ifdef __SCHAR_WIDTH__
+    sprintf(buffer+strlen(buffer), "__SCHAR_WIDTH__\t\t => %d\n", __SCHAR_WIDTH__);
+#endif
+#ifdef UCHAR_WIDTH
+    sprintf(buffer+strlen(buffer), "UCHAR_WIDTH\t\t => %d\n", UCHAR_WIDTH);
+#endif
+#ifdef SHRT_WIDTH
+    sprintf(buffer+strlen(buffer), "SHRT_WIDTH\t\t => %d\n", SHRT_WIDTH);
+#endif
+#ifdef WCHAR_WIDTH
+    sprintf(buffer+strlen(buffer), "WCHAR_WIDTH\t\t => %d\n", WCHAR_WIDTH);
+#endif
+#ifdef __WCHAR_WIDTH__
+    sprintf(buffer+strlen(buffer), "__WCHAR_WIDTH__\t\t => %d\n", __WCHAR_WIDTH__);
+#endif
+
+#ifdef INT_WIDTH
+    sprintf(buffer+strlen(buffer), "INT_WIDTH\t\t => %d\n", INT_WIDTH);
+ #endif
+
+#ifdef UINT_WIDTH
+    sprintf(buffer+strlen(buffer), "UINT_WIDTH\t\t => %d\n", UINT_WIDTH);
+#endif
+#ifdef WINT_WIDTH
+    sprintf(buffer+strlen(buffer), "WINT_WIDTH\t\t => %d\n", WINT_WIDTH);
+#endif
+#ifdef __WINT_WIDTH__
+    sprintf(buffer+strlen(buffer), "__WINT_WIDTH__\t\t => %d\n", __WINT_WIDTH__);
+#endif
+
+#ifdef LONG_WIDTH
+    sprintf(buffer+strlen(buffer), "LONG_WIDTH\t\t => %d\n", LONG_WIDTH);
+#endif
+
+#ifdef __LONG_WIDTH__
+    sprintf(buffer+strlen(buffer), "__LONG_WIDTH__\t\t => %d\n", __LONG_WIDTH__);
+#endif
+
+#ifdef ULONG_WIDTH
+    sprintf(buffer+strlen(buffer), "ULONG_WIDTH\t\t => %d\n", ULONG_WIDTH);
+#endif
+
+#ifdef LLONG_WIDTH
+    sprintf(buffer+strlen(buffer), "LLONG_WIDTH\t\t => %d\n", LLONG_WIDTH);
+#endif
+#ifdef __LONG_LONG_WIDTH__
+    sprintf(buffer+strlen(buffer), "__LONG_LONG_WIDTH__\t => %d\n", __LONG_LONG_WIDTH__);
+#endif
+
+#ifdef ULLONG_WIDTH
+    sprintf(buffer+strlen(buffer), "ULLONG_WIDTH\t\t => %d\n", ULLONG_WIDTH);
+#endif
+
+
+#ifdef __SIZE_WIDTH__
+    sprintf(buffer+strlen(buffer), "__SIZE_WIDTH__\t\t => %d\n", __SIZE_WIDTH__);
+#endif
+
+#ifdef __INTMAX_WIDTH__
+    sprintf(buffer+strlen(buffer), "__INTMAX_WIDTH__\t => %d\n", __INTMAX_WIDTH__);
+#endif
+
+#ifdef __INTPTR_WIDTH__
+    sprintf(buffer+strlen(buffer), "__INTPTR_WIDTH__\t => %d\n", __INTPTR_WIDTH__);
+#endif
+
+#ifdef __PTRDIFF_WIDTH__
+    sprintf(buffer+strlen(buffer), "__PTRDIFF_WIDTH__\t => %d\n", __PTRDIFF_WIDTH__);
 #endif
 
 

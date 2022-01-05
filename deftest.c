@@ -1275,6 +1275,16 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* armcc */
+#ifdef __CC_ARM
+    if ( (__CC_ARM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__CC_ARM\t\t => 0x%x\n", __CC_ARM + 0);
+    } else {
+        strcat(buffer, "__CC_ARM\n");
+    }
+#endif
+
+
 /*  NORCROFT C */
 #ifdef __CC_NORCROFT
     if ( (__CC_NORCROFT + 1) > 1) {
@@ -1455,22 +1465,35 @@ char *get_txt(char * buffer)
 /* ################### */
 /* compiler versions */
 
+/* armcc */
+#ifdef __ARMCC_VERSION
+    sprintf(buffer + strlen(buffer), "__ARMCC_VERSION\t\t => 0x%d (%d.%d)\n", __ARMCC_VERSION,
+        __ARMCC_VERSION /1000000, (__ARMCC_VERSION / 1000) % 100, __ARMCC_VERSION % 1000 );
+#endif
+
+/* an ARM compiler */
+#ifdef __ARMCOMPILER_VERSION
+    if ( (_ARMCOMPILER_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t => %s\n", _my_stringify( __ARMCOMPILER_VERSION ));
+        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t => %x\n", __ARMCOMPILER_VERSION + 0);
+    } else {
+        strcat(buffer, "__ARMCOMPILER_VERSION\n");
+    }
+#endif
+
+
+#ifdef __COMO_VERSION__
+    sprintf(buffer + strlen(buffer), "__COMO_VERSION__\t\t => 0x%d (%d.%d)\n",
+        __COMO_VERSION__, __COMO_VERSION__ /100, __COMO_VERSION__ % 100 );
+
+#endif
+
 /* for IBM z/OS XL X/C++ */
 #ifdef __COMPILER_VER__
     if ( (__COMPILER_VER__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__COMPILER_VER__\t\t => %x\n", __COMPILER_VER__ + 0);
     } else {
         strcat(buffer, "__COMPILER_VER__\n");
-    }
-#endif
-
-/* an ARM compiler */
-#ifdef __ARMCOMPILER_VERSION
-    if ( (_ARMCOMPILER_VERSION + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t\t => %s\n", _my_stringify( __ARMCOMPILER_VERSION ));
-        sprintf(buffer + strlen(buffer), "__ARMCOMPILER_VERSION\t\t => %x\n", __ARMCOMPILER_VERSION + 0);
-    } else {
-        strcat(buffer, "__ARMCOMPILER_VERSION\n");
     }
 #endif
 
@@ -8201,6 +8224,10 @@ char *get_txt(char * buffer)
 #ifdef __SIZEOF_WINT_T__
     sprintf(buffer+strlen(buffer), "__SIZEOF_WINT_T__\t => %d\n", __SIZEOF_WINT_T__);
 #endif
+/* used in armcc */
+#ifdef __sizeof_int
+    sprintf(buffer+strlen(buffer), "__sizeof_int  \t => %d\n", __sizeof_int);
+#endif
 #ifdef __SIZEOF_INT__
     sprintf(buffer+strlen(buffer), "__SIZEOF_INT__  \t => %d\n", __SIZEOF_INT__);
 #endif
@@ -8218,7 +8245,10 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__SIZEOF_INT128__  \t => %d\n", __SIZEOF_INT128__);
 #endif
 
-
+/* used in armcc */
+#ifdef __sizeof_long
+    sprintf(buffer+strlen(buffer), "__sizeof_long  \t => %d\n", __sizeof_long);
+#endif
 #ifdef __SIZEOF_LONG__
     sprintf(buffer+strlen(buffer), "__SIZEOF_LONG__  \t => %d\n", __SIZEOF_LONG__);
 #endif
@@ -8237,6 +8267,10 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__SIZEOF_LONG_LONG__\t => %d\n", __SIZEOF_LONG_LONG__);
 #endif
 
+/* used in armcc */
+#ifdef __sizeof_ptr
+    sprintf(buffer+strlen(buffer), "__sizeof_ptr  \t => %d\n", __sizeof_ptr);
+#endif
 #ifdef __SIZEOF_POINTER__
     sprintf(buffer+strlen(buffer), "__SIZEOF_POINTER__\t => %d\n", __SIZEOF_POINTER__);
 #endif

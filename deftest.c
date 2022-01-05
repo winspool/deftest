@@ -6959,14 +6959,14 @@ char *get_txt(char * buffer)
 
 #ifdef DEBUG
     if ( (DEBUG + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "DEBUG \t\t => %d\n", DEBUG + 0);
+        sprintf(buffer + strlen(buffer), "DEBUG \t\t\t => %d\n", DEBUG + 0);
     } else {
         strcat(buffer, "DEBUG\n");
     }
 #endif
 #ifdef _DEBUG
     if ( (_DEBUG + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_DEBUG \t\t => %d\n", _DEBUG + 0);
+        sprintf(buffer + strlen(buffer), "_DEBUG\t\t\t => %d\n", _DEBUG + 0);
     } else {
         strcat(buffer, "_DEBUG\n");
     }
@@ -6999,6 +6999,15 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__DEBUG_ALLOC__ \t\t => %d\n", __DEBUG_ALLOC__ + 0);
     } else {
         strcat(buffer, "__DEBUG_ALLOC__\n");
+    }
+#endif
+
+
+#ifdef _DEBUG_TRACE
+    if ( (_DEBUG_TRACE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_DEBUG_TRACE \t\t => %d\n", _DEBUG_TRACE + 0);
+    } else {
+        strcat(buffer, "_DEBUG_TRACE\n");
     }
 #endif
 
@@ -7078,9 +7087,8 @@ char *get_txt(char * buffer)
 
 
 
-/* ################### */
-/* optimize */
-/* inline */
+/* ########## */
+/* # inline # */
 
 #ifdef _FP_INLINE_
     if ( (_FP_INLINE_ + 1) > 1) {
@@ -7123,6 +7131,8 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* ############ */
+/* # optimize # */
 
 
 #ifdef OPTIMIZE

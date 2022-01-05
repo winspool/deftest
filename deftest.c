@@ -7887,7 +7887,7 @@ char *get_txt(char * buffer)
 
 #ifdef __CHAR_UNSIGNED__
     if ( (__CHAR_UNSIGNED__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__CHAR_UNSIGNED__\t\t => %d\n", __CHAR_UNSIGNED__ + 0);
+        sprintf(buffer + strlen(buffer), "__CHAR_UNSIGNED__\t => %d\n", __CHAR_UNSIGNED__ + 0);
     } else {
         strcat(buffer, "__CHAR_UNSIGNED__\n");
     }
@@ -7897,7 +7897,7 @@ char *get_txt(char * buffer)
 
 #ifdef __WCHAR_UNSIGNED__
     if ( (__WCHAR_UNSIGNED__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__WCHAR_UNSIGNED__\t\t => %d\n", __WCHAR_UNSIGNED__ + 0);
+        sprintf(buffer + strlen(buffer), "__WCHAR_UNSIGNED__\t => %d\n", __WCHAR_UNSIGNED__ + 0);
     } else {
         strcat(buffer, "__WCHAR_UNSIGNED__\n");
     }
@@ -7912,20 +7912,42 @@ char *get_txt(char * buffer)
 
 
 
+/* MIN / MAX values */
+/* builtin or in limit.h */
 
-/* MAX values */
-#ifdef SCHAR_MAX
-    sprintf(buffer+strlen(buffer), "SCHAR_MAX\t\t => 0x%x\n", SCHAR_MAX);
+
+#ifdef BOOL_MAX
+    sprintf(buffer+strlen(buffer), "BOOL_MAX\t\t => 0x%x\n", BOOL_MAX);
 #endif
-#ifdef __SCHAR_MAX__
-    sprintf(buffer+strlen(buffer), "__SCHAR_MAX__\t\t => 0x%x\n", __SCHAR_MAX__);
+
+/* char */
+
+#ifdef CHAR_MIN
+    sprintf(buffer+strlen(buffer), "CHAR_MIN\t\t => 0x%x\n", CHAR_MIN);
 #endif
 #ifdef CHAR_MAX
     sprintf(buffer+strlen(buffer), "CHAR_MAX\t\t => 0x%x\n", CHAR_MAX);
 #endif
+#ifdef __CHAR_MIN__
+    sprintf(buffer+strlen(buffer), "__CHAR_MIN__\t\t => 0x%x\n", __CHAR_MIN__);
+#endif
 #ifdef __CHAR_MAX__
     sprintf(buffer+strlen(buffer), "__CHAR_MAX__\t\t => 0x%x\n", __CHAR_MAX__);
 #endif
+
+#ifdef SCHAR_MIN
+    sprintf(buffer+strlen(buffer), "SCHAR_MIN\t\t => 0x%x\n", SCHAR_MIN);
+#endif
+#ifdef SCHAR_MAX
+    sprintf(buffer+strlen(buffer), "SCHAR_MAX\t\t => 0x%x\n", SCHAR_MAX);
+#endif
+#ifdef __SCHAR_MIN__
+    sprintf(buffer+strlen(buffer), "__SCHAR_MIN__\t\t => 0x%x\n", __SCHAR_MIN__);
+#endif
+#ifdef __SCHAR_MAX__
+    sprintf(buffer+strlen(buffer), "__SCHAR_MAX__\t\t => 0x%x\n", __SCHAR_MAX__);
+#endif
+
 #ifdef UCHAR_MAX
     sprintf(buffer+strlen(buffer), "UCHAR_MAX\t\t => 0x%x\n", UCHAR_MAX);
 #endif
@@ -7934,19 +7956,25 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-#ifdef SSHRT_MAX
-    sprintf(buffer+strlen(buffer), "SSHRT_MAX\t\t => 0x%x\n", SSHRT_MAX);
-#endif
-#ifdef __SSHRT_MAX__
-    sprintf(buffer+strlen(buffer), "__SSHRT_MAX__\t\t => 0x%x\n", __SSHRT_MAX__);
+/* short */
+#ifdef SHRT_MIN
+    sprintf(buffer+strlen(buffer), "SHRT_MIN\t\t => 0x%x\n", SHRT_MIN);
 #endif
 #ifdef SHRT_MAX
     sprintf(buffer+strlen(buffer), "SHRT_MAX\t\t => 0x%x\n", SHRT_MAX);
 #endif
+#ifdef __SHRT_MIN__
+    sprintf(buffer+strlen(buffer), "__SHRT_MIN__\t\t => 0x%x\n", __SHRT_MIN__);
+#endif
 #ifdef __SHRT_MAX__
     sprintf(buffer+strlen(buffer), "__SHRT_MAX__\t\t => 0x%x\n", __SHRT_MAX__);
 #endif
+
+
+#ifdef SSHRT_MAX
+    sprintf(buffer+strlen(buffer), "SSHRT_MAX\t\t => 0x%x\n", SSHRT_MAX);
+#endif
+
 #ifdef USHRT_MAX
     sprintf(buffer+strlen(buffer), "USHRT_MAX\t\t => 0x%x\n", USHRT_MAX);
 #endif
@@ -7955,46 +7983,96 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* wchar */
+#ifdef WCHAR_MIN
+    sprintf(buffer+strlen(buffer), "WCHAR_MIN\t\t => 0x%x\n", WCHAR_MIN);
+#endif
 #ifdef WCHAR_MAX
     sprintf(buffer+strlen(buffer), "WCHAR_MAX\t\t => 0x%x\n", WCHAR_MAX);
 #endif
+
+
+#ifdef __WCHAR_MIN__
+    sprintf(buffer+strlen(buffer), "__WCHAR_MIN__\t\t => 0x%lx\n", (unsigned long)(__WCHAR_MIN__ & 0xffffffff) );
+#endif
 #ifdef __WCHAR_MAX__
-    sprintf(buffer+strlen(buffer), "__WCHAR_MAX__\t\t => 0x%x\n", __WCHAR_MAX__);
+    sprintf(buffer+strlen(buffer), "__WCHAR_MAX__\t\t => 0x%lx\n", (unsigned long)(__WCHAR_MAX__ & 0xffffffff) );
 #endif
 
 
-#ifdef SINT_MAX
-    sprintf(buffer+strlen(buffer), "SINT_MAX\t\t => 0x%x\n", SINT_MAX);
-#endif
-#ifdef __SINT_MAX__
-    sprintf(buffer+strlen(buffer), "__SINT_MAX__\t\t => 0x%x\n", __SINT_MAX__);
+/* int */
+#ifdef INT_MIN
+    sprintf(buffer+strlen(buffer), "INT_MIN\t\t\t => 0x%x\n", INT_MIN);
 #endif
 #ifdef INT_MAX
     sprintf(buffer+strlen(buffer), "INT_MAX\t\t\t => 0x%x\n", INT_MAX);
 #endif
+
 #ifdef __INT_MAX__
     sprintf(buffer+strlen(buffer), "__INT_MAX__\t\t => 0x%x\n", __INT_MAX__);
 #endif
+
+#ifdef SINT_MAX
+    sprintf(buffer+strlen(buffer), "SINT_MAX\t\t => 0x%x\n", SINT_MAX);
+#endif
+
 #ifdef UINT_MAX
     sprintf(buffer+strlen(buffer), "UINT_MAX\t\t => 0x%x\n", UINT_MAX);
 #endif
+
 #ifdef __UINT_MAX__
     sprintf(buffer+strlen(buffer), "__UINT_MAX__\t\t => 0x%x\n", __UINT_MAX__);
 #endif
 
 
-
-#ifdef SLONG_MAX
-    sprintf(buffer+strlen(buffer), "SLONG_MAX\t\t => 0x%lx\n", SLONG_MAX);
+/* more INT min/max limits */
+#ifdef INT32_MIN
+    sprintf(buffer+strlen(buffer), "INT32_MIN \t\t => 0x%x\n", INT32_MIN);
 #endif
-#ifdef __SLONG_MAX__
-    sprintf(buffer+strlen(buffer), "__SLONG_MAX__\t\t => 0x%lx\n", __SLONG_MAX__);
+#ifdef INT32_MAX
+    sprintf(buffer+strlen(buffer), "INT32_MAX \t\t => 0x%x\n", INT32_MAX);
+#endif
+#ifdef UINT32_MAX
+    sprintf(buffer+strlen(buffer), "UINT32_MAX \t\t => 0x%x\n", UINT32_MAX);
+#endif
+
+
+#ifdef INT64_MIN
+    sprintf(buffer+strlen(buffer), "INT64_MIN \t\t => 0x%x\n", INT64_MIN);
+#endif
+#ifdef INT64_MAX
+    sprintf(buffer+strlen(buffer), "INT64_MAX \t\t => 0x%x\n", INT64_MAX);
+#endif
+#ifdef UINT64_MAX
+    sprintf(buffer+strlen(buffer), "UINT64_MAX \t\t => 0x%x\n", UINT64_MAX);
+#endif
+
+
+
+
+/* long */
+#ifdef LONG_MIN
+    sprintf(buffer+strlen(buffer), "LONG_MIN\t\t => 0x%lx\n", LONG_MIN);
 #endif
 #ifdef LONG_MAX
     sprintf(buffer+strlen(buffer), "LONG_MAX\t\t => 0x%lx\n", LONG_MAX);
 #endif
+#ifdef _LONG_MAX
+    sprintf(buffer+strlen(buffer), "_LONG_MAX\t\t => 0x%lx\n", _LONG_MAX);
+#endif
+#ifdef _LONG_MAX_
+    sprintf(buffer+strlen(buffer), "_LONG_MAX_\t\t => 0x%lx\n", _LONG_MAX_);
+#endif
+#ifdef __LONG_MAX
+    sprintf(buffer+strlen(buffer), "__LONG_MAX\t\t => 0x%lx\n", __LONG_MAX);
+#endif
 #ifdef __LONG_MAX__
     sprintf(buffer+strlen(buffer), "__LONG_MAX__\t\t => 0x%lx\n", __LONG_MAX__);
+#endif
+
+
+#ifdef SLONG_MAX
+    sprintf(buffer+strlen(buffer), "SLONG_MAX\t\t => 0x%lx\n", SLONG_MAX);
 #endif
 #ifdef ULONG_MAX
     sprintf(buffer+strlen(buffer), "ULONG_MAX\t\t => 0x%lx\n", ULONG_MAX);
@@ -8004,187 +8082,81 @@ char *get_txt(char * buffer)
 #endif
 
 
-#ifdef _LONG_LONG
-    if ( (_LONG_LONG + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_LONG_LONG\t\t\t => %d\n", _LONG_LONG + 0);
-    } else {
-        strcat(buffer, "_LONG_LONG\n");
-    }
+/*  long long */
+#ifdef LLONG_MIN
+    sprintf(buffer+strlen(buffer), "LLONG_MIN\t\t => 0x%llx\n", LLONG_MIN);
 #endif
-
-
-#ifdef __ULONG_LONG_MAX__
-    sprintf(buffer+strlen(buffer), "__ULONG_LONG_MAX__\t => 0x%llx\n", __ULONG_LONG_MAX__);
-#endif
-#ifdef SLONG_LONG_MAX
-    sprintf(buffer+strlen(buffer), "SLONG_LONG_MAX\t => 0x%llx\n", SLONG_LONG_MAX);
-#endif
-#ifdef __SLONG_LONG_MAX__
-    sprintf(buffer+strlen(buffer), "__SLONG_LONG_MAX__\t => 0x%llx\n", __SLONG_LONG_MAX__);
-#endif
-
 #ifdef LLONG_MAX
     sprintf(buffer+strlen(buffer), "LLONG_MAX\t\t => 0x%llx\n", LLONG_MAX);
 #endif
+#ifdef LONG_LONG_MIN
+    sprintf(buffer+strlen(buffer), "LONG_LONG_MIN\t\t => 0x%llx\n", LONG_LONG_MIN);
+#endif
 #ifdef LONG_LONG_MAX
-    sprintf(buffer+strlen(buffer), "LONG_LONG_MAX\t => 0x%llx\n", LONG_LONG_MAX);
+    sprintf(buffer+strlen(buffer), "LONG_LONG_MAX\t\t => 0x%llx\n", LONG_LONG_MAX);
+#endif
+#ifdef __LONG_LONG_MIN__
+    sprintf(buffer+strlen(buffer), "__LONG_LONG_MIN__\t => 0x%lx%08lx\n",
+            (long) (__LONG_LONG_MIN__ >>32), (unsigned long)(__LONG_LONG_MIN__ & 0xffffffff));
 #endif
 #ifdef __LONG_LONG_MAX__
-    sprintf(buffer+strlen(buffer), "__LONG_LONG_MAX__\t => 0x%lx%08lx\n", 
+    sprintf(buffer+strlen(buffer), "__LONG_LONG_MAX__\t => 0x%lx%08lx\n",
             (long) (__LONG_LONG_MAX__ >>32), (unsigned long)(__LONG_LONG_MAX__ & 0xffffffff));
 #endif
+
+
 #ifdef ULLONG_MAX
     sprintf(buffer+strlen(buffer), "ULLONG_MAX\t\t => 0x%llx\n", ULLONG_MAX);
 #endif
 #ifdef ULONG_LONG_MAX
-    sprintf(buffer+strlen(buffer), "ULONG_LONG_MAX\t => 0x%llx\n", ULONG_LONG_MAX);
+    sprintf(buffer+strlen(buffer), "ULONG_LONG_MAX\t\t => 0x%llx\n", ULONG_LONG_MAX);
+#endif
+#ifdef __ULONG_LONG_MAX__
+    sprintf(buffer+strlen(buffer), "__ULONG_LONG_MAX__\t => 0x%llx\n", __ULONG_LONG_MAX__);
 #endif
 
 
+
+/* more max */
+#ifdef INTPTR_MAX
+    sprintf(buffer+strlen(buffer), "INTPTR_MAX\t\t => 0x%lx%08lx\n",
+            (long) (INTPTR_MAX >>32), (unsigned long)(INTPTR_MAX & 0xffffffff));
+#endif
+#ifdef UINTPTR_MAX
+    sprintf(buffer+strlen(buffer), "UINTPTR_MAX\t\t => 0x%lx%08lx\n",
+            (long) (UINTPTR_MAX >>32), (unsigned long)(UINTPTR_MAX & 0xffffffff));
+#endif
+#ifdef INT64_MAX
+    sprintf(buffer+strlen(buffer), "INT64_MAX\t\t => 0x%lx%08lx\n",
+            (long) (INT64_MAX >>32), (unsigned long)(INT64_MAX & 0xffffffff));
+#endif
+#ifdef LONGPTR_MAX
+    sprintf(buffer+strlen(buffer), "LONGPTR_MAX\t\t => 0x%lx%08lx\n",
+            (long) (LONGPTR_MAX >>32), (unsigned long)(LONGPTR_MAX & 0xffffffff));
+#endif
+#ifdef ULONGPTR_MAX
+    sprintf(buffer+strlen(buffer), "ULONGPTR_MAX\t\t => 0x%lx%08lx\n",
+            (long) (ULONGPTR_MAX >>32), (unsigned long)(ULONGPTR_MAX & 0xffffffff));
+#endif
+
+
+
+/* intmax */
 #ifdef INTMAX_MAX
-    sprintf(buffer+strlen(buffer), "INTMAX_MAX\t\t => 0x%llx\n", INTMAX_MAX);
+    sprintf(buffer+strlen(buffer), "INTMAX_MAX\t\t => 0x%lx%08lx\n",
+            (long) (INTMAX_MAX >>32), (unsigned long)(INTMAX_MAX & 0xffffffff));
 #endif
 #ifdef __INTMAX_MAX__
-    sprintf(buffer+strlen(buffer), "__INTMAX_MAX__\t\t => 0x%llx\n", __INTMAX_MAX__);
+    sprintf(buffer+strlen(buffer), "__INTMAX_MAX__  \t => 0x%lx%08lx\n",
+            (long) (__INTMAX_MAX__ >>32), (unsigned long)(__INTMAX_MAX__ & 0xffffffff));
 #endif
-#ifdef UINTMAX_MAX
-    sprintf(buffer+strlen(buffer), "UINTMAX_MAX\t\t => 0x%llx\n", UINTMAX_MAX);
-#endif
+
 #ifdef __UINTMAX_MAX__
-    sprintf(buffer+strlen(buffer), "__UINTMAX_MAX__\t\t => 0x%llx\n", __UINTMAX_MAX__);
+    sprintf(buffer+strlen(buffer), "__UINTMAX_MAX__ \t => 0x%lx%08lx\n",
+            (long) (__UINTMAX_MAX__ >>32), (unsigned long)(__UINTMAX_MAX__ & 0xffffffff));
 #endif
 
 
-/* MIN values */
-#ifdef SCHAR_MIN
-    sprintf(buffer+strlen(buffer), "SCHAR_MIN\t\t => 0x%x\n", SCHAR_MIN);
-#endif
-#ifdef __SCHAR_MIN__
-    sprintf(buffer+strlen(buffer), "__SCHAR_MIN__\t\t => 0x%x\n", __SCHAR_MIN__);
-#endif
-#ifdef CHAR_MIN
-    sprintf(buffer+strlen(buffer), "CHAR_MIN\t\t => 0x%x\n", CHAR_MIN);
-#endif
-#ifdef __CHAR_MIN__
-    sprintf(buffer+strlen(buffer), "__CHAR_MIN__\t\t => 0x%x\n", __CHAR_MIN__);
-#endif
-#ifdef UCHAR_MIN
-    sprintf(buffer+strlen(buffer), "UCHAR_MIN\t\t => 0x%x\n", UCHAR_MIN);
-#endif
-#ifdef __UCHAR_MIN__
-    sprintf(buffer+strlen(buffer), "__UCHAR_MIN__\t\t => 0x%x\n", __UCHAR_MIN__);
-#endif
-
-
-#ifdef SSHRT_MIN
-    sprintf(buffer+strlen(buffer), "SSHRT_MIN\t\t => 0x%x\n", SSHRT_MIN);
-#endif
-#ifdef __SSHRT_MIN__
-    sprintf(buffer+strlen(buffer), "__SSHRT_MIN__\t\t => 0x%x\n", __SSHRT_MIN__);
-#endif
-#ifdef SHRT_MIN
-    sprintf(buffer+strlen(buffer), "SHRT_MIN\t\t => 0x%x\n", SHRT_MIN);
-#endif
-#ifdef __SHRT_MIN__
-    sprintf(buffer+strlen(buffer), "__SHRT_MIN__\t\t => 0x%x\n", __SHRT_MIN__);
-#endif
-#ifdef USHRT_MIN
-    sprintf(buffer+strlen(buffer), "USHRT_MIN\t\t => 0x%x\n", USHRT_MIN);
-#endif
-#ifdef __USHRT_MIN__
-    sprintf(buffer+strlen(buffer), "__USHRT_MIN__\t\t => 0x%x\n", __USHRT_MIN__);
-#endif
-
-
-
-#ifdef WCHAR_MIN
-    sprintf(buffer+strlen(buffer), "WCHAR_MIN\t\t => 0x%x\n", WCHAR_MIN);
-#endif
-#ifdef __WCHAR_MIN__
-    sprintf(buffer+strlen(buffer), "__WCHAR_MIN__\t\t => 0x%x\n", __WCHAR_MIN__);
-#endif
-
-
-#ifdef SINT_MIN
-    sprintf(buffer+strlen(buffer), "SINT_MIN\t\t => 0x%x\n", SINT_MIN);
-#endif
-#ifdef __SINT_MIN__
-    sprintf(buffer+strlen(buffer), "__SINT_MIN__\t\t => 0x%x\n", __SINT_MIN__);
-#endif
-#ifdef INT_MIN
-    sprintf(buffer+strlen(buffer), "INT_MIN\t\t\t => 0x%x\n", INT_MIN);
-#endif
-#ifdef __INT_MIN__
-    sprintf(buffer+strlen(buffer), "__INT_MIN__\t\t => 0x%x\n", __INT_MIN__);
-#endif
-#ifdef UINT_MIN
-    sprintf(buffer+strlen(buffer), "UINT_MIN\t\t => 0x%x\n", UINT_MIN);
-#endif
-#ifdef __UINT_MIN__
-    sprintf(buffer+strlen(buffer), "__UINT_MIN__\t\t => 0x%x\n", __UINT_MIN__);
-#endif
-
-
-
-#ifdef SLONG_MIN
-    sprintf(buffer+strlen(buffer), "SLONG_MIN\t\t => 0x%lx\n", SLONG_MIN);
-#endif
-#ifdef __SLONG_MIN__
-    sprintf(buffer+strlen(buffer), "__SLONG_MIN__\t\t => 0x%lx\n", __SLONG_MIN__);
-#endif
-#ifdef LONG_MIN
-    sprintf(buffer+strlen(buffer), "LONG_MIN\t\t => 0x%lx\n", LONG_MIN);
-#endif
-#ifdef __LONG_MIN__
-    sprintf(buffer+strlen(buffer), "__LONG_MIN__\t\t => 0x%lx\n", __LONG_MIN__);
-#endif
-#ifdef ULONG_MIN
-    sprintf(buffer+strlen(buffer), "ULONG_MIN\t\t => 0x%lx\n", ULONG_MIN);
-#endif
-#ifdef __ULONG_MIN__
-    sprintf(buffer+strlen(buffer), "__ULONG_MIN__\t\t => 0x%lx\n", __ULONG_MIN__);
-#endif
-
-
-#ifdef ULLONG_MIN
-    sprintf(buffer+strlen(buffer), "ULLONG_MIN\t\t => 0x%lx\n", ULLONG_MIN);
-#endif
-#ifdef ULONG_LONG_MIN
-    sprintf(buffer+strlen(buffer), "ULONG_LONG_MIN\t => 0x%llx\n", ULONG_LONG_MIN);
-#endif
-#ifdef __ULONG_LONG_MIN__
-    sprintf(buffer+strlen(buffer), "__ULONG_LONG_MIN__\t => 0x%llx\n", __ULONG_LONG_MIN__);
-#endif
-#ifdef SLONG_LONG_MIN
-    sprintf(buffer+strlen(buffer), "SLONG_LONG_MIN\t => 0x%llx\n", SLONG_LONG_MIN);
-#endif
-#ifdef __SLONG_LONG_MIN__
-    sprintf(buffer+strlen(buffer), "__SLONG_LONG_MIN__\t => 0x%llx\n", __SLONG_LONG_MIN__);
-#endif
-#ifdef LLONG_MIN
-    sprintf(buffer+strlen(buffer), "LLONG_MIN\t\t => 0x%llx\n", LLONG_MIN);
-#endif
-#ifdef LONG_LONG_MIN
-    sprintf(buffer+strlen(buffer), "LONG_LONG_MIN\t => 0x%llx\n", LONG_LONG_MIN);
-#endif
-#ifdef __LONG_LONG_MIN__
-    sprintf(buffer+strlen(buffer), "__LONG_LONG_MIN__\t => 0x%llx\n", __LONG_LONG_MIN__);
-#endif
-
-
-
-#ifdef INTMAX_MIN
-    sprintf(buffer+strlen(buffer), "INTMAX_MIN\t\t => 0x%llx\n", INTMAX_MIN);
-#endif
-#ifdef __INTMAX_MIN__
-    sprintf(buffer+strlen(buffer), "__INTMAX_MIN__\t\t => 0x%llx\n", __INTMAX_MIN__);
-#endif
-#ifdef UINTMAX_MIN
-    sprintf(buffer+strlen(buffer), "UINTMAX_MIN\t\t => 0x%llx\n", UINTMAX_MIN);
-#endif
-#ifdef __UINTMAX_MIN__
-    sprintf(buffer+strlen(buffer), "__UINTMAX_MIN__\t\t => 0x%llx\n", __UINTMAX_MIN__);
-#endif
 
 
 /* SIZEOF */

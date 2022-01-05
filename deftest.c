@@ -8157,9 +8157,11 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-
+/* ############## */
 /* SIZEOF */
+#ifdef __SIZEOF_CHAR__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_CHAR__\t => %d\n", __SIZEOF_CHAR__);
+#endif
 #ifdef __SIZEOF_SHORT__
     sprintf(buffer+strlen(buffer), "__SIZEOF_SHORT__\t => %d\n", __SIZEOF_SHORT__);
 #endif
@@ -8172,10 +8174,35 @@ char *get_txt(char * buffer)
 #ifdef __SIZEOF_INT__
     sprintf(buffer+strlen(buffer), "__SIZEOF_INT__  \t => %d\n", __SIZEOF_INT__);
 #endif
+#ifdef __SIZEOF_INT16__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_INT16__  \t => %d\n", __SIZEOF_INT16__);
+#endif
+#ifdef __SIZEOF_INT32__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_INT32__  \t => %d\n", __SIZEOF_INT32__);
+#endif
+#ifdef __SIZEOF_INT64__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_INT64__  \t => %d\n", __SIZEOF_INT64__);
+#endif
+
+#ifdef __SIZEOF_INT128__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_INT128__  \t => %d\n", __SIZEOF_INT128__);
+#endif
+
 
 #ifdef __SIZEOF_LONG__
     sprintf(buffer+strlen(buffer), "__SIZEOF_LONG__  \t => %d\n", __SIZEOF_LONG__);
 #endif
+
+#ifdef __SIZEOF_LONG32__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_LONG32__  \t => %d\n", __SIZEOF_LONG32__);
+#endif
+#ifdef __SIZEOF_LONG64__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_LONG64__  \t => %d\n", __SIZEOF_LONG64__);
+#endif
+#ifdef __SIZEOF_LONG128__
+    sprintf(buffer+strlen(buffer), "__SIZEOF_LONG128__  \t => %d\n", __SIZEOF_LONG128__);
+#endif
+
 #ifdef __SIZEOF_LONG_LONG__
     sprintf(buffer+strlen(buffer), "__SIZEOF_LONG_LONG__\t => %d\n", __SIZEOF_LONG_LONG__);
 #endif
@@ -8185,7 +8212,7 @@ char *get_txt(char * buffer)
 #endif
 
 #ifdef __SIZEOF_FLOAT__
-    sprintf(buffer+strlen(buffer), "__SIZEOF_FLOAT__\t => %d\n", __SIZEOF_FLOAT__);
+    sprintf(buffer+strlen(buffer), "__SIZEOF_FLOAT__ \t => %d\n", __SIZEOF_FLOAT__);
 #endif
 #ifdef __SIZEOF_DOUBLE__
     sprintf(buffer+strlen(buffer), "__SIZEOF_DOUBLE__\t => %d\n", __SIZEOF_DOUBLE__);
@@ -8201,7 +8228,7 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* number of bits */
+/* maximun number of bits in the largest integral type */
 #ifdef _INTEGRAL_MAX_BITS
     sprintf(buffer+strlen(buffer), "_INTEGRAL_MAX_BITS\t => %d\n", _INTEGRAL_MAX_BITS);
 #endif
@@ -8210,6 +8237,15 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "HOST_BITS_PER_WIDEST_INT\t => %d\n", HOST_BITS_PER_WIDEST_INT);
 #endif
 
+
+/* used by DMC */
+#ifdef __INTSIZE
+    sprintf(buffer+strlen(buffer), "__INTSIZE\t\t => %d\n", __INTSIZE);
+#endif
+#ifdef _WORDSIZE
+    sprintf(buffer+strlen(buffer), "_WORDSIZE\t\t => %d\n", _WORDSIZE);
+#endif
+/* used by glibc */
 #ifdef __WORDSIZE
     sprintf(buffer+strlen(buffer), "__WORDSIZE\t\t => %d\n", __WORDSIZE);
 #endif

@@ -2546,335 +2546,8 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-/* ################### */
-/* cpu */
-/* x86 */
-
-
-#ifdef _32BIT
-    if ( (_32BIT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_32BIT \t\t => %d\n", _32BIT + 0);
-    } else {
-        strcat(buffer, "_32BIT\n");
-    }
-#endif
-#ifdef _32BIT_
-    if ( (_32BIT_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_32BIT_ \t\t => %d\n", _32BIT_ + 0);
-    } else {
-        strcat(buffer, "_32BIT_\n");
-    }
-#endif
-#ifdef __32BIT
-    if ( (__32BIT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__32BIT \t\t => %d\n", __32BIT + 0);
-    } else {
-        strcat(buffer, "__32BIT\n");
-    }
-#endif
-#ifdef __32BIT__
-    if ( (__32BIT__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__32BIT__ \t\t => %d\n", __32BIT__ + 0);
-    } else {
-        strcat(buffer, "__32BIT__\n");
-    }
-#endif
-
-
-#ifdef __386__
-    if ( (__386__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__386__ \t\t => %d\n", __386__ + 0);
-    } else {
-        strcat(buffer, "__386__\n");
-    }
-#endif
-
-
-#ifdef _64BIT
-    if ( (_64BIT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_64BIT \t\t => %d\n", _64BIT + 0);
-    } else {
-        strcat(buffer, "_64BIT\n");
-    }
-#endif
-#ifdef _64BIT_
-    if ( (_64BIT_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_64BIT_ \t\t => %d\n", _64BIT_ + 0);
-    } else {
-        strcat(buffer, "_64BIT_\n");
-    }
-#endif
-#ifdef __64BIT
-    if ( (__64BIT + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__64BIT \t\t => %d\n", __64BIT + 0);
-    } else {
-        strcat(buffer, "__64BIT\n");
-    }
-#endif
-#ifdef __64BIT__
-    if ( (__64BIT__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__64BIT__ \t\t => %d\n", __64BIT__ + 0);
-    } else {
-        strcat(buffer, "__64BIT__\n");
-    }
-#endif
-
-
-/* ALPHA */
-#ifdef _alpha
-    if ( (_alpha + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_alpha\t\t => %d\n", _alpha + 0);
-    } else {
-        strcat(buffer, "_alpha\n");
-    }
-#endif
-#ifdef _alpha_
-    if ( (_alpha_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_alpha_\t\t => %d\n", _alpha_ + 0);
-    } else {
-        strcat(buffer, "_alpha_\n");
-    }
-#endif
-#ifdef __alpha
-    if ( (__alpha + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__alpha\t\t => %d\n", __alpha + 0);
-    } else {
-        strcat(buffer, "__alpha\n");
-    }
-#endif
-
-#ifdef __alpha__
-    if ( (__alpha__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__alpha__\t\t => %d\n", __alpha__ + 0);
-    } else {
-        strcat(buffer, "__alpha__\n");
-    }
-#endif
-
-#ifdef _ALPHA_
-    if ( (_ALPHA_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ALPHA_\t\t => %d\n", _ALPHA_ + 0);
-    } else {
-        strcat(buffer, "_ALPHA_\n");
-    }
-#endif
-#ifdef __ALPHA
-    if ( (__ALPHA + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ALPHA\t\t => %d\n", __ALPHA + 0);
-    } else {
-        strcat(buffer, "__ALPHA\n");
-    }
-#endif
-
-
-#ifdef __alpha_ev4__
-    if ( (__alpha_ev4__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__alpha_ev4__\t\t => %d\n", __alpha_ev4__ + 0);
-    } else {
-        strcat(buffer, "__alpha_ev4__\n");
-    }
-#endif
-#ifdef __alpha_ev5__
-    if ( (__alpha_ev5__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__alpha_ev5__\t\t => %d\n", __alpha_ev5__ + 0);
-    } else {
-        strcat(buffer, "__alpha_ev5__\n");
-    }
-#endif
-#ifdef __alpha_ev6__
-    if ( (__alpha_ev6__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__alpha_ev6__\t\t => %d\n", __alpha_ev6__ + 0);
-    } else {
-        strcat(buffer, "__alpha_ev6__\n");
-    }
-#endif
-
-
-#ifdef __amd64
-    if ( (__amd64 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__amd64\t\t\t => %d\n", __amd64 + 0);
-    } else {
-        strcat(buffer, "__amd64\n");
-    }
-#endif
-#ifdef __amd64__
-    if ( (__amd64__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__amd64__\t\t => %d\n", __amd64__ + 0);
-    } else {
-        strcat(buffer, "__amd64__\n");
-    }
-#endif
-
-
-#ifdef __APCS_32__
-    if ( (__APCS_32__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__APCS_32__ \t\t => %d\n", __APCS_32__ + 0);
-    } else {
-        strcat(buffer, "__APCS_32__\n");
-    }
-#endif
-
-
-
-#ifdef _ARCH_PENTIUM
-    if ( (_ARCH_PENTIUM + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM\t\t => %d\n", _ARCH_PENTIUM + 0);
-    } else {
-        strcat(buffer, "_ARCH_PENTIUM\n");
-    }
-#endif
-#ifdef _ARCH_PENTIUM2
-    if ( (_ARCH_PENTIUM2 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM2\t\t => %d\n", _ARCH_PENTIUM2 + 0);
-    } else {
-        strcat(buffer, "_ARCH_PENTIUM2\n");
-    }
-#endif
-#ifdef _ARCH_PENTIUM3
-    if ( (_ARCH_PENTIUM3 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM3\t\t => %d\n", _ARCH_PENTIUM3 + 0);
-    } else {
-        strcat(buffer, "_ARCH_PENTIUM3\n");
-    }
-#endif
-#ifdef _ARCH_PENTIUM4
-    if ( (_ARCH_PENTIUM4 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM4\t\t => %d\n", _ARCH_PENTIUM4 + 0);
-    } else {
-        strcat(buffer, "_ARCH_PENTIUM4\n");
-    }
-#endif
-
-#ifdef ARCH_PWR
-    if ( (ARCH_PWR + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "ARCH_PWR\t\t => %d\n", ARCH_PWR + 0);
-    } else {
-        strcat(buffer, "ARCH_PWR\n");
-    }
-#endif
-#ifdef _ARCH_PWR
-    if ( (_ARCH_PWR + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PWR\t\t => %d\n", _ARCH_PWR + 0);
-    } else {
-        strcat(buffer, "_ARCH_PWR\n");
-    }
-#endif
-#ifdef _ARCH_PWR_
-    if ( (_ARCH_PWR_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARCH_PWR_\t\t => %d\n", _ARCH_PWR_ + 0);
-    } else {
-        strcat(buffer, "_ARCH_PWR_\n");
-    }
-#endif
-#ifdef __ARCH_PWR
-    if ( (__ARCH_PWR + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARCH_PWR\t\t => %d\n", __ARCH_PWR + 0);
-    } else {
-        strcat(buffer, "__ARCH_PWR\n");
-    }
-#endif
-#ifdef __ARCH_PWR__
-    if ( (__ARCH_PWR__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARCH_PWR__\t\t => %d\n", __ARCH_PWR__ + 0);
-    } else {
-        strcat(buffer, "__ARCH_PWR__\n");
-    }
-#endif
-
-
-
-/* ARM */
-#ifdef ARM
-    if ( (ARM + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "ARM \t\t => %d\n", ARM + 0);
-    } else {
-        strcat(buffer, "ARM\n");
-    }
-#endif
-#ifdef _ARM
-    if ( (_ARM + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARM \t\t => %d\n", _ARM + 0);
-    } else {
-        strcat(buffer, "_ARM\n");
-    }
-#endif
-#ifdef _ARM_
-    if ( (_ARM_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ARM_ \t\t => %d\n", _ARM_ + 0);
-    } else {
-        strcat(buffer, "_ARM_\n");
-    }
-#endif
-#ifdef __ARM
-    if ( (__ARM + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARM \t\t => %d\n", __ARM + 0);
-    } else {
-        strcat(buffer, "__ARM\n");
-    }
-#endif
-#ifdef __ARM__
-    if ( (__ARM__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARM__ \t\t => %d\n", __ARM__ + 0);
-    } else {
-        strcat(buffer, "__ARM__\n");
-    }
-#endif
-
-
-#ifdef __ARM_ARCH_4__
-    if ( (__ARM_ARCH_4__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARM_ARCH_4__ \t\t => %d\n", __ARM_ARCH_4__ + 0);
-    } else {
-        strcat(buffer, "__ARM_ARCH_4__\n");
-    }
-#endif
-
-#ifdef __ARMEB__
-    if ( (__ARMEB__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ARMEB__ \t\t => %d\n", __ARMEB__ + 0);
-    } else {
-        strcat(buffer, "__ARMEB__\n");
-    }
-#endif
-
-
-
-#ifdef arm_elf
-    if ( (arm_elf + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "arm_elf \t\t => %d\n", arm_elf + 0);
-    } else {
-        strcat(buffer, "arm_elf\n");
-    }
-#endif
-#ifdef _arm_elf
-    if ( (_arm_elf + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_arm_elf \t\t => %d\n", _arm_elf + 0);
-    } else {
-        strcat(buffer, "_arm_elf\n");
-    }
-#endif
-#ifdef _arm_elf_
-    if ( (_arm_elf_ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_arm_elf_ \t\t => %d\n", _arm_elf_ + 0);
-    } else {
-        strcat(buffer, "_arm_elf_\n");
-    }
-#endif
-#ifdef __arm_elf
-    if ( (__arm_elf + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__arm_elf \t\t => %d\n", __arm_elf + 0);
-    } else {
-        strcat(buffer, "__arm_elf\n");
-    }
-#endif
-#ifdef __arm_elf__
-    if ( (__arm_elf__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__arm_elf__ \t\t => %d\n", __arm_elf__ + 0);
-    } else {
-        strcat(buffer, "__arm_elf__\n");
-    }
-#endif
+/* ################# */
+/* ### CPU + FPU ### */
 
 #ifdef CPU
     if ( (CPU + 1) > 1) {
@@ -2951,6 +2624,755 @@ char *get_txt(char * buffer)
 
 
 
+
+
+#ifdef _32BIT
+    if ( (_32BIT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_32BIT \t\t => %d\n", _32BIT + 0);
+    } else {
+        strcat(buffer, "_32BIT\n");
+    }
+#endif
+#ifdef _32BIT_
+    if ( (_32BIT_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_32BIT_ \t\t => %d\n", _32BIT_ + 0);
+    } else {
+        strcat(buffer, "_32BIT_\n");
+    }
+#endif
+#ifdef __32BIT
+    if ( (__32BIT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__32BIT \t\t => %d\n", __32BIT + 0);
+    } else {
+        strcat(buffer, "__32BIT\n");
+    }
+#endif
+#ifdef __32BIT__
+    if ( (__32BIT__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__32BIT__ \t\t => %d\n", __32BIT__ + 0);
+    } else {
+        strcat(buffer, "__32BIT__\n");
+    }
+#endif
+
+
+
+#ifdef _64BIT
+    if ( (_64BIT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_64BIT \t\t => %d\n", _64BIT + 0);
+    } else {
+        strcat(buffer, "_64BIT\n");
+    }
+#endif
+#ifdef _64BIT_
+    if ( (_64BIT_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_64BIT_ \t\t => %d\n", _64BIT_ + 0);
+    } else {
+        strcat(buffer, "_64BIT_\n");
+    }
+#endif
+#ifdef __64BIT
+    if ( (__64BIT + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__64BIT \t\t => %d\n", __64BIT + 0);
+    } else {
+        strcat(buffer, "__64BIT\n");
+    }
+#endif
+#ifdef __64BIT__
+    if ( (__64BIT__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__64BIT__ \t\t => %d\n", __64BIT__ + 0);
+    } else {
+        strcat(buffer, "__64BIT__\n");
+    }
+#endif
+
+/* ##################### */
+/*  CPU  */
+
+/* ## aarch64 / ARM64 ## */
+
+/* __aarch64__ used by gcc */
+#ifdef __aarch64__
+    if ( (__aarch64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__aarch64__ \t\t => %d\n", __aarch64__ + 0);
+    } else {
+        strcat(buffer, "__aarch64__\n");
+    }
+#endif
+
+#ifdef __AARCH64__
+    if ( (__AARCH64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AARCH64__ \t\t => %d\n", __AARCH64__ + 0);
+    } else {
+        strcat(buffer, "__AARCH64__\n");
+    }
+#endif
+
+/* ARM64 in little endian mode */
+#ifdef __AARCH64EL__
+    if ( (__AARCH64EL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AARCH64EL__ \t\t => %d\n", __AARCH64EL__ + 0);
+    } else {
+        strcat(buffer, "__AARCH64EL__\n");
+    }
+#endif
+
+/* ARM64 in big endian mode */
+#ifdef __AARCH64EB__
+    if ( (__AARCH64EB__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AARCH64EB__ \t\t => %d\n", __AARCH64EB__ + 0);
+    } else {
+        strcat(buffer, "__AARCH64EB__\n");
+    }
+#endif
+
+
+/* ALPHA */
+#ifdef _alpha
+    if ( (_alpha + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_alpha\t\t => %d\n", _alpha + 0);
+    } else {
+        strcat(buffer, "_alpha\n");
+    }
+#endif
+#ifdef _alpha_
+    if ( (_alpha_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_alpha_\t\t => %d\n", _alpha_ + 0);
+    } else {
+        strcat(buffer, "_alpha_\n");
+    }
+#endif
+#ifdef __alpha
+    if ( (__alpha + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alpha\t\t => %d\n", __alpha + 0);
+    } else {
+        strcat(buffer, "__alpha\n");
+    }
+#endif
+
+/* used in diet.c */
+#ifdef __alpha__
+    if ( (__alpha__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alpha__\t\t => %d\n", __alpha__ + 0);
+    } else {
+        strcat(buffer, "__alpha__\n");
+    }
+#endif
+
+#ifdef _ALPHA_
+    if ( (_ALPHA_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ALPHA_\t\t => %d\n", _ALPHA_ + 0);
+    } else {
+        strcat(buffer, "_ALPHA_\n");
+    }
+#endif
+#ifdef __ALPHA
+    if ( (__ALPHA + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ALPHA\t\t => %d\n", __ALPHA + 0);
+    } else {
+        strcat(buffer, "__ALPHA\n");
+    }
+#endif
+
+
+#ifdef __alpha_ev4__
+    if ( (__alpha_ev4__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alpha_ev4__\t\t => %d\n", __alpha_ev4__ + 0);
+    } else {
+        strcat(buffer, "__alpha_ev4__\n");
+    }
+#endif
+#ifdef __alpha_ev5__
+    if ( (__alpha_ev5__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alpha_ev5__\t\t => %d\n", __alpha_ev5__ + 0);
+    } else {
+        strcat(buffer, "__alpha_ev5__\n");
+    }
+#endif
+#ifdef __alpha_ev6__
+    if ( (__alpha_ev6__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alpha_ev6__\t\t => %d\n", __alpha_ev6__ + 0);
+    } else {
+        strcat(buffer, "__alpha_ev6__\n");
+    }
+#endif
+
+/* AMD was first, but intel invented a different name. see __x86_64 */
+#ifdef amd64
+    if ( (amd64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "amd64\t\t\t => %d\n", amd64 + 0);
+    } else {
+        strcat(buffer, "amd64\n");
+    }
+#endif
+
+#ifdef _amd64
+    if ( (_amd64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_amd64\t\t\t => %d\n", _amd64 + 0);
+    } else {
+        strcat(buffer, "_amd64\n");
+    }
+#endif
+
+#ifdef _amd64_
+    if ( (_amd64_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_amd64_\t\t\t => %d\n", _amd64_ + 0);
+    } else {
+        strcat(buffer, "_amd64_\n");
+    }
+#endif
+
+#ifdef __amd64
+    if ( (__amd64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__amd64\t\t\t => %d\n", __amd64 + 0);
+    } else {
+        strcat(buffer, "__amd64\n");
+    }
+#endif
+
+/* __amd64__ used by gcc */
+#ifdef __amd64__
+    if ( (__amd64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__amd64__\t\t => %d\n", __amd64__ + 0);
+    } else {
+        strcat(buffer, "__amd64__\n");
+    }
+#endif
+
+
+#ifdef __APCS_32__
+    if ( (__APCS_32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__APCS_32__ \t\t => %d\n", __APCS_32__ + 0);
+    } else {
+        strcat(buffer, "__APCS_32__\n");
+    }
+#endif
+
+
+#ifdef __arch32__
+    if ( (__arch32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arch32__\t\t => %d\n", __arch32__ + 0);
+    } else {
+        strcat(buffer, "__arch32__\n");
+    }
+#endif
+/* used in diet.c for __sparc__ */
+#ifdef __arch64__
+    if ( (__arch64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arch64__\t\t => %d\n", __arch64__ + 0);
+    } else {
+        strcat(buffer, "__arch64__\n");
+    }
+#endif
+
+
+
+#ifdef _ARCH_PENTIUM
+    if ( (_ARCH_PENTIUM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM\t\t => %d\n", _ARCH_PENTIUM + 0);
+    } else {
+        strcat(buffer, "_ARCH_PENTIUM\n");
+    }
+#endif
+#ifdef _ARCH_PENTIUM2
+    if ( (_ARCH_PENTIUM2 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM2\t\t => %d\n", _ARCH_PENTIUM2 + 0);
+    } else {
+        strcat(buffer, "_ARCH_PENTIUM2\n");
+    }
+#endif
+#ifdef _ARCH_PENTIUM3
+    if ( (_ARCH_PENTIUM3 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM3\t\t => %d\n", _ARCH_PENTIUM3 + 0);
+    } else {
+        strcat(buffer, "_ARCH_PENTIUM3\n");
+    }
+#endif
+#ifdef _ARCH_PENTIUM4
+    if ( (_ARCH_PENTIUM4 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PENTIUM4\t\t => %d\n", _ARCH_PENTIUM4 + 0);
+    } else {
+        strcat(buffer, "_ARCH_PENTIUM4\n");
+    }
+#endif
+
+#ifdef _ARCH_PPC
+    if ( (_ARCH_PPC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PPC\t\t => %d\n", _ARCH_PPC + 0);
+    } else {
+        strcat(buffer, "_ARCH_PPC\n");
+    }
+#endif
+
+#ifdef _ARCH_PPC64
+    if ( (_ARCH_PPC64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PPC64\t\t => %d\n", _ARCH_PPC64 + 0);
+    } else {
+        strcat(buffer, "_ARCH_PPC64\n");
+    }
+#endif
+
+
+#ifdef ARCH_PWR
+    if ( (ARCH_PWR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "ARCH_PWR\t\t => %d\n", ARCH_PWR + 0);
+    } else {
+        strcat(buffer, "ARCH_PWR\n");
+    }
+#endif
+#ifdef _ARCH_PWR
+    if ( (_ARCH_PWR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PWR\t\t => %d\n", _ARCH_PWR + 0);
+    } else {
+        strcat(buffer, "_ARCH_PWR\n");
+    }
+#endif
+
+#ifdef _ARCH_PWR_
+    if ( (_ARCH_PWR_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARCH_PWR_\t\t => %d\n", _ARCH_PWR_ + 0);
+    } else {
+        strcat(buffer, "_ARCH_PWR_\n");
+    }
+#endif
+#ifdef __ARCH_PWR
+    if ( (__ARCH_PWR + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARCH_PWR\t\t => %d\n", __ARCH_PWR + 0);
+    } else {
+        strcat(buffer, "__ARCH_PWR\n");
+    }
+#endif
+#ifdef __ARCH_PWR__
+    if ( (__ARCH_PWR__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARCH_PWR__\t\t => %d\n", __ARCH_PWR__ + 0);
+    } else {
+        strcat(buffer, "__ARCH_PWR__\n");
+    }
+#endif
+
+
+
+/* ### arm / ARM ### */
+#ifdef arm
+    if ( (arm + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "arm \t\t => %d\n", arm + 0);
+    } else {
+        strcat(buffer, "arm\n");
+    }
+#endif
+#ifdef _arm
+    if ( (_arm + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_arm \t\t => %d\n", _arm + 0);
+    } else {
+        strcat(buffer, "_arm\n");
+    }
+#endif
+#ifdef _arm_
+    if ( (_arm_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_arm_ \t\t => %d\n", _arm_ + 0);
+    } else {
+        strcat(buffer, "_arm_\n");
+    }
+#endif
+#ifdef __arm
+    if ( (__arm + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arm\t\t\t => %d\n", __arm + 0);
+    } else {
+        strcat(buffer, "__arm\n");
+    }
+#endif
+/* __arm__ used by gcc */
+#ifdef __arm__
+    if ( (__arm__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arm__ \t\t => %d\n", __arm__ + 0);
+    } else {
+        strcat(buffer, "__arm__\n");
+    }
+#endif
+
+
+
+#ifdef ARM
+    if ( (ARM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "ARM \t\t => %d\n", ARM + 0);
+    } else {
+        strcat(buffer, "ARM\n");
+    }
+#endif
+
+#ifdef _ARM
+    if ( (_ARM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARM \t\t => %d\n", _ARM + 0);
+    } else {
+        strcat(buffer, "_ARM\n");
+    }
+#endif
+#ifdef _ARM_
+    if ( (_ARM_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ARM_ \t\t => %d\n", _ARM_ + 0);
+    } else {
+        strcat(buffer, "_ARM_\n");
+    }
+#endif
+#ifdef __ARM
+    if ( (__ARM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM \t\t => %d\n", __ARM + 0);
+    } else {
+        strcat(buffer, "__ARM\n");
+    }
+#endif
+#ifdef __ARM__
+    if ( (__ARM__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM__ \t\t => %d\n", __ARM__ + 0);
+    } else {
+        strcat(buffer, "__ARM__\n");
+    }
+#endif
+
+
+/* 64bit ARM: aarch64 */
+#ifdef __ARM64__
+    if ( (__ARM64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM64__ \t\t => %d\n", __ARM64__ + 0);
+    } else {
+        strcat(buffer, "__ARM64__\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH
+    if ( (__ARM_ARCH + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH \t\t => %d\n", __ARM_ARCH + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH__
+    if ( (__ARM_ARCH__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH__ \t\t => %d\n", __ARM_ARCH__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH__\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH_2__
+    if ( (__ARM_ARCH_2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_2__ \t\t => %d\n", __ARM_ARCH_2__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_2__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_3__
+    if ( (__ARM_ARCH_3__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_3__ \t\t => %d\n", __ARM_ARCH_3__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_3__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_3M__
+    if ( (__ARM_ARCH_3M__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_3M__ \t\t => %d\n", __ARM_ARCH_3M__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_3M__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_4__
+    if ( (__ARM_ARCH_4__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_4__ \t\t => %d\n", __ARM_ARCH_4__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_4__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_4T__
+    if ( (__ARM_ARCH_4T__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_4T__\t\t => %d\n", __ARM_ARCH_4T__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_4T__\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH_5__
+    if ( (__ARM_ARCH_5__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_5__ \t\t => %d\n", __ARM_ARCH_5__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_5__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_5T__
+    if ( (__ARM_ARCH_5T__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_5T__ \t\t => %d\n", __ARM_ARCH_5T__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_5T__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_5E__
+    if ( (__ARM_ARCH_5E__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_5E__ \t\t => %d\n", __ARM_ARCH_5E__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_5E__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_5TE__
+    if ( (__ARM_ARCH_5TE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_5TE__ \t\t => %d\n", __ARM_ARCH_5TE__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_5TE__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_5TEJ__
+    if ( (__ARM_ARCH_5TEJ__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_5TEJ__ \t\t => %d\n", __ARM_ARCH_5TEJ__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_5TEJ__\n");
+    }
+#endif
+
+
+
+#ifdef __ARM_ARCH_6__
+    if ( (__ARM_ARCH_6__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6__ \t\t => %d\n", __ARM_ARCH_6__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6J__
+    if ( (__ARM_ARCH_6J__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6J__ \t\t => %d\n", __ARM_ARCH_6J__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6J__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6K__
+    if ( (__ARM_ARCH_6K__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6K__ \t\t => %d\n", __ARM_ARCH_6K__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6K__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6__
+    if ( (__ARM_ARCH_6Z__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6Z__ \t\t => %d\n", __ARM_ARCH_6Z__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6Z__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6ZK__
+    if ( (__ARM_ARCH_6ZK__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6ZK__ \t\t => %d\n", __ARM_ARCH_6ZK__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6ZK__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6T2__
+    if ( (__ARM_ARCH_6T2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6T2__ \t\t => %d\n", __ARM_ARCH_6T2__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6T2__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_6M__
+    if ( (__ARM_ARCH_6M__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_6M__ \t\t => %d\n", __ARM_ARCH_6M__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_6M__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_7__
+    if ( (__ARM_ARCH_7__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_7__ \t\t => %d\n", __ARM_ARCH_7__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_7__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_7A__
+    if ( (__ARM_ARCH_7A__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_7A__ \t\t => %d\n", __ARM_ARCH_7A__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_7A__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_7R__
+    if ( (__ARM_ARCH_7R__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_7R__ \t\t => %d\n", __ARM_ARCH_7R__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_7R__\n");
+    }
+#endif
+#ifdef __ARM_ARCH_7M__
+    if ( (__ARM_ARCH_7M__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_7M__ \t\t => %d\n", __ARM_ARCH_7M__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_7M__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_8__
+    if ( (__ARM_ARCH_8__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_8__ \t\t => %d\n", __ARM_ARCH_8__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_8__\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_8A
+    if ( (__ARM_ARCH_8A + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_8A \t\t => %d\n", __ARM_ARCH_8A + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_8A\n");
+    }
+#endif
+#ifdef __ARM_ARCH_8A__
+    if ( (__ARM_ARCH_8A__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_8A__ \t\t => %d\n", __ARM_ARCH_8A__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_8A__\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH_9__
+    if ( (__ARM_ARCH_9__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_9__ \t\t => %d\n", __ARM_ARCH_9__ + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_9__\n");
+    }
+#endif
+
+
+#ifdef __ARM_ARCH_ISA_A64
+    if ( (__ARM_ARCH_ISA_A64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_ISA_A64 \t => %d\n", __ARM_ARCH_ISA_A64 + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_ISA_A64\n");
+    }
+#endif
+
+#ifdef __ARM_ARCH_PROFILE
+    if ( (__ARM_ARCH_PROFILE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_ARCH_PROFILE \t => %d\n", __ARM_ARCH_PROFILE + 0);
+    } else {
+        strcat(buffer, "__ARM_ARCH_PROFILE\n");
+    }
+#endif
+
+#ifdef __ARM_FP
+    if ( (__ARM_FP + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_FP \t\t => %d\n", __ARM_FP + 0);
+    } else {
+        strcat(buffer, "__ARM_FP\n");
+    }
+#endif
+
+#ifdef __ARM_FP16_ARGS
+    if ( (__ARM_FP16_ARGS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_FP16_ARGS \t => %d\n", __ARM_FP16_ARGS + 0);
+    } else {
+        strcat(buffer, "__ARM_FP16_ARGS\n");
+    }
+#endif
+
+#ifdef __ARM_NEON
+    if ( (__ARM_NEON + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_NEON \t\t => %d\n", __ARM_NEON + 0);
+    } else {
+        strcat(buffer, "__ARM_NEON\n");
+    }
+#endif
+
+/* ARM in big endian mode */
+#ifdef __ARMEB__
+    if ( (__ARMEB__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARMEB__ \t\t => %d\n", __ARMEB__ + 0);
+    } else {
+        strcat(buffer, "__ARMEB__\n");
+    }
+#endif
+
+/* ARM in little endian mode */
+#ifdef __ARMEL__
+    if ( (__ARMEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARMEL__ \t\t => %d\n", __ARMEL__ + 0);
+    } else {
+        strcat(buffer, "__ARMEL__\n");
+    }
+#endif
+
+
+#ifdef __ARM_EABI__
+    if ( (__ARM_EABI__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_EABI__ \t\t => %d\n", __ARM_EABI__ + 0);
+    } else {
+        strcat(buffer, "__ARM_EABI__\n");
+    }
+#endif
+
+
+
+
+#ifdef arm_elf
+    if ( (arm_elf + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "arm_elf \t\t => %d\n", arm_elf + 0);
+    } else {
+        strcat(buffer, "arm_elf\n");
+    }
+#endif
+#ifdef _arm_elf
+    if ( (_arm_elf + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_arm_elf \t\t => %d\n", _arm_elf + 0);
+    } else {
+        strcat(buffer, "_arm_elf\n");
+    }
+#endif
+#ifdef _arm_elf_
+    if ( (_arm_elf_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_arm_elf_ \t\t => %d\n", _arm_elf_ + 0);
+    } else {
+        strcat(buffer, "_arm_elf_\n");
+    }
+#endif
+#ifdef __arm_elf
+    if ( (__arm_elf + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arm_elf \t\t => %d\n", __arm_elf + 0);
+    } else {
+        strcat(buffer, "__arm_elf\n");
+    }
+#endif
+#ifdef __arm_elf__
+    if ( (__arm_elf__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__arm_elf__ \t\t => %d\n", __arm_elf__ + 0);
+    } else {
+        strcat(buffer, "__arm_elf__\n");
+    }
+#endif
+
+
+
+/* #################### */
+/* ### i386 - i686 ### */
+
+#ifdef __386__
+    if ( (__386__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__386__ \t\t => %d\n", __386__ + 0);
+    } else {
+        strcat(buffer, "__386__\n");
+    }
+#endif
+
+
 #ifdef i386
     if ( (i386 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "i386\t\t\t => %d\n", i386 + 0);
@@ -2979,6 +3401,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "__i386\n");
     }
 #endif
+
+/* __i386__ used by gcc */
 #ifdef __i386__
     if ( (__i386__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__i386__\t\t => %d\n", __i386__ + 0);
@@ -2987,6 +3411,159 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+#ifdef i486
+    if ( (i486 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "i486\t\t\t => %d\n", i486 + 0);
+    } else {
+        strcat(buffer, "i486\n");
+    }
+#endif
+#ifdef _i486
+    if ( (_i486 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i486\t\t\t => %d\n", _i486 + 0);
+    } else {
+        strcat(buffer, "_i486\n");
+    }
+#endif
+#ifdef _i486_
+    if ( (_i486_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i486_\t\t\t => %d\n", _i486_ + 0);
+    } else {
+        strcat(buffer, "_i486_\n");
+    }
+#endif
+#ifdef __i486
+    if ( (__i486 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i486\t\t\t => %d\n", __i486 + 0);
+    } else {
+        strcat(buffer, "__i486\n");
+    }
+#endif
+#ifdef __i486__
+    if ( (__i486__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i486__\t\t => %d\n", __i486__ + 0);
+    } else {
+        strcat(buffer, "__i486__\n");
+    }
+#endif
+
+
+#ifdef i586
+    if ( (i586 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "i586\t\t\t => %d\n", i586 + 0);
+    } else {
+        strcat(buffer, "i586\n");
+    }
+#endif
+#ifdef _i586
+    if ( (_i586 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i586\t\t\t => %d\n", _i586 + 0);
+    } else {
+        strcat(buffer, "_i586\n");
+    }
+#endif
+#ifdef _i586_
+    if ( (_i586_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i586_\t\t\t => %d\n", _i586_ + 0);
+    } else {
+        strcat(buffer, "_i586_\n");
+    }
+#endif
+#ifdef __i586
+    if ( (__i586 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i586\t\t\t => %d\n", __i586 + 0);
+    } else {
+        strcat(buffer, "__i586\n");
+    }
+#endif
+#ifdef __i586__
+    if ( (__i586__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i586__\t\t => %d\n", __i586__ + 0);
+    } else {
+        strcat(buffer, "__i586__\n");
+    }
+#endif
+
+#ifdef i686
+    if ( (i686 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "i686\t\t\t => %d\n", i686 + 0);
+    } else {
+        strcat(buffer, "i686\n");
+    }
+#endif
+#ifdef _i686
+    if ( (_i686 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i686\t\t\t => %d\n", _i686 + 0);
+    } else {
+        strcat(buffer, "_i686\n");
+    }
+#endif
+#ifdef _i686_
+    if ( (_i686_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_i686_\t\t\t => %d\n", _i686_ + 0);
+    } else {
+        strcat(buffer, "_i686_\n");
+    }
+#endif
+#ifdef __i686
+    if ( (__i686 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i686\t\t\t => %d\n", __i686 + 0);
+    } else {
+        strcat(buffer, "__i686\n");
+    }
+#endif
+#ifdef __i686__
+    if ( (__i686__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__i686__\t\t => %d\n", __i686__ + 0);
+    } else {
+        strcat(buffer, "__i686__\n");
+    }
+#endif
+
+/* more variants */
+#ifdef _I86
+    if ( (_I86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_I86 \t\t => %d\n", _I86 + 0);
+    } else {
+        strcat(buffer, "_I86\n");
+    }
+#endif
+
+#ifdef _I86_
+    if ( (_I86_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_I86_ \t\t => %d\n", _I86_ + 0);
+    } else {
+        strcat(buffer, "_I86_\n");
+    }
+#endif
+
+
+#ifdef __I86
+    if ( (__I86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__I86 \t\t => %d\n", __I86 + 0);
+    } else {
+        strcat(buffer, "__I86\n");
+    }
+#endif
+
+#ifdef _I86_
+    if ( (_I86_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_I86_ \t\t => %d\n", _I86_ + 0);
+    } else {
+        strcat(buffer, "_I86_\n");
+    }
+#endif
+
+#ifdef __I86
+    if ( (__I86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__I86\t\t\t => %d\n", __I86 + 0);
+    } else {
+        strcat(buffer, "__I86\n");
+    }
+#endif
+
+/* 0:8086, 2:286, 3:386 to 6:P6 */
 #ifdef __I86__
     if ( (__I86__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__I86__ \t\t => %d\n", __I86__ + 0);
@@ -2995,7 +3572,16 @@ char *get_txt(char * buffer)
     }
 #endif
 
-/* Intel 64 */
+
+#ifdef _M_AMD64
+    if ( (_M_AMD64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_AMD64\t\t => %d\n", _M_AMD64 + 0);
+    } else {
+        strcat(buffer, "_M_AMD64\n");
+    }
+#endif
+
+/* Intel tried 64 bit with itanium and lost against AMD64 */
 #ifdef _M_IA64
     if ( (_M_IA64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_IA64\t\t\t => %d\n", _M_IA64 + 0);
@@ -3003,6 +3589,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "_M_IA64\n");
     }
 #endif
+
+
 #ifdef __ia64
     if ( (__ia64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__ia64\t\t => %d\n", __ia64 + 0);
@@ -3010,6 +3598,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "__ia64\n");
     }
 #endif
+
 #ifdef __ia64__
     if ( (__ia64__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__ia64__\t\t => %d\n", __ia64__ + 0);
@@ -3033,6 +3622,17 @@ char *get_txt(char * buffer)
 #endif
 
 
+
+/* Intel tried 64 bit with itanium and lost against AMD64 */
+#ifdef __itanium__
+    if ( (__itanium__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__itanium__\t\t => %d\n", __itanium__ + 0);
+    } else {
+        strcat(buffer, "__itanium__\n");
+    }
+#endif
+
+
 /* ALPHA */
 #ifdef _M_ALPHA
     if ( (_M_ALPHA + 1) > 1) {
@@ -3043,6 +3643,149 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* CPU for dos / microsoft compiler */
+
+#ifdef M_I86
+    if ( (M_I86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86 \t\t\t => %d\n", M_I86 + 0);
+    } else {
+        strcat(buffer, "M_I86\n");
+    }
+#endif
+#ifdef _M_I86
+    if ( (_M_I86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86  \t\t => %d\n", _M_I86 + 0);
+    } else {
+        strcat(buffer, "_M_I86\n");
+    }
+#endif
+
+
+/* DOS tiny memory model */
+#ifdef M_I86TM
+    if ( (M_I86TM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86TM  \t\t => %d\n", M_I86TM + 0);
+    } else {
+        strcat(buffer, "M_I86TM\n");
+    }
+#endif
+#ifdef _M_I86TM
+    if ( (_M_I86TM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86TM  \t\t => %d\n", _M_I86TM + 0);
+    } else {
+        strcat(buffer, "_M_I86TM\n");
+    }
+#endif
+
+/* DOS small memory model */
+#ifdef M_I86SM
+    if ( (M_I86SM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86SM  \t\t => %d\n", M_I86SM + 0);
+    } else {
+        strcat(buffer, "M_I86SM\n");
+    }
+#endif
+#ifdef _M_I86SM
+    if ( (_M_I86SM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86SM  \t\t => %d\n", _M_I86SM + 0);
+    } else {
+        strcat(buffer, "_M_I86SM\n");
+    }
+#endif
+
+/* DOS medium memory model */
+#ifdef M_I86MM
+    if ( (M_I86MM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86MM  \t\t => %d\n", M_I86MM + 0);
+    } else {
+        strcat(buffer, "M_I86MM\n");
+    }
+#endif
+#ifdef _M_I86MM
+    if ( (_M_I86MM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86MM  \t\t => %d\n", _M_I86MM + 0);
+    } else {
+        strcat(buffer, "_M_I86MM\n");
+    }
+#endif
+
+/* DOS compact memory model */
+#ifdef M_I86CM
+    if ( (M_I86CM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86CM  \t\t => %d\n", M_I86CM + 0);
+    } else {
+        strcat(buffer, "M_I86CM\n");
+    }
+#endif
+#ifdef _M_I86CM
+    if ( (_M_I86CM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86CM  \t\t => %d\n", _M_I86CM + 0);
+    } else {
+        strcat(buffer, "_M_I86CM\n");
+    }
+#endif
+
+/* DOS lange memory model */
+#ifdef M_I86LM
+    if ( (M_I86LM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86LM  \t\t => %d\n", M_I86LM + 0);
+    } else {
+        strcat(buffer, "M_I86LM\n");
+    }
+#endif
+#ifdef _M_I86LM
+    if ( (_M_I86LM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86LM  \t\t => %d\n", _M_I86LM + 0);
+    } else {
+        strcat(buffer, "_M_I86LM\n");
+    }
+#endif
+
+/* DOS VCM memory model */
+#ifdef M_I86VM
+    if ( (M_I86VM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I86VM  \t\t => %d\n", M_I86VM + 0);
+    } else {
+        strcat(buffer, "M_I86VM\n");
+    }
+#endif
+#ifdef _M_I86VM
+    if ( (_M_I86VM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I86VM  \t\t => %d\n", _M_I86VM + 0);
+    } else {
+        strcat(buffer, "_M_I86VM\n");
+    }
+#endif
+
+/* 286 or better */
+#ifdef M_I286
+    if ( (M_I286 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "M_I286  \t\t => %d\n", M_I286 + 0);
+    } else {
+        strcat(buffer, "M_I286\n");
+    }
+#endif
+
+#ifdef _M_I286
+    if ( (_M_I286 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_I286  \t\t => %d\n", _M_I286 + 0);
+    } else {
+        strcat(buffer, "_M_I286\n");
+    }
+#endif
+
+/* 32 bit mode. 300 for i386 to 600 for p6 or better */
+#ifdef _M_IX86
+    if ( (_M_IX86 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_IX86  \t\t => %d\n", _M_IX86 + 0);
+    } else {
+        strcat(buffer, "_M_IX86\n");
+    }
+#endif
+
+
+
+/* ## i386 for microsoft-compiler ## */
 #ifdef M_I386
     if ( (M_I386 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "M_I386  \t\t => %d\n", M_I386 + 0);
@@ -3050,6 +3793,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "M_I386\n");
     }
 #endif
+
 #ifdef _M_I386
     if ( (_M_I386 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_I386 \t\t => %d\n", _M_I386 + 0);
@@ -3364,19 +4108,54 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef __mcffpu__
+    if ( (__mcffpu__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__mcffpu__ \t\t => %d\n", __mcffpu__ + 0);
+    } else {
+        strcat(buffer, "__mcffpu__\n");
+    }
+#endif
+#ifdef __HAVE_68881__
+    if ( (__HAVE_68881__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__HAVE_68881__ \t\t => %d\n", __HAVE_68881__ + 0);
+    } else {
+        strcat(buffer, "__HAVE_68881__\n");
+    }
+#endif
 
 
-/* mips */
+
+/* microblaze */
+#ifdef __MICROBLAZE__
+    if ( (__MICROBLAZE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MICROBLAZE__\t\t => %d\n", __MICROBLAZE__ + 0);
+    } else {
+        strcat(buffer, "__MICROBLAZE__\n");
+    }
+#endif
+
+/* checked by musl */
+#ifdef __MICROBLAZEEL__
+    if ( (__MICROBLAZEEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MICROBLAZEEL__\t\t => %d\n", __MICROBLAZEEL__ + 0);
+    } else {
+        strcat(buffer, "__MICROBLAZEEL__\n");
+    }
+#endif
+
+
+/* ### mips ### */
 #ifdef mips
     if ( (mips + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "mips \t\t => %d\n", mips + 0);
+        sprintf(buffer + strlen(buffer), "mips\t\t\t => %d\n", mips + 0);
     } else {
         strcat(buffer, "mips\n");
     }
 #endif
+
 #ifdef _mips
     if ( (_mips + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_mips \t\t => %d\n", _mips + 0);
+        sprintf(buffer + strlen(buffer), "_mips\t\t\t => %d\n", _mips + 0);
     } else {
         strcat(buffer, "_mips\n");
     }
@@ -3388,13 +4167,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "_mips_\n");
     }
 #endif
+
+/* zig/clang sets this to 32 */
 #ifdef __mips
     if ( (__mips + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__mips \t\t => %d\n", __mips + 0);
+        sprintf(buffer + strlen(buffer), "__mips\t\t\t => %d\n", __mips + 0);
     } else {
         strcat(buffer, "__mips\n");
     }
 #endif
+/* __mips__ with _ABIO32 used by gcc */
 #ifdef __mips__
     if ( (__mips__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__mips__ \t\t => %d\n", __mips__ + 0);
@@ -3403,11 +4185,49 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef _ABIO32
+    if ( (_ABIO32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ABIO32 \t\t => %d\n", _ABIO32 + 0);
+    } else {
+        strcat(buffer, "_ABIO32\n");
+    }
+#endif
+#ifdef _ABIO64
+    if ( (_ABIO64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ABIO64 \t\t => %d\n", _ABIO64 + 0);
+    } else {
+        strcat(buffer, "_ABIO64\n");
+    }
+#endif
+
+#ifdef __mips_isa_rev
+    if ( (__mips_isa_rev + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__mips_isa_rev \t\t => %d\n", __mips_isa_rev + 0);
+    } else {
+        strcat(buffer, "__mips_isa_rev\n");
+    }
+#endif
+#ifdef __mips_soft_float
+    if ( (__mips_soft_float + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__mips_soft_float \t\t => %d\n", __mips_soft_float + 0);
+    } else {
+        strcat(buffer, "__mips_soft_float\n");
+    }
+#endif
+
+
 #ifdef _MIPS
     if ( (_MIPS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_MIPS \t\t => %d\n", _MIPS + 0);
     } else {
         strcat(buffer, "_MIPS\n");
+    }
+#endif
+#ifdef _MIPS_
+    if ( (_MIPS_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MIPS_ \t\t => %d\n", _MIPS_ + 0);
+    } else {
+        strcat(buffer, "_MIPS_\n");
     }
 #endif
 #ifdef __MIPS
@@ -3424,6 +4244,59 @@ char *get_txt(char * buffer)
         strcat(buffer, "__MIPS__\n");
     }
 #endif
+
+
+/* more MIPS  */
+/* MIPS - big endian mode */
+#ifdef _MIPSEB
+    if ( (_MIPSEB + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MIPSEB \t\t => %d\n", _MIPSEB + 0);
+    } else {
+        strcat(buffer, "_MIPSEB\n");
+    }
+#endif
+
+#ifdef __MIPSEB
+    if ( (__MIPSEB + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MIPSEB \t\t => %d\n", __MIPSEB + 0);
+    } else {
+        strcat(buffer, "__MIPSEB\n");
+    }
+#endif
+
+#ifdef __MIPSEB__
+    if ( (__MIPSEB__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MIPSEB__ \t\t => %d\n", __MIPSEB__ + 0);
+    } else {
+        strcat(buffer, "__MIPSEB__\n");
+    }
+#endif
+
+
+/* MIPS - little endian mode */
+#ifdef _MIPSEL
+    if ( (_MIPSEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MIPSEL \t\t => %d\n", _MIPSEL + 0);
+    } else {
+        strcat(buffer, "_MIPSEL\n");
+    }
+#endif
+#ifdef __MIPSEL
+    if ( (__MIPSEL + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MIPSEL \t\t => %d\n", __MIPSEL + 0);
+    } else {
+        strcat(buffer, "__MIPSEL\n");
+    }
+#endif
+#ifdef __MIPSEL__
+    if ( (__MIPSEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MIPSEL__ \t\t => %d\n", __MIPSEL__ + 0);
+    } else {
+        strcat(buffer, "__MIPSEL__\n");
+    }
+#endif
+
+
 
 
 /* Intel x86 */
@@ -3471,6 +4344,72 @@ char *get_txt(char * buffer)
         strcat(buffer, "_M_IX86_FP\n");
     }
 #endif
+
+
+
+/* ### pentium and up ### */
+
+
+#ifdef _pentium
+    if ( (_pentium + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_pentium\t\t => %d\n", _pentium + 0);
+    } else {
+        strcat(buffer, "_pentium\n");
+    }
+#endif
+#ifdef _pentium_
+    if ( (_pentium_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_pentium_\t\t => %d\n", _pentium_ + 0);
+    } else {
+        strcat(buffer, "_pentium_\n");
+    }
+#endif
+#ifdef __pentium
+    if ( (__pentium + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pentium\t\t => %d\n", __pentium + 0);
+    } else {
+        strcat(buffer, "__pentium\n");
+    }
+#endif
+#ifdef __pentium__
+    if ( (__pentium__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pentium__\t => %d\n", __pentium__ + 0);
+    } else {
+        strcat(buffer, "__pentium__\n");
+    }
+#endif
+
+
+#ifdef _pentiumpro
+    if ( (_pentiumpro + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_pentiumpro\t\t\t => %d\n", _pentiumpro + 0);
+    } else {
+        strcat(buffer, "_pentiumpro\n");
+    }
+#endif
+#ifdef _pentiumpro_
+    if ( (_pentiumpro_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_pentiumpro_\t\t\t => %d\n", _pentiumpro_ + 0);
+    } else {
+        strcat(buffer, "_pentiumpro_\n");
+    }
+#endif
+#ifdef __pentiumpro
+    if ( (__pentiumpro + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pentiumpro\t\t => %d\n", __pentiumpro + 0);
+    } else {
+        strcat(buffer, "__pentiumpro\n");
+    }
+#endif
+#ifdef __pentiumpro__
+    if ( (__pentiumpro__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__pentiumpro__\t\t => %d\n", __pentiumpro__ + 0);
+    } else {
+        strcat(buffer, "__pentiumpro__\n");
+    }
+#endif
+
+
 
 
 /* PowerPC */
@@ -3735,6 +4674,145 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef _riscv
+    if ( (__riscv + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_riscv \t\t => %d\n", _riscv + 0);
+    } else {
+        strcat(buffer, "_riscv\n");
+    }
+#endif
+
+#ifdef __riscv
+    if ( (__riscv + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__riscv \t\t => %d\n", __riscv + 0);
+    } else {
+        strcat(buffer, "__riscv\n");
+    }
+#endif
+
+
+#ifdef __riscv__
+    if ( (__riscv__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__riscv__ \t\t => %d\n", __riscv__ + 0);
+    } else {
+        strcat(buffer, "__riscv__\n");
+    }
+#endif
+
+#ifdef __RISCV64__
+    if ( (__RISCV64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__RISCV64__ \t\t => %d\n", __RISCV64__ + 0);
+    } else {
+        strcat(buffer, "__RISCV64__\n");
+    }
+#endif
+
+/* checked by musl */
+#ifdef __riscv_float_abi_single
+    if ( (__riscv_float_abi_single + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__riscv_float_abi_single \t\t => %d\n", __riscv_float_abi_single + 0);
+    } else {
+        strcat(buffer, "__riscv_float_abi_single\n");
+    }
+#endif
+
+/* checked by musl */
+#ifdef __riscv_float_abi_soft
+    if ( (__riscv_float_abi_soft + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__riscv_float_abi_soft \t\t => %d\n", __riscv_float_abi_soft + 0);
+    } else {
+        strcat(buffer, "__riscv_float_abi_soft\n");
+    }
+#endif
+
+
+#ifdef __riscv_xlen
+    if ( (__riscv_xlen + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__riscv_xlen \t\t => %d\n", __riscv_xlen + 0);
+    } else {
+        strcat(buffer, "__riscv_xlen\n");
+    }
+#endif
+
+
+#ifdef __sh__
+    if ( (__sh__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sh__\t\t => %d\n", __sh__ + 0);
+    } else {
+        strcat(buffer, "__sh__\n");
+    }
+#endif
+
+/* checked by musl */
+#ifdef __SH4__
+    if ( (__SH4__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SH4__\t\t => %d\n", __SH4__ + 0);
+    } else {
+        strcat(buffer, "__SH4__\n");
+    }
+#endif
+
+#ifdef __SH5__
+    if ( (__SH5__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SH5__\t\t => %d\n", __SH5__ + 0);
+    } else {
+        strcat(buffer, "__SH5__\n");
+    }
+#endif
+
+/* checked by musl */
+#ifdef __SH_FDPIC
+    if ( (__SH_FDPIC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SH_FDPIC\t\t => %d\n", __SH_FDPIC + 0);
+    } else {
+        strcat(buffer, "__SH_FDPIC\n");
+    }
+#endif
+/* checked by musl */
+#ifdef __SH_FPU_ANY
+    if ( (__SH_FPU_ANY + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SH_FPU_ANY\t\t => %d\n", __SH_FPU_ANY + 0);
+    } else {
+        strcat(buffer, "__SH_FPU_ANY\n");
+    }
+#endif
+
+
+#ifdef __sparc__
+    if ( (__sparc__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sparc__\t\t => %d\n", __sparc__ + 0);
+    } else {
+        strcat(buffer, "__sparc__\n");
+    }
+#endif
+
+#ifdef __sparc_v8__
+    if ( (__sparc_v8__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sparc_v8__\t\t => %d\n", __sparc_v8__ + 0);
+    } else {
+        strcat(buffer, "__sparc_v8__\n");
+    }
+#endif
+
+#ifdef __sparcv9
+    if ( (__sparcv9 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sparcv9\t\t => %d\n", __sparcv9 + 0);
+    } else {
+        strcat(buffer, "__sparcv9\n");
+    }
+#endif
+
+#ifdef __sparclite__
+    if ( (__sparclite__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__sparclite__\t\t => %d\n", __sparclite__ + 0);
+    } else {
+        strcat(buffer, "__sparclite__\n");
+    }
+#endif
+
+
+
+
 /* TMS320C3x, 0C4x, 0C67 */
 #ifdef _TMS32C03x
     if ( (_TMS32C03x + 1) > 1) {
@@ -3769,6 +4847,13 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __vax__
+    if ( (__vax__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__vax__\t\t => %d\n", __vax__ + 0);
+    } else {
+        strcat(buffer, "__vax__\n");
+    }
+#endif
 
 
 #ifdef X86
@@ -3808,6 +4893,41 @@ char *get_txt(char * buffer)
 #endif
 
 
+
+#ifdef _X86AMD64_
+    if ( (_X86AMD64_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_X86AMD64_\t\t => %d\n", _X86AMD64_ + 0);
+    } else {
+        strcat(buffer, "_X86AMD64_\n");
+    }
+#endif
+
+
+/* different name from intel. see __amd64 */
+#ifdef x86_64
+    if ( (x86_64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "x86_64\t\t => %d\n", x86_64 + 0);
+    } else {
+        strcat(buffer, "x86_64\n");
+    }
+#endif
+
+#ifdef _x86_64
+    if ( (_x86_64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_x86_64\t\t => %d\n", _x86_64 + 0);
+    } else {
+        strcat(buffer, "_x86_64\n");
+    }
+#endif
+
+#ifdef _x86_64_
+    if ( (_x86_64_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_x86_64_\t\t => %d\n", _x86_64_ + 0);
+    } else {
+        strcat(buffer, "_x86_64_\n");
+    }
+#endif
+
 #ifdef __x86_64
     if ( (__x86_64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__x86_64\t\t => %d\n", __x86_64 + 0);
@@ -3824,6 +4944,22 @@ char *get_txt(char * buffer)
 #endif
 
 
+
+#ifdef __xtensia__
+    if ( (__xtensia__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__xtensia__\t\t => %d\n", __xtensia__ + 0);
+    } else {
+        strcat(buffer, "__xtensia__\n");
+    }
+#endif
+
+#ifdef __z8000__
+    if ( (__z8000__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__z8000__\t\t => %d\n", __z8000__ + 0);
+    } else {
+        strcat(buffer, "__z8000__\n");
+    }
+#endif
 
 /* ################################################### */
 /* OS */

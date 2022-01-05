@@ -8628,6 +8628,34 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* used by DMC */
+#ifdef __FPCE__
+    if ( (__FPCE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FPCE__\t\t => %d\n", __FPCE__ + 0);
+    } else {
+        strcat(buffer, "__FPCE__\n");
+    }
+#endif
+
+/* used by DMC */
+#ifdef __FPCE_IEEE__
+    if ( (__FPCE_IEEE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FPCE_IEEE__\t\t => %d\n", __FPCE_IEEE__ + 0);
+    } else {
+        strcat(buffer, "__FPCE_IEEE__\n");
+    }
+#endif
+
+/* documented by DMC. might be a typo. 2 underscore in the name are unusual */
+#ifdef __FPCE__IEEE__
+    if ( (__FPCE__IEEE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__FPCE__IEEE__\t\t => %d\n", __FPCE__IEEE__ + 0);
+    } else {
+        strcat(buffer, "__FPCE__IEEE__\n");
+    }
+#endif
+
+
 /* ARM CC with EDG frontend */
 #ifdef __FP_FAST
     if ( (__FP_FAST + 1) > 1) {

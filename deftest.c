@@ -2130,6 +2130,16 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* used by DMC: DOS: 2, DOSX (Extender): 4 / _WIN32: 8  */
+#ifdef __DEFALIGN
+    if ( (__DEFALIGN + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DEFALIGN\t\t => %d\n", __DEFALIGN + 0);
+    } else {
+        strcat(buffer, "__DEFALIGN\n");
+    }
+#endif
+
+
 /* some limits */
 #ifdef BUFSIZ
     if ( (BUFSIZ + 1) > 1) {

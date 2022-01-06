@@ -4975,7 +4975,7 @@ char *get_txt(char * buffer)
 #endif
 #ifdef __X86__
     if ( (__X86__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__X86__\t\t\t => %d\n", __X86__ + 0);
+        sprintf(buffer + strlen(buffer), "__X86__ \t\t => %d\n", __X86__ + 0);
     } else {
         strcat(buffer, "__X86__\n");
     }
@@ -8064,10 +8064,10 @@ char *get_txt(char * buffer)
 
 /* int */
 #ifdef INT_MIN
-    sprintf(buffer+strlen(buffer), "INT_MIN\t\t\t => 0x%x\n", INT_MIN);
+    sprintf(buffer+strlen(buffer), "INT_MIN \t\t => 0x%x\n", INT_MIN);
 #endif
 #ifdef INT_MAX
-    sprintf(buffer+strlen(buffer), "INT_MAX\t\t\t => 0x%x\n", INT_MAX);
+    sprintf(buffer+strlen(buffer), "INT_MAX \t\t => 0x%x\n", INT_MAX);
 #endif
 
 #ifdef __INT_MAX__

@@ -2433,6 +2433,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* z/OS XL C/C++ compiler */
+#ifdef __C99_FUNC__
+    if ( (__C99_FUNC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__C99_FUNC__\t\t => %d\n", __C99_FUNC__ + 0);
+    } else {
+        strcat(buffer, "__C99_FUNC__\n");
+    }
+#endif
+
 #ifdef __C99_HEX_FLOAT_CONST
     if ( (__C99_HEX_FLOAT_CONST + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__C99_HEX_FLOAT_CONST \t\t => %d\n", __C99_HEX_FLOAT_CONST + 0);

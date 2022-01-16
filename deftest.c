@@ -3449,6 +3449,17 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* #################### */
+
+/* used by OpenWatcom for APLHA-target */
+#ifdef __AXP__
+    if ( (__AXP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AXP__\t\t => %d\n", __AXP__ + 0);
+    } else {
+        strcat(buffer, "__AXP__\n");
+    }
+#endif
+
 
 /* #################### */
 /* ### i386 - i686 ### */
@@ -3741,6 +3752,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "M_I86\n");
     }
 #endif
+
+/* used by OpenWatcom */
 #ifdef _M_I86
     if ( (_M_I86 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_I86  \t\t => %d\n", _M_I86 + 0);
@@ -3883,6 +3896,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* used by OpenWatcom with __SW_3 /__SW_4 / __SW_5 / __SW_6 for 386 / 486 / pentium / pentiumpro */
 #ifdef _M_I386
     if ( (_M_I386 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_I386 \t\t => %d\n", _M_I386 + 0);
@@ -3890,6 +3904,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "_M_I386\n");
     }
 #endif
+
 #ifdef _M_I386_
     if ( (_M_I386_ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_I386_ \t\t => %d\n", _M_I386_ + 0);
@@ -4900,6 +4915,67 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* used by OpenWatcom with _M_I86: 8086 */
+#ifdef __SW_0
+    if ( (__SW_0 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_0  \t\t => %d\n", __SW_0 + 0);
+    } else {
+        strcat(buffer, "__SW_0\n");
+    }
+#endif
+
+/* used by OpenWatcom with _M_I86: 80186 */
+#ifdef __SW_1
+    if ( (__SW_1 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_1  \t\t => %d\n", __SW_1 + 0);
+    } else {
+        strcat(buffer, "__SW_1\n");
+    }
+#endif
+
+/* used by OpenWatcom with _M_I86: 80286 */
+#ifdef __SW_2
+    if ( (__SW_2 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_2  \t\t => %d\n", __SW_2 + 0);
+    } else {
+        strcat(buffer, "__SW_2\n");
+    }
+#endif
+
+/* used by OpenWatcom with _M_I386: 80386 */
+#ifdef __SW_3
+    if ( (__SW_3 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_3  \t\t => %d\n", __SW_3 + 0);
+    } else {
+        strcat(buffer, "__SW_3\n");
+    }
+#endif
+/* used by OpenWatcom with _M_I386: 80486 */
+#ifdef __SW_4
+    if ( (__SW_4 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_4  \t\t => %d\n", __SW_4 + 0);
+    } else {
+        strcat(buffer, "__SW_4\n");
+    }
+#endif
+
+/* used by OpenWatcom with _M_I386: 80586 / pentium */
+#ifdef __SW_5
+    if ( (__SW_5 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_5  \t\t => %d\n", __SW_5 + 0);
+    } else {
+        strcat(buffer, "__SW_5\n");
+    }
+#endif
+
+/* used by OpenWatcom with _M_I386: 80686 / pentiumpro */
+#ifdef __SW_6
+    if ( (__SW_6 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SW_6  \t\t => %d\n", __SW_6 + 0);
+    } else {
+        strcat(buffer, "__SW_6\n");
+    }
+#endif
 
 
 /* TMS320C3x, 0C4x, 0C67 */
@@ -5908,6 +5984,16 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* used by OpenWatcom */
+#ifdef __OSX__
+    if ( (__OSX__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__OSX__\t\t => %d\n", __OSX__ + 0);
+    } else {
+        strcat(buffer, "__OSX__\n");
+    }
+#endif
+
+
 /*  __QNX__  / __QNXNTO__ */
 #ifdef __QNX__
     if ( (__QNX__  + 1) > 1) {
@@ -6002,6 +6088,35 @@ char *get_txt(char * buffer)
         strcat(buffer, "_SYSTYPE_SVR4\n");
     }
 #endif
+
+
+/* used by Watcom / OpenWatcom */
+#ifdef __TARGET__
+    sprintf(buffer + strlen(buffer), "__TARGET_\t\t => %s\n", __TARGET__ + 0);
+#endif
+
+#ifdef __TARGET_386__
+    if ( (__TARGET_386__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TARGET_386__\t => %d\n", __TARGET_386__ + 0);
+    } else {
+        strcat(buffer, "__TARGET_386__\n");
+    }
+#endif
+#ifdef __TARGET_AXP__
+    if ( (__TARGET_AXP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TARGET_AXP__\t => %d\n", __TARGET_AXP__ + 0);
+    } else {
+        strcat(buffer, "__TARGET_AXP__\n");
+    }
+#endif
+#ifdef __TARGET_PPC__
+    if ( (__TARGET_PPC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TARGET_PPC__\t => %d\n", __TARGET_PPC__ + 0);
+    } else {
+        strcat(buffer, "__TARGET_PPC__\n");
+    }
+#endif
+
 
 /* probably used by ibmcpp */
 #ifdef __TOS_AIX__

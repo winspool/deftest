@@ -1337,6 +1337,16 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* simple-cc.org */
+#ifdef __SCC__
+    if ( (__SCC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SCC__\t\t => 0x%x\n", __SCC__ + 0);
+    } else {
+        strcat(buffer, "__SCC__\n");
+    }
+#endif
+
+
 /*  SCO OpenServer */
 #ifdef _SCO_DS
     if ( (_SCO_DS + 1) > 1) {
@@ -1426,6 +1436,14 @@ char *get_txt(char * buffer)
 
 #ifdef TCC_GITHASH
     sprintf(buffer + strlen(buffer), "TCC_GITHASH \t\t => '%s'\n", TCC_GITHASH);
+#endif
+
+#ifdef __TCC_PP__
+    if ( (__TCC_PP__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TCC_PP__ \t\t => %d\n", __TCC_PP__ + 0);
+    } else {
+        strcat(buffer, "__TCC_PP__\n");
+    }
 #endif
 
 
@@ -3449,6 +3467,40 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* SIMD instruction sets 7 to 8 */
+#ifdef __AVX__
+    if ( (__AVX__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AVX__  \t\t => %d\n", __AVX__ + 0);
+    } else {
+        strcat(buffer, "__AVX__\n");
+    }
+#endif
+#ifdef __AVX2__
+    if ( (__AVX2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AVX2__  \t\t => %d\n", __AVX2__ + 0);
+    } else {
+        strcat(buffer, "__AVX2__\n");
+    }
+#endif
+
+/* SIMD instruction set 9 */
+#ifdef __AVX512__
+    if ( (__AVX512__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AVX512__  \t\t => %d\n", __AVX512__ + 0);
+    } else {
+        strcat(buffer, "__AVX512__\n");
+    }
+#endif
+#ifdef __AVX512F__
+    if ( (__AVX512F__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AVX512F__  \t\t => %d\n", __AVX512F__ + 0);
+    } else {
+        strcat(buffer, "__AVX512F__\n");
+    }
+#endif
+
+
+
 /* #################### */
 
 /* used by OpenWatcom for APLHA-target */
@@ -4441,9 +4493,12 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* SIMD instruction set, used by Microsoft compiler. 1: SSE or 2: SSE2 */
 #ifdef _M_IX86_FP
     if ( (_M_IX86_FP + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_M_IX86_FP \t\t => %d\n", _M_IX86_FP + 0);
+        sprintf(buffer + strlen(buffer), "_M_IX86_FP \t\t => %d %s\n", _M_IX86_FP + 0,
+        (_M_IX86_FP  > 2) ? "(unknown SSE version)" : 
+        (_M_IX86_FP == 2) ? "(SSE2)" : "(SSE)");
     } else {
         strcat(buffer, "_M_IX86_FP\n");
     }
@@ -4451,8 +4506,27 @@ char *get_txt(char * buffer)
 
 
 
-/* ### pentium and up ### */
+/* Multi Media Extension instruction set */
+#ifdef __MMX__
+    if ( (__MMX__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MMX__  \t\t => %d\n", __MMX__ + 0);
+    } else {
+        strcat(buffer, "__MMX__\n");
+    }
+#endif
 
+
+/* used by OpenWatcom */
+#ifdef _M_X64
+    if ( (_M_X64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_X64  \t\t => %d\n", _M_X64 + 0);
+    } else {
+        strcat(buffer, "_M_X64\n");
+    }
+#endif
+
+
+/* ### pentium and up ### */
 
 #ifdef _pentium
     if ( (_pentium + 1) > 1) {
@@ -4779,7 +4853,7 @@ char *get_txt(char * buffer)
 
 
 #ifdef _riscv
-    if ( (__riscv + 1) > 1) {
+    if ( (_riscv + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_riscv \t\t => %d\n", _riscv + 0);
     } else {
         strcat(buffer, "_riscv\n");
@@ -4915,6 +4989,87 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* SIMD instruction sets 1 to 6 */
+#ifdef __SSE__
+    if ( (__SSE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE__  \t\t => %d\n", __SSE__ + 0);
+    } else {
+        strcat(buffer, "__SSE__\n");
+    }
+#endif
+#ifdef __SSE2__
+    if ( (__SSE2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE2__  \t\t => %d\n", __SSE2__ + 0);
+    } else {
+        strcat(buffer, "__SSE2__\n");
+    }
+#endif
+#ifdef __SSE3__
+    if ( (__SSE3__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE3__  \t\t => %d\n", __SSE3__ + 0);
+    } else {
+        strcat(buffer, "__SSE3__\n");
+    }
+#endif
+#ifdef __SSSE3__
+    if ( (__SSSE3__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSSE3__  \t\t => %d\n", __SSSE3__ + 0);
+    } else {
+        strcat(buffer, "__SSSE3__\n");
+    }
+#endif
+
+#ifdef __SSE4_1__
+    if ( (__SSE4_1__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE4_1__  \t\t => %d\n", __SSE4_1__ + 0);
+    } else {
+        strcat(buffer, "__SSE4_1__\n");
+    }
+#endif
+
+#ifdef __SSE4_2__
+    if ( (__SSE4_2__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE4_2__  \t\t => %d\n", __SSE4_2__ + 0);
+    } else {
+        strcat(buffer, "__SSE4_2__\n");
+    }
+#endif
+
+/* AMD extension to __SSE4_1__ */
+#ifdef __SSE4A__
+    if ( (__SSE4A__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE4A__  \t\t => %d\n", __SSE4A__ + 0);
+    } else {
+        strcat(buffer, "__SSE4A__\n");
+    }
+#endif
+
+#ifdef __SSE5__
+    if ( (__SSE5__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE5__  \t\t => %d\n", __SSE5__ + 0);
+    } else {
+        strcat(buffer, "__SSE5__\n");
+    }
+#endif
+
+
+
+#ifdef __SSE_MATH__
+    if ( (__SSE_MATH__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE_MATH__  \t\t => %d\n", __SSE_MATH__ + 0);
+    } else {
+        strcat(buffer, "__SSE_MATH__\n");
+    }
+#endif
+#ifdef __SSE2_MATH__
+    if ( (__SSE2_MATH__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SSE2_MATH__  \t\t => %d\n", __SSE2_MATH__ + 0);
+    } else {
+        strcat(buffer, "__SSE2_MATH__\n");
+    }
+#endif
+
+
 /* used by OpenWatcom with _M_I86: 8086 */
 #ifdef __SW_0
     if ( (__SW_0 + 1) > 1) {
@@ -5019,6 +5174,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "__vax__\n");
     }
 #endif
+
+/* Altivec instruction set extension */
+#ifdef __VEC__
+    if ( (__VEC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__VEC__  \t\t => %d\n", __VEC__ + 0);
+    } else {
+        strcat(buffer, "__VEC__\n");
+    }
+#endif
+
 
 
 #ifdef X86
@@ -5678,6 +5843,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* used by OpenWatcom */
 #ifdef __LINUX__
     if ( (__LINUX__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__LINUX__\t\t => %d\n", __LINUX__ + 0);
@@ -5685,6 +5851,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "__LINUX__\n");
     }
 #endif
+
+/* used by OpenWatcom */
+#ifdef __LINUX_X64__
+    if ( (__LINUX_X64__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LINUX_X64__\t\t => %d\n", __LINUX_X64__ + 0);
+    } else {
+        strcat(buffer, "__LINUX_X64__\n");
+    }
+#endif
+
 
 #ifdef __gnu_linux__
     if ( (__gnu_linux__ + 1) > 1) {
@@ -6869,7 +7045,7 @@ char *get_txt(char * buffer)
 /* glibc v5 */
 #ifdef __GNU_LIBRARY__
     if ( (__GNU_LIBRARY__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GNU_LIBRARY__ \t\t => %d\n", __GNU_LIBRARY__ + 0);
+        sprintf(buffer + strlen(buffer), "__GNU_LIBRARY__\t\t => %d\n", __GNU_LIBRARY__ + 0);
     } else {
         strcat(buffer, "__GNU_LIBRARY__\n");
     }
@@ -6894,7 +7070,7 @@ char *get_txt(char * buffer)
 /* glibc v6 */
 #ifdef __GLIBC_MAJOR__
     if ( (__GLIBC_MAJOR__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GLIBC_MAJOR__ \t\t => %d\n", __GLIBC_MAJOR__ + 0);
+        sprintf(buffer + strlen(buffer), "__GLIBC_MAJOR__\t\t => %d\n", __GLIBC_MAJOR__ + 0);
     } else {
         strcat(buffer, "__GLIBC_MAJOR__\n");
     }
@@ -6902,17 +7078,12 @@ char *get_txt(char * buffer)
 
 #ifdef __GLIBC_MINOR__
     if ( (__GLIBC_MINOR__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GLIBC_MINOR__ \t\t => %d\n", __GLIBC_MINOR__ + 0);
+        sprintf(buffer + strlen(buffer), "__GLIBC_MINOR__\t\t => %d\n", __GLIBC_MINOR__ + 0);
     } else {
         strcat(buffer, "__GLIBC_MINOR__\n");
     }
 #endif
 
-
-#ifdef __GLIBC_PREREQ
-    sprintf(buffer+strlen(buffer), "__GLIBC_PREREQ\t\t => %s\n", __my_stringify( __GLIBC_PREREQ ) );
-
-#endif
 
 /* GNU libstd++ */
 #ifdef __GLIBCPP__
@@ -8214,16 +8385,19 @@ char *get_txt(char * buffer)
 #endif
 
 
+
 #ifdef INT64_MIN
-    sprintf(buffer+strlen(buffer), "INT64_MIN \t\t => 0x%x\n", INT64_MIN);
+    sprintf(buffer+strlen(buffer), "INT64_MIN\t\t => 0x%lx%08lx\n",
+            (long) (INT64_MIN >>32), (unsigned long)(INT64_MIN & 0xffffffff));
 #endif
 #ifdef INT64_MAX
-    sprintf(buffer+strlen(buffer), "INT64_MAX \t\t => 0x%x\n", INT64_MAX);
+    sprintf(buffer+strlen(buffer), "INT64_MAX\t\t => 0x%lx%08lx\n",
+            (long) (INT64_MAX >>32), (unsigned long)(INT64_MAX & 0xffffffff));
 #endif
 #ifdef UINT64_MAX
-    sprintf(buffer+strlen(buffer), "UINT64_MAX \t\t => 0x%x\n", UINT64_MAX);
+    sprintf(buffer+strlen(buffer), "UINT64_MAX\t\t => 0x%lx%08lx\n",
+            (long) (UINT64_MAX >>32), (unsigned long)(UINT64_MAX & 0xffffffff));
 #endif
-
 
 
 
@@ -8296,23 +8470,20 @@ char *get_txt(char * buffer)
 
 /* more max */
 #ifdef INTPTR_MAX
-    sprintf(buffer+strlen(buffer), "INTPTR_MAX\t\t => 0x%lx%08lx\n",
+    sprintf(buffer+strlen(buffer), "INTPTR_MAX\t\t => 0x%lx%8lx\n",
             (long) (INTPTR_MAX >>32), (unsigned long)(INTPTR_MAX & 0xffffffff));
 #endif
 #ifdef UINTPTR_MAX
-    sprintf(buffer+strlen(buffer), "UINTPTR_MAX\t\t => 0x%lx%08lx\n",
+    sprintf(buffer+strlen(buffer), "UINTPTR_MAX\t\t => 0x%lx%8lx\n",
             (long) (UINTPTR_MAX >>32), (unsigned long)(UINTPTR_MAX & 0xffffffff));
 #endif
-#ifdef INT64_MAX
-    sprintf(buffer+strlen(buffer), "INT64_MAX\t\t => 0x%lx%08lx\n",
-            (long) (INT64_MAX >>32), (unsigned long)(INT64_MAX & 0xffffffff));
-#endif
+
 #ifdef LONGPTR_MAX
-    sprintf(buffer+strlen(buffer), "LONGPTR_MAX\t\t => 0x%lx%08lx\n",
+    sprintf(buffer+strlen(buffer), "LONGPTR_MAX\t\t => 0x%lx%08.lx\n",
             (long) (LONGPTR_MAX >>32), (unsigned long)(LONGPTR_MAX & 0xffffffff));
 #endif
 #ifdef ULONGPTR_MAX
-    sprintf(buffer+strlen(buffer), "ULONGPTR_MAX\t\t => 0x%lx%08lx\n",
+    sprintf(buffer+strlen(buffer), "ULONGPTR_MAX\t\t => 0x%lx%08.lx\n",
             (long) (ULONGPTR_MAX >>32), (unsigned long)(ULONGPTR_MAX & 0xffffffff));
 #endif
 
@@ -8656,7 +8827,7 @@ char *get_txt(char * buffer)
             sizeof( __INTPTR_TYPE__ ), __my_stringify( __INTPTR_TYPE__ ) );
 #endif
 #ifdef __UINTPTR_TYPE__
-    sprintf(buffer+strlen(buffer), "__UINTPTR_TYPE__\t\t => size is %zd: %s\n",
+    sprintf(buffer+strlen(buffer), "__UINTPTR_TYPE__ \t => size is %zd: %s\n",
             sizeof( __UINTPTR_TYPE__ ), __my_stringify( __UINTPTR_TYPE__ ) );
 #endif
 

@@ -2220,14 +2220,14 @@ char *get_txt(char * buffer)
 
 #ifdef FILENAME_MAX
     if ( (FILENAME_MAX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "FILENAME_MAX\t\t\t => %d\n", FILENAME_MAX + 0);
+        sprintf(buffer + strlen(buffer), "FILENAME_MAX\t\t => %d\n", FILENAME_MAX + 0);
     } else {
         strcat(buffer, "FILENAME_MAX\n");
     }
 #endif
 #ifdef FOPEN_MAX
     if ( (FOPEN_MAX + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "FOPEN_MAX\t\t\t => %d\n", FOPEN_MAX + 0);
+        sprintf(buffer + strlen(buffer), "FOPEN_MAX\t\t => %d\n", FOPEN_MAX + 0);
     } else {
         strcat(buffer, "FOPEN_MAX\n");
     }
@@ -2296,7 +2296,7 @@ char *get_txt(char * buffer)
 
 #ifdef L_tmpnam
     if ( (L_tmpnam + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "L_tmpnam\t\t\t => %d\n", L_tmpnam + 0);
+        sprintf(buffer + strlen(buffer), "L_tmpnam\t\t => %d\n", L_tmpnam + 0);
     } else {
         strcat(buffer, "L_tmpnam\n");
     }

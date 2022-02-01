@@ -9454,25 +9454,6 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-#ifdef stdcall
-    strcat(buffer, "stdcall\n");
-#endif
-#ifdef _stdcall
-    strcat(buffer, "_stdcall\n");
-#endif
-#ifdef __stdcall
-    strcat(buffer, "__stdcall\n");
-#endif
-#ifdef _STDCALL_SUPPORTED
-    if ( (_STDCALL_SUPPORTED + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_STDCALL_SUPPORTED\t => %d\n", _STDCALL_SUPPORTED + 0);
-    } else {
-        strcat(buffer, "_STDCALL_SUPPORTED\n");
-    }
-#endif
-
-
 #ifdef cdecl
     strcat(buffer, "cdecl\n");
 #endif
@@ -9481,16 +9462,6 @@ char *get_txt(char * buffer)
 #endif
 #ifdef __cdecl
     strcat(buffer, "__cdecl\n");
-#endif
-
-#ifdef pascal
-    strcat(buffer, "pascal\n");
-#endif
-#ifdef _pascal
-    strcat(buffer, "_pascal\n");
-#endif
-#ifdef __pascal
-    strcat(buffer, "__pascal\n");
 #endif
 
 
@@ -9503,6 +9474,7 @@ char *get_txt(char * buffer)
 #ifdef __fastcall
     strcat(buffer, "__fastcall\n");
 #endif
+
 #ifdef fastcall2
     strcat(buffer, "fastcall2\n");
 #endif
@@ -9513,6 +9485,35 @@ char *get_txt(char * buffer)
     strcat(buffer, "__fastcall2\n");
 #endif
 
+
+#ifdef pascal
+    strcat(buffer, "pascal\n");
+#endif
+#ifdef _pascal
+    strcat(buffer, "_pascal\n");
+#endif
+#ifdef __pascal
+    strcat(buffer, "__pascal\n");
+#endif
+
+
+#ifdef stdcall
+    strcat(buffer, "stdcall\n");
+#endif
+#ifdef _stdcall
+    strcat(buffer, "_stdcall\n");
+#endif
+#ifdef __stdcall
+    strcat(buffer, "__stdcall\n");
+#endif
+
+#ifdef _STDCALL_SUPPORTED
+    if ( (_STDCALL_SUPPORTED + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_STDCALL_SUPPORTED\t => %d\n", _STDCALL_SUPPORTED + 0);
+    } else {
+        strcat(buffer, "_STDCALL_SUPPORTED\n");
+    }
+#endif
 
 
 /* ################### */

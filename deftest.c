@@ -8004,6 +8004,44 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* LP32 and LP64 for x86_32 and x86_64 */
+#ifdef LP32
+    if ( (LP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "LP32\t\t\t => %d\n", LP32 + 0);
+    } else {
+        strcat(buffer, "LP32\n");
+    }
+#endif
+#ifdef _LP32
+    if ( (_LP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LP32\t\t\t => %d\n", _LP32 + 0);
+    } else {
+        strcat(buffer, "_LP32\n");
+    }
+#endif
+#ifdef _LP32_
+    if ( (_LP32_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LP32_\t\t\t => %d\n", _LP32_ + 0);
+    } else {
+        strcat(buffer, "_LP32_\n");
+    }
+#endif
+#ifdef __LP32
+    if ( (__LP32 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LP32\t\t\t => %d\n", __LP32 + 0);
+    } else {
+        strcat(buffer, "__LP32\n");
+    }
+#endif
+#ifdef __LP32__
+    if ( (__LP32__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__LP32__\t\t => %d\n", __LP32__ + 0);
+    } else {
+        strcat(buffer, "__LP32__\n");
+    }
+#endif
+
+/* LP32 and LP64 for x86_32 and x86_64 */
 #ifdef LP64
     if ( (LP64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "LP64\t\t\t => %d\n", LP64 + 0);

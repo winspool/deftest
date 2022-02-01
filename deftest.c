@@ -1313,6 +1313,15 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* __PACC__: PAascal C Compiler */
+#ifdef __PACC__
+    if ( (__PACC__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__PACC__ \t\t => %d\n", __PACC__ + 0);
+    } else {
+        strcat(buffer, "__PACC__\n");
+    }
+#endif
+
 
 /* Portable C Compiler  */
 #ifdef __PCC__

@@ -2209,12 +2209,27 @@ char *get_txt(char * buffer)
 
 
 
-/* some limits */
+/* some limits from stdio.h */
 #ifdef BUFSIZ
     if ( (BUFSIZ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "BUFSIZ\t\t\t => %d\n", BUFSIZ + 0);
     } else {
         strcat(buffer, "BUFSIZ\n");
+    }
+#endif
+
+#ifdef FILENAME_MAX
+    if ( (FILENAME_MAX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "FILENAME_MAX\t\t\t => %d\n", FILENAME_MAX + 0);
+    } else {
+        strcat(buffer, "FILENAME_MAX\n");
+    }
+#endif
+#ifdef FOPEN_MAX
+    if ( (FOPEN_MAX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "FOPEN_MAX\t\t\t => %d\n", FOPEN_MAX + 0);
+    } else {
+        strcat(buffer, "FOPEN_MAX\n");
     }
 #endif
 
@@ -2225,6 +2240,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "__STDIO_BUFSIZ\n");
     }
 #endif
+
 
 /* stdio uses buffers */
 #ifdef __STDIO_BUFFERS
@@ -2270,6 +2286,25 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef TMP_MAX
+    if ( (TMP_MAX + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "TMP_MAX\t\t\t => %d\n", TMP_MAX + 0);
+    } else {
+        strcat(buffer, "TMP_MAX\n");
+    }
+#endif
+
+#ifdef L_tmpnam
+    if ( (L_tmpnam + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "L_tmpnam\t\t\t => %d\n", L_tmpnam + 0);
+    } else {
+        strcat(buffer, "L_tmpnam\n");
+    }
+#endif
+
+#ifdef _TMPNAME
+    sprintf(buffer + strlen(buffer), "_TMPNAME\t\t => %s\n", _TMPNAME);
+#endif
 
 
 #ifdef MAX_PATH

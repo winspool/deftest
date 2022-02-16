@@ -2099,6 +2099,34 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* Defined to 64 to enable 64-bit time_t for glibc */
+#ifdef _TIME_BITS
+    if ( (_TIME_BITS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_TIME_BITS\t\t => %d\n", _TIME_BITS + 0);
+    } else {
+        strcat(buffer, "_TIME_BITS\n");
+    }
+#endif
+
+#ifdef __TIMESIZE
+    if ( (__TIMESIZE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TIMESIZE\t\t => %d\n", __TIMESIZE + 0);
+    } else {
+        strcat(buffer, "__TIMESIZE\n");
+    }
+#endif
+
+/* defined, when 64bit time_t is enabled */
+#ifdef __USE_TIME_BITS64
+    if ( (__USE_TIME_BITS64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__USE_TIME_BITS64\t => %d\n", __USE_TIME_BITS64 + 0);
+    } else {
+        strcat(buffer, "__USE_TIME_BITS64\n");
+    }
+#endif
+
+
 #ifdef _XOPEN_UNIX
     if ( (_XOPEN_UNIX + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_XOPEN_UNIX \t\t => %d\n", _XOPEN_UNIX + 0);
@@ -9075,6 +9103,19 @@ char *get_txt(char * buffer)
 #ifdef __WINT_TYPE__
     sprintf(buffer+strlen(buffer), "__WINT_TYPE__\t\t => size is %zd: %s\n",
             sizeof( __WINT_TYPE__ ), __my_stringify( __WINT_TYPE__ ) );
+#endif
+
+
+/* time_t width is nor always 32bit */
+#ifdef __TIME_T_TYPE
+    sprintf(buffer+strlen(buffer), "__TIME_T_TYPE\t\t => size is %zd: %s\n",
+            sizeof( __TIME_T_TYPE ), __my_stringify( __TIME_T_TYPE ) );
+#endif
+
+/* time_t might be 64bit width */
+#ifdef __TIME64_T_TYPE
+    sprintf(buffer+strlen(buffer), "__TIME64_T_TYPE\t\t => size is %zd: %s\n",
+            sizeof( __TIME64_T_TYPE ), __my_stringify( __TIME64_T_TYPE ) );
 #endif
 
 

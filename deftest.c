@@ -845,7 +845,7 @@ char *get_txt(char * buffer)
 /*  edg based compiler */
 #ifdef __EDG__
     if ( (__EDG__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__EDG__\t\t => %d\n", __EDG__ + 0);
+        sprintf(buffer + strlen(buffer), "__EDG__\t\t\t => %d\n", __EDG__ + 0);
     } else {
         strcat(buffer, "__EDG__\n");
     }
@@ -1004,23 +1004,23 @@ char *get_txt(char * buffer)
 
 /* Intel CC */
 #ifdef __INTEL_COMPILER
-    if (__INTEL_COMPILER % 10)
+    if (__INTEL_COMPILER < 2020)
     {
-        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t\t => 0x%x (%d.%d.%d)\n",
+        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t => %d (ICC %d.%d.%d)\n",
                 __INTEL_COMPILER,
                 __INTEL_COMPILER/100, (__INTEL_COMPILER %100) /10, __INTEL_COMPILER % 10);
     }
     else
     {
-        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t\t => 0x%x (%d.%d)\n",
-                __INTEL_COMPILER, __INTEL_COMPILER/100, (__INTEL_COMPILER %100) /10);
+        sprintf(buffer + strlen(buffer), "__INTEL_COMPILER\t => %d (ICC %d)\n",
+                __INTEL_COMPILER, __INTEL_COMPILER);
     }
 #endif
 
 #ifdef __INTEL_COMPILER_BUILD_DATE
-    sprintf(buffer + strlen(buffer), "__INTEL_COMPILER_BUILD_DATE\t => 0x%lx (ICC %x.%x.%x)\n",
-    __INTEL_COMPILER_BUILD_DATE, __INTEL_COMPILER_BUILD_DATE >>16,
-    (__INTEL_COMPILER_BUILD_DATE >> 8) & 255, __INTEL_COMPILER_BUILD_DATE & 255);
+    sprintf(buffer + strlen(buffer), "__INTEL_COMPILER_BUILD_DATE => %ld (%d.%02d.%02d)\n",
+    __INTEL_COMPILER_BUILD_DATE, __INTEL_COMPILER_BUILD_DATE /10000,
+    (__INTEL_COMPILER_BUILD_DATE  %10000)/100 , __INTEL_COMPILER_BUILD_DATE %100);
 #endif
 
 /* KAI C++ */

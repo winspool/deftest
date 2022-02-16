@@ -6868,7 +6868,7 @@ char *get_txt(char * buffer)
 
 
 /* ############# */
-/* runtime types */
+/* runtime types / versions */
 
 #ifdef _ATL_VER
     if ( (_ATL_VER + 1) > 1) {
@@ -7250,6 +7250,24 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "_MFC_VER \t\t => %d\n", _MFC_VER + 0);
     } else {
         strcat(buffer, "_MFC_VER\n");
+    }
+#endif
+
+
+/* used by msvc */
+#ifdef _MSVC_LANG
+    if ( (_MSVC_LANG + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_MSVC_LANG \t\t => %ld (%s)\n", _MSVC_LANG + 0,
+        (_MSVC_LANG + 0 >= 202100) ? "C++23 / C++2b" :
+        (_MSVC_LANG + 0 >= 202002) ? "C++20" :
+        (_MSVC_LANG + 0 >= 201703) ? "C++17" :
+        (_MSVC_LANG + 0 >= 201402) ? "C++14 / C++1y" :
+        (_MSVC_LANG + 0 >= 201103) ? "C++11 / C++0x" :
+        (_MSVC_LANG + 0 >= 200300) ? "C++03" :
+        (_MSVC_LANG + 0 >= 199711) ? "C++98" : "C++");
+
+    } else {
+        strcat(buffer, "_MSVC_LANG\n");
     }
 #endif
 

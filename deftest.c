@@ -625,6 +625,15 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* chibicc is a small c11 compiler to assist a book for compiler development */
+#ifdef __chibicc__
+    if ( (__chibicc__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__chibicc__\t\t => %d\n", __chibicc__ + 0);
+    } else {
+        strcat(buffer, "__chibicc__\n");
+    }
+#endif
+
 
 /* clang */
 #ifdef __clang__
@@ -2558,7 +2567,7 @@ char *get_txt(char * buffer)
 
 #ifdef __C99_MACRO_WITH_VA_ARGS
     if ( (__C99_MACRO_WITH_VA_ARGS + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__C99_MACRO_WITH_VA_ARGS \t\t => %d\n", __C99_MACRO_WITH_VA_ARGS + 0);
+        sprintf(buffer + strlen(buffer), "__C99_MACRO_WITH_VA_ARGS => %d\n", __C99_MACRO_WITH_VA_ARGS + 0);
     } else {
         strcat(buffer, "__C99_MACRO_WITH_VA_ARGS\n");
     }

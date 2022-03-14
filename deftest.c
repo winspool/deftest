@@ -1184,6 +1184,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* set by mingw32-w64, checked in tinyfiledialogs */
 #ifdef __MINGW32__
     if ( (__MINGW32__   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MINGW32__  \t\t => %d\n", __MINGW32__   + 0);
@@ -1193,7 +1194,6 @@ char *get_txt(char * buffer)
 #endif
 
 
-
 #ifdef __MINGW32_MAJOR
     if ( (__MINGW32_MAJOR   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MINGW32_MAJOR\t => %d\n", __MINGW32_MAJOR  + 0);
@@ -1201,17 +1201,18 @@ char *get_txt(char * buffer)
         strcat(buffer, "__MINGW32_MAJOR\n");
     }
 #endif
-
-
-
 #ifdef __MINGW32_MINOR
     if ( (__MINGW32_MINOR  + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__MINGW32_MINOR\t => %d\n", __MINGW32_MINOR + 0);
+  
+        strcat(buffer, "__MINGW64_VERSION_MAJOR\n");      sprintf(buffer + strlen(buffer), "__MINGW32_MINOR\t => %d\n", __MINGW32_MINOR + 0);
     } else {
         strcat(buffer, "__MINGW32_MINOR\n");
     }
 #endif
 
+/* this is strange, but not a typo/bug here:
+  __MINGW32_MAJOR_VERSION and __MINGW32_MINOR_VERSION are used
+  __MINGW64_VERSION_MAJOR and __MINGW64_VERSION_MINOR are used by mingw64 */
 #ifdef __MINGW32_MAJOR_VERSION
     if ( (__MINGW32_MAJOR_VERSION   + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MINGW32_MAJOR_VERSION\t => %d\n", __MINGW32_MAJOR_VERSION  + 0);
@@ -1219,7 +1220,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "__MINGW32_MAJOR_VERSION\n");
     }
 #endif
-
 #ifdef __MINGW32_MINOR_VERSION
     if ( (__MINGW32_MINOR_VERSION  + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__MINGW32_MINOR_VERSION\t => %d\n", __MINGW32_MINOR_VERSION + 0);
@@ -1228,6 +1228,33 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* set by mingw64 for 64bit code */
+#ifdef __MINGW64__
+    if ( (__MINGW64__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MINGW64__  \t\t => %d\n", __MINGW64__   + 0);
+    } else {
+        strcat(buffer, "__MINGW64__\n");
+    }
+#endif
+
+/* __MINGW64_VERSION_MAJOR checked by tinyfiledialogs */
+/* this is strange, but not a typo/bug here:
+  __MINGW32_MAJOR_VERSION and __MINGW32_MINOR_VERSION are used
+  __MINGW64_VERSION_MAJOR and __MINGW64_VERSION_MINOR are used by mingw64 */
+#ifdef __MINGW64_VERSION_MAJOR
+    if ( (__MINGW64_VERSION_MAJOR   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MINGW64_VERSION_MAJOR\t => %d\n", __MINGW64_VERSION_MAJOR  + 0);
+    } else {
+    }
+#endif
+/* set by mingw64 */
+#ifdef __MINGW64_VERSION_MINOR
+    if ( (__MINGW64_VERSION_MINOR   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MINGW64_VERSION_MINOR\t => %d\n", __MINGW64_VERSION_MINOR  + 0);
+    } else {
+        strcat(buffer, "__MINGW64_VERSION_MINOR\n");
+    }
+#endif
 
 
 /* MS visual C */

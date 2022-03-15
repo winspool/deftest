@@ -1078,6 +1078,17 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* Used for the Metrowerks Codewarrior (BeOS/PPC) */
+#ifdef METROWERKS
+    if ( (METROWERKS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "METROWERKS\t\t => 0x%x (%s)\n", METROWERKS ,
+        METROWERKS >= 0x3208 ? ">9.6" :
+        METROWERKS >= 0x3200 ? "9.x" :
+        METROWERKS >= 0x3000 ? "8.x" : "7.x or older");
+    } else {
+        strcat(buffer, "METROWERKS\n");
+    }
+#endif
 
 /* mingw */
 #ifdef mingw
@@ -5594,7 +5605,14 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* BEOS */
+/* __BEOS__ (replaced by __HAIKU__)  */
+#ifdef BEOS
+    if ( (BEOS + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "BEOS\t\t => %d\n", BEOS + 0);
+    } else {
+        strcat(buffer, "BEOS\n");
+    }
+#endif
 #ifdef __BEOS__
     if ( (__BEOS__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__BEOS__\t\t => %d\n", __BEOS__ + 0);
@@ -5602,6 +5620,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "__BEOS__\n");
     }
 #endif
+
 #ifdef bsdi
     if ( (bsdi + 1) > 1) {
         sprintf(buffer + strlen(buffer), "bsdi\t\t => %d\n", bsdi + 0);
@@ -5772,6 +5791,16 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* Haiku uses __HAIKU__ */
+#ifdef __HAIKU__
+    if ( (__HAIKU__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__HAIKU__\t\t => %d\n", __HAIKU__ + 0);
+    } else {
+        strcat(buffer, "__HAIKU__\n");
+    }
+#endif
+
+
 /* __HOS_*__ is used by ibmcpp */
 #ifdef __HOS_AIX__
     if ( (__HOS_AIX__ + 1) > 1) {
@@ -5807,6 +5836,17 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* used by Haiku */
+#ifdef HOST_ARCH
+    sprintf(buffer + strlen(buffer), "HOST_ARCH\t\t => %s\n", HOST_ARCH );
+#endif
+#ifdef HOST_CC
+    sprintf(buffer + strlen(buffer), "HOST_CC\t\t => %s\n", HOST_CC );
+#endif
+#ifdef HOST_OS
+    sprintf(buffer + strlen(buffer), "HOST_OS\t\t => %s\n", HOST_OS);
+#endif
 
 
 #ifdef hpux
@@ -5880,6 +5920,15 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__i386BSD__ \t\t => %d\n", __i386BSD__ + 0);
     } else {
         strcat(buffer, "__i386BSD__\n");
+    }
+#endif
+
+/* BeOS compilers set __INTEL__ or __POWERPC__ */
+#ifdef __INTEL__
+    if ( (__INTEL__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__INTEL__\t => %d\n", __INTEL__ + 0);
+    } else {
+        strcat(buffer, "__INTEL__\n");
     }
 #endif
 
@@ -6399,6 +6448,18 @@ char *get_txt(char * buffer)
     } else {
         strcat(buffer, "__TARGET_PPC__\n");
     }
+#endif
+
+
+/* used by Haiku */
+#ifdef TARGET_ARCH
+    sprintf(buffer + strlen(buffer), "TARGET_ARCH\t => %s\n", TARGET_ARCH );
+#endif
+#ifdef TARGET_CC
+    sprintf(buffer + strlen(buffer), "TARGET_CC\t => %s\n", TARGET_CC );
+#endif
+#ifdef TARGET_OS
+    sprintf(buffer + strlen(buffer), "TARGET_OS\t => %s\n", TARGET_OS);
 #endif
 
 

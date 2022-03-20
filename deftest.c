@@ -5480,14 +5480,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
-#ifdef __amigaos__
-    if ( (__amigaos__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__amigaos__\t\t => %d\n", __amigaos__ + 0);
-    } else {
-        strcat(buffer, "__amigaos__\n");
-    }
-#endif
+/* The great Amiga */
 #ifdef AMIGA
     if ( (AMIGA + 1) > 1) {
         sprintf(buffer + strlen(buffer), "AMIGA\t\t => %d\n", AMIGA + 0);
@@ -5523,6 +5516,31 @@ char *get_txt(char * buffer)
         strcat(buffer, "__AMIGA__\n");
     }
 #endif
+
+#ifdef __amigaos__
+    if ( (__amigaos__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__amigaos__\t\t => %d\n", __amigaos__ + 0);
+    } else {
+        strcat(buffer, "__amigaos__\n");
+    }
+#endif
+
+/* Amiga OS (PPC) */
+#ifdef __AMIGAOS4__
+    if ( (__AMIGAOS4__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AMIGAOS4__\t => %d\n", __AMIGAOS4__ + 0);
+    } else {
+        strcat(buffer, "__AMIGAOS4__\n");
+    }
+#endif
+#ifdef __amigaos4__
+    if ( (__amigaos4__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__amigaos4__\t\t => %d\n", __amigaos4__ + 0);
+    } else {
+        strcat(buffer, "__amigaos4__\n");
+    }
+#endif
+
 
 /* ### Android ### */
 
@@ -5604,6 +5622,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* Amiga OS (Rewrite) */
+#ifdef __AROS__
+    if ( (__AROS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__AROS__\t => %d\n", __AROS__ + 0);
+    } else {
+        strcat(buffer, "__AROS__\n");
+    }
+#endif
 
 /* __BEOS__ (replaced by __HAIKU__)  */
 #ifdef BEOS
@@ -6088,6 +6115,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* Amiga OS compatible (PPC) */
+#ifdef __MORPHOS__
+    if ( (__MORPHOS__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__MORPHOS__\t => %d\n", __MORPHOS__ + 0);
+    } else {
+        strcat(buffer, "__MORPHOS__\n");
+    }
+#endif
 
 /* what is mpeix? */
 #ifdef mpeix

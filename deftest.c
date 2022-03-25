@@ -1977,7 +1977,7 @@ char *get_txt(char * buffer)
 
 
 #ifdef __STDC_CONSTANT_MACROS
-    if ( (__STDC_CONSTAND_MACROS + 1) > 1) {
+    if ( (__STDC_CONSTANT_MACROS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__STDC_CONSTANT_MACROS\t => %d\n", __STDC_CONSTANT_MACROS + 0);
     } else {
         strcat(buffer, "__STDC_CONSTANT_MACROS\n");

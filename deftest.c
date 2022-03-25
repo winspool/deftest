@@ -7310,6 +7310,15 @@ char *get_txt(char * buffer)
 #endif
 
 
+/* checked in newlib */
+#ifdef _LIBC
+    if ( (_LIBC + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LIBC \t\t => %d\n", _LIBC + 0);
+    } else {
+        strcat(buffer, "_LIBC\n");
+    }
+#endif
+
 /* intel c++ runtime  */
 #ifdef __LIBCPP_VERSION
     if ( (__LIBCPP_VERSION + 1) > 1) {
@@ -8067,6 +8076,15 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__SHARED__ \t\t => %d\n", __SHARED__ + 0);
     } else {
         strcat(buffer, "__SHARED__\n");
+    }
+#endif
+
+/* used in newlib to make some functions faster */
+#ifdef __SINGLE_THREAD__
+    if ( (__SINGLE_THREAD__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__SINGLE_THREAD__  \t => %d\n", __SINGLE_THREAD__   + 0);
+    } else {
+        strcat(buffer, "__SINGLE_THREAD__  \n");
     }
 #endif
 

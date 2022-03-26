@@ -54,6 +54,13 @@ extern "C" {
 #endif
 #endif
 
+
+#ifdef __cplusplus
+#include <cstdio>
+#include <cstdarg>
+#include <cstring>
+
+#else
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
@@ -405,6 +412,9 @@ extern "C" {
 #endif
 #ifdef USE_WORDEXP_H
 #include <wordexp.h>
+#endif
+
+/* for #ifdef __cplusplus */
 #endif
 
 /* ################################## */

@@ -1985,6 +1985,16 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* C11 Feature */
+#ifdef __STDC_ANALYZABLE__
+    if ( (__STDC_ANALYZABLE__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__STDC_ANALYZABLE__\t => %d\n", __STDC_ANALYZABLE__ + 0);
+    } else {
+        strcat(buffer, "__STDC_ANALYZABLE__\n");
+    }
+#endif
+
 #ifdef __STDC_CONSTANT_MACROS
     if ( (__STDC_CONSTANT_MACROS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__STDC_CONSTANT_MACROS\t => %d\n", __STDC_CONSTANT_MACROS + 0);

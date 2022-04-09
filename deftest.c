@@ -1985,7 +1985,6 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
 #ifdef __STDC_CONSTANT_MACROS
     if ( (__STDC_CONSTANT_MACROS + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__STDC_CONSTANT_MACROS\t => %d\n", __STDC_CONSTANT_MACROS + 0);
@@ -5769,8 +5768,7 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* ToDo: DragonFly */
-
+/* DragonFly (BSD) */
 #ifdef __DragonFly__
     if ( (__DragonFly__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__DragonFly__\t => %d\n", __DragonFly__ + 0);
@@ -5778,6 +5776,18 @@ char *get_txt(char * buffer)
         strcat(buffer, "__DragonFly__\n");
     }
 #endif
+
+
+/* EMSCRIPTEN (c / c++ code compiled to webassembly) */
+/* (run that with: html in the browser / with node.js or wasm) */
+#ifdef __EMSCRIPTEN__
+    if ( (__EMSCRIPTEN__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__EMSCRIPTEN__\t => %d\n", __EMSCRIPTEN__ + 0);
+    } else {
+        strcat(buffer, "__EMSCRIPTEN__\n");
+    }
+#endif
+
 
 #ifdef FreeBSD
     if ( (FreeBSD + 1) > 1) {

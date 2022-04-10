@@ -1491,7 +1491,7 @@ char *get_txt(char * buffer)
     if ( (__TINYC__ + 1) > 1) {
         if ( __TINYC__  > 1) {
             sprintf(buffer + strlen(buffer), "__TINYC__ \t\t => %d (TCC %d.%d.%d)\n",
-                __TINYC__, __TINYC__ / 1000, (__TINYC__ % 1000) / 100, __TINYC__ % 100);
+                __TINYC__, __TINYC__ / 10000, (__TINYC__ % 10000) / 100, __TINYC__ % 100);
         } else {
             sprintf(buffer + strlen(buffer), "__TINYC__ \t\t => %d\n", __TINYC__ + 0);
         }
@@ -1500,15 +1500,22 @@ char *get_txt(char * buffer)
     }
 #endif
 
-#ifdef TCC_GITHASH
-    sprintf(buffer + strlen(buffer), "TCC_GITHASH \t\t => '%s'\n", TCC_GITHASH);
-#endif
 
+/* Tiny C Compiler Preprocessor is in use */
 #ifdef __TCC_PP__
     if ( (__TCC_PP__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__TCC_PP__ \t\t => %d\n", __TCC_PP__ + 0);
     } else {
         strcat(buffer, "__TCC_PP__\n");
+    }
+#endif
+
+/* Tiny C Compiler in -run mode */
+#ifdef __TCC_RUN__
+    if ( (__TCC_RUN__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__TCC_RUN__ \t\t => %d\n", __TCC_RUN__ + 0);
+    } else {
+        strcat(buffer, "__TCC_RUN__\n");
     }
 #endif
 

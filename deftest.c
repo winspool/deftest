@@ -9229,6 +9229,17 @@ char *get_txt(char * buffer)
             sizeof( __PTRDIFF_TYPE__ ), __my_stringify( __PTRDIFF_TYPE__ ));
 #endif
 
+#ifdef ptrdiff_t
+    sprintf(buffer+strlen(buffer), "ptrdiff_t \t => size is %zd: %s\n",
+            sizeof( ptrdiff_t ), __my_stringify( ptrdiff_t ));
+#endif
+
+/* C11 */
+#ifdef max_align_t
+    sprintf(buffer+strlen(buffer), "max_align_t \t => size is %zd: %s\n",
+            sizeof( max_align_t ), __my_stringify( max_align_t ));
+#endif
+
 
 #ifdef __SIZE_TYPE__
      sprintf(buffer+strlen(buffer), "__SIZE_TYPE__\t\t => size is %zd: %s\n",
@@ -9255,14 +9266,31 @@ char *get_txt(char * buffer)
 #endif
 
 
+#ifdef __CHAR_TYPE__
+     sprintf(buffer+strlen(buffer), "__CHAR_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __CHAR_TYPE__ ), __my_stringify( __CHAR_TYPE__ ) );
+#endif
+#ifdef __CHAR8_TYPE__
+     sprintf(buffer+strlen(buffer), "__CHAR8_TYPE__\t\t => size is %zd: %s\n",
+            sizeof( __CHAR8_TYPE__ ), __my_stringify( __CHAR8_TYPE__ ) );
+#endif
+
 #ifdef __CHAR16_TYPE__
     sprintf(buffer+strlen(buffer), "__CHAR16_TYPE__\t\t => size is %zd: %s\n",
             sizeof( __CHAR16_TYPE__ ), __my_stringify( __CHAR16_TYPE__ ) );
+#endif
+#ifdef char16_t
+    sprintf(buffer+strlen(buffer), "char16_t\t\t => size is %zd: %s\n",
+            sizeof( char16_t ), __my_stringify( char16_t ) );
 #endif
 
 #ifdef __CHAR32_TYPE__
     sprintf(buffer+strlen(buffer), "__CHAR32_TYPE__\t\t => size is %zd: %s\n",
             sizeof( __CHAR32_TYPE__ ), __my_stringify( __CHAR32_TYPE__ ) );
+#endif
+#ifdef char32_t
+    sprintf(buffer+strlen(buffer), "char32_t\t\t => size is %zd: %s\n",
+            sizeof( char32_t ), __my_stringify( char32_t ) );
 #endif
 
 

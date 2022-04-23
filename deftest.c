@@ -22,8 +22,33 @@ extern "C" {
 
 /* ################################## */
 /* STDC headers */
+/* default is C11 */
 
 #ifdef USE_POSIX
+#ifndef USE_C11
+#define USE_C11
+#endif
+#endif
+
+#ifdef USE_C23
+#ifndef USE_C17
+#define USE_C17
+#endif
+#endif
+
+#ifdef USE_C18
+#ifndef USE_C17
+#define USE_C17
+#endif
+#endif
+
+#ifdef USE_C17
+#ifndef USE_C11
+#define USE_C11
+#endif
+#endif
+
+#ifdef USE_C11
 #ifndef USE_C99
 #define USE_C99
 #endif
@@ -66,7 +91,7 @@ extern "C" {
 #include <string.h>
 
 
-/* ANSI C (c89) header */
+/* use all ANSI C (c89) header */
 #ifdef USE_ANSI_C
 #include <assert.h>
 #include <ctype.h>
@@ -85,6 +110,7 @@ extern "C" {
 #include <time.h>
 #endif
 
+/* ANSI C (c89) header */
 #ifdef USE_ASSERT_H
 #include <assert.h>
 #endif
@@ -131,13 +157,17 @@ extern "C" {
 #include <time.h>
 #endif
 
-/* c95 (c90 NA1) header */
+
+/* use all c95 (c90 NA1) header */
 #ifdef USE_C95
-//#include <iso646.h>
+#ifndef __TINYC__
+#include <iso646.h>
+#endif
 #include <wchar.h>
 #include <wctype.h>
 #endif
 
+/* c95 header */
 #ifdef USE_ISO646_H
 #include <iso646.h>
 #endif
@@ -148,9 +178,13 @@ extern "C" {
 #include <wctype.h>
 #endif
 
-/* c99 header */
+
+/* use all c99 header */
 #ifdef USE_C99
+#ifndef __TINYC__
+/* does not compile with tiny c compiler */
 #include <complex.h>
+#endif
 #include <fenv.h>
 #include <inttypes.h>
 #include <stdbool.h>
@@ -158,6 +192,7 @@ extern "C" {
 #include <tgmath.h>
 #endif
 
+/* c99 headers */
 #ifdef USE_COMPLEX_H
 #include <complex.h>
 #endif
@@ -176,6 +211,34 @@ extern "C" {
 #ifdef USE_TGMATH_H
 #include <tgmath.h>
 #endif
+
+
+/* use all c11 header */
+#ifdef USE_C11
+#include <stdalign.h>
+#include <stdatomic.h>
+#include <stdnoreturn.h>
+// #include <threads.h>
+#include <uchar.h>
+#endif
+
+/* c11 headers */
+#ifdef USE_STDALIGN_H
+#include <stdalign.h>
+#endif
+#ifdef USE_STDATOMIC_H
+#include <stdatomic.h>
+#endif
+#ifdef USE_STDNORETURN_H
+#include <stdnoreturn.h>
+#endif
+#ifdef USE_THREADS_H
+#include <threads.h>
+#endif
+#ifdef USE_UCHAR_H
+#include <uchar.h>
+#endif
+
 
 /* POSIX header */
 #ifdef USE_POSIX
@@ -1770,7 +1833,7 @@ char *get_txt(char * buffer)
 /* feature test macro */
 #ifdef _GNU_SOURCE
     if ( (_GNU_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_GNU_SOURCE \t => %d\n", _GNU_SOURCE + 0);
+        sprintf(buffer + strlen(buffer), "_GNU_SOURCE \t\t => %d\n", _GNU_SOURCE + 0);
     } else {
         strcat(buffer, "_GNU_SOURCE\n");
     }
@@ -1778,7 +1841,7 @@ char *get_txt(char * buffer)
 
 #ifdef __GNU_SOURCE__
     if ( (__GNU_SOURCE__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__GNU_SOURCE__ \t => %d\n", __GNU_SOURCE__ + 0);
+        sprintf(buffer + strlen(buffer), "__GNU_SOURCE__ \t\t => %d\n", __GNU_SOURCE__ + 0);
     } else {
         strcat(buffer, "__GNU_SOURCE__\n");
     }
@@ -1787,7 +1850,7 @@ char *get_txt(char * buffer)
 /* feature test macro */
 #ifdef _ISOC95_SOURCE
     if ( (_ISOC95_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ISOC95_SOURCE \t => %d\n", _ISOC95_SOURCE + 0);
+        sprintf(buffer + strlen(buffer), "_ISOC95_SOURCE \t\t => %d\n", _ISOC95_SOURCE + 0);
     } else {
         strcat(buffer, "_ISOC95_SOURCE\n");
     }
@@ -1796,7 +1859,7 @@ char *get_txt(char * buffer)
 /* feature test macro */
 #ifdef _ISOC99_SOURCE
     if ( (_ISOC99_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ISOC99_SOURCE \t => %d\n", _ISOC99_SOURCE + 0);
+        sprintf(buffer + strlen(buffer), "_ISOC99_SOURCE \t\t => %d\n", _ISOC99_SOURCE + 0);
     } else {
         strcat(buffer, "_ISOC99_SOURCE\n");
     }
@@ -1804,11 +1867,10 @@ char *get_txt(char * buffer)
 
 
 
-
 /* feature test macro, when C99 was still work in progress */
 #ifdef _ISOC9X_SOURCE
     if ( (_ISOC9X_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ISOC9X_SOURCE \t => %d\n", _ISOC9X_SOURCE + 0);
+        sprintf(buffer + strlen(buffer), "_ISOC9X_SOURCE \t\t => %d\n", _ISOC9X_SOURCE + 0);
     } else {
         strcat(buffer, "_ISOC9X_SOURCE\n");
     }
@@ -1817,12 +1879,38 @@ char *get_txt(char * buffer)
 /* feature test macro */
 #ifdef _ISOC11_SOURCE
     if ( (_ISOC11_SOURCE + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_ISOC11_SOURCE \t => %d\n", _ISOC11_SOURCE + 0);
+        sprintf(buffer + strlen(buffer), "_ISOC11_SOURCE \t\t => %d\n", _ISOC11_SOURCE + 0);
     } else {
         strcat(buffer, "_ISOC11_SOURCE\n");
     }
 #endif
 
+/* feature test macro */
+#ifdef _ISOC17_SOURCE
+    if ( (_ISOC17_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC17_SOURCE \t\t => %d\n", _ISOC17_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC17_SOURCE\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _ISOC2X_SOURCE
+    if ( (_ISOC2X_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC2X_SOURCE \t\t => %d\n", _ISOC2X_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC2X_SOURCE\n");
+    }
+#endif
+
+/* feature test macro */
+#ifdef _ISOC23_SOURCE
+    if ( (_ISOC23_SOURCE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_ISOC23_SOURCE \t\t => %d\n", _ISOC23_SOURCE + 0);
+    } else {
+        strcat(buffer, "_ISOC23_SOURCE\n");
+    }
+#endif
 
 
 
@@ -2436,7 +2524,7 @@ char *get_txt(char * buffer)
 
 /* <stdint.h> printf format selector */
 #ifdef PRId32
-     sprintf(buffer+strlen(buffer), "PRId32\t\t => %s\n", __my_stringify( PRId32 ) );
+     sprintf(buffer+strlen(buffer), "PRId32\t\t\t => %s\n", __my_stringify( PRId32 ) );
 #endif
 #ifdef PRIi32
      sprintf(buffer+strlen(buffer), "PRIi32\t\t\t => %s\n", __my_stringify( PRIi32 ) );
@@ -8919,7 +9007,7 @@ char *get_txt(char * buffer)
 #endif
 
 #ifdef UINTMAX_MAX
-    sprintf(buffer+strlen(buffer), "UINTMAX_MAX\t => 0x%lx%08lx\n",
+    sprintf(buffer+strlen(buffer), "UINTMAX_MAX\t\t => 0x%lx%08lx\n",
             (long) (UINTMAX_MAX >>32), (unsigned long)(UINTMAX_MAX & 0xffffffff));
 #endif
 #ifdef __UINTMAX_MAX__
@@ -9191,6 +9279,25 @@ char *get_txt(char * buffer)
 /* ############### */
 /* supported types */
 
+/* c11 */
+#ifdef __alignas_is_defined
+    if ( (__alignas_is_defined + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alignas_is_defined\t => %d\n", __alignas_is_defined + 0);
+    } else {
+        strcat(buffer, "__alignas_is_defined\n");
+    }
+#endif
+
+/* c11 */
+#ifdef __alignof_is_defined
+    if ( (__alignof_is_defined + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__alignof_is_defined\t => %d\n", __alignof_is_defined + 0);
+    } else {
+        strcat(buffer, "__alignof_is_defined\n");
+    }
+#endif
+
+
 #ifdef _BOOL_DEFINED
     if ( (_BOOL_DEFINED + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_BOOL_DEFINED \t\t => %d\n", _BOOL_DEFINED + 0);
@@ -9199,6 +9306,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "_BOOL_DEFINED\n");
     }
 #endif
+
+/* c99 */
+#ifdef __bool_true_false_are_defined
+    if ( (__bool_true_false_are_defined + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__bool_true_false_are_defined => %d\n", __bool_true_false_are_defined + 0);
+    } else {
+        strcat(buffer, "__bool_true_false_are_defined\n");
+    }
+#endif
+
 
 #ifdef _WCHAR_T_DEFINED
     if ( (_WCHAR_T_DEFINED + 1) > 1) {
@@ -9262,6 +9379,52 @@ char *get_txt(char * buffer)
     } else {
         strcat(buffer, "__DARWIN_NO_LONG_LONG\n");
     }
+#endif
+
+/* ################# */
+/* c99 and c11 types */
+
+#ifdef _Bool
+    sprintf(buffer+strlen(buffer), "_Bool \t\t\t => size is %zd: %s\n",
+            sizeof( _Bool ), __my_stringify( _Bool ));
+#endif
+
+#ifdef bool
+    sprintf(buffer+strlen(buffer), "bool \t\t\t => size is %zd: %s\n",
+            sizeof( bool ), __my_stringify( bool ));
+#endif
+
+#ifdef true
+    sprintf(buffer+strlen(buffer), "true \t\t\t => size is %zd: %s\n",
+            sizeof( true ), __my_stringify( true ));
+#endif
+#ifdef false
+    sprintf(buffer+strlen(buffer), "false \t\t\t => size is %zd: %s\n",
+            sizeof( false ), __my_stringify( false ));
+#endif
+
+
+#ifdef INFINITY
+    sprintf(buffer+strlen(buffer), "INFINITY \t\t => size is %zd: %s\n",
+            sizeof( INFINITY ), __my_stringify( INFINITY ));
+#endif
+
+#ifdef NAN
+    sprintf(buffer+strlen(buffer), "NAN \t\t\t => size is %zd: %s\n",
+            sizeof( NAN ), __my_stringify( NAN ));
+#endif
+
+#ifdef math_errhandling
+    sprintf(buffer+strlen(buffer), "math_errhandling \t => size is %zd: %s\n",
+            sizeof( math_errhandling ), __my_stringify( math_errhandling ));
+#endif
+#ifdef MATH_ERRNO
+    sprintf(buffer+strlen(buffer), "MATH_ERRNO \t\t => size is %zd: %s\n",
+            sizeof( MATH_ERRNO ), __my_stringify( MATH_ERRNO ));
+#endif
+#ifdef MATH_ERREXCEPT
+    sprintf(buffer+strlen(buffer), "MATH_ERREXCEPT \t\t => size is %zd: %s\n",
+            sizeof( MATH_ERREXCEPT ), __my_stringify( MATH_ERREXCEPT ));
 #endif
 
 
@@ -9669,7 +9832,7 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__FLT_DECIMAL_DIG__\t => %d\n", __FLT_DECIMAL_DIG__);
 #endif
 #ifdef FLT_DIG
-    sprintf(buffer+strlen(buffer), "FLT_DIG\t\t => %d\n", FLT_DIG);
+    sprintf(buffer+strlen(buffer), "FLT_DIG \t\t => %d\n", FLT_DIG);
 #endif
 #ifdef __FLT_DIG__
     sprintf(buffer+strlen(buffer), "__FLT_DIG__\t\t => %d\n", __FLT_DIG__);
@@ -9678,7 +9841,7 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "FLT_MANT_BITS \t => %d\n", FLT_MANT_BITS);
 #endif
 #ifdef FLT_MANT_DIG
-    sprintf(buffer+strlen(buffer), "FLT_MANT_DIG \t => %d\n", FLT_MANT_DIG);
+    sprintf(buffer+strlen(buffer), "FLT_MANT_DIG \t\t => %d\n", FLT_MANT_DIG);
 #endif
 #ifdef __FLT_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__FLT_MANT_DIG__ \t => %d\n", __FLT_MANT_DIG__);
@@ -9691,7 +9854,7 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "__DBL_DECIMAL_DIG__\t => %d\n", __DBL_DECIMAL_DIG__);
 #endif
 #ifdef DBL_DIG
-    sprintf(buffer+strlen(buffer), "DBL_DIG\t\t => %d\n", DBL_DIG);
+    sprintf(buffer+strlen(buffer), "DBL_DIG \t\t => %d\n", DBL_DIG);
 #endif
 #ifdef __DBL_DIG__
     sprintf(buffer+strlen(buffer), "__DBL_DIG__\t\t => %d\n", __DBL_DIG__);
@@ -9701,7 +9864,7 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "DBL_MANT_BITS \t => %d\n", DBL_MANT_BITS);
 #endif
 #ifdef DBL_MANT_DIG
-    sprintf(buffer+strlen(buffer), "DBL_MANT_DIG \t => %d\n", DBL_MANT_DIG);
+    sprintf(buffer+strlen(buffer), "DBL_MANT_DIG \t\t => %d\n", DBL_MANT_DIG);
 #endif
 #ifdef __DBL_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__DBL_MANT_DIG__ \t => %d\n", __DBL_MANT_DIG__);
@@ -9720,7 +9883,7 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "LDBL_MANT_BITS \t => %d\n", LDBL_MANT_BITS);
 #endif
 #ifdef LDBL_MANT_DIG
-    sprintf(buffer+strlen(buffer), "LDBL_MANT_DIG \t => %d\n", LDBL_MANT_DIG);
+    sprintf(buffer+strlen(buffer), "LDBL_MANT_DIG \t\t => %d\n", LDBL_MANT_DIG);
 #endif
 #ifdef __LDBL_MANT_DIG__
     sprintf(buffer+strlen(buffer), "__LDBL_MANT_DIG__ \t => %d\n", __LDBL_MANT_DIG__);

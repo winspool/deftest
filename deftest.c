@@ -3501,7 +3501,7 @@ char *get_txt(char * buffer)
         strcat(buffer, "__ARM_ARCH_6K__\n");
     }
 #endif
-#ifdef __ARM_ARCH_6__
+#ifdef __ARM_ARCH_6Z__
     if ( (__ARM_ARCH_6Z__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__ARM_ARCH_6Z__ \t\t => %d\n", __ARM_ARCH_6Z__ + 0);
     } else {

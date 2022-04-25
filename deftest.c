@@ -3966,6 +3966,26 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* used by MSVC */
+#ifdef _M_ARM
+    if ( (_M_ARM + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_ARM\t\t => %d\n", _M_ARM + 0);
+    } else {
+        strcat(buffer, "_M_ARM\n");
+    }
+#endif
+
+/* used by MSVC */
+#ifdef _M_ARM64
+    if ( (_M_ARM64 + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_M_ARM64\t\t => %d\n", _M_ARM64 + 0);
+    } else {
+        strcat(buffer, "_M_ARM64\n");
+    }
+#endif
+
+
 /* Intel tried 64 bit with itanium and lost against AMD64 */
 #ifdef _M_IA64
     if ( (_M_IA64 + 1) > 1) {

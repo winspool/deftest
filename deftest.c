@@ -5972,6 +5972,46 @@ char *get_txt(char * buffer)
 #endif
 
 
+
+/* Apple Darwin */
+#ifdef DARWIN
+    if ( (DARWIN   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "DARWIN  \t\t => %d\n", DARWIN   + 0);
+    } else {
+        strcat(buffer, "DARWIN\n");
+    }
+#endif
+#ifdef _DARWIN
+    if ( (_DARWIN   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_DARWIN  \t\t => %d\n", _DARWIN   + 0);
+    } else {
+        strcat(buffer, "_DARWIN\n");
+    }
+#endif
+#ifdef _DARWIN_
+    if ( (_DARWIN_   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_DARWIN_  \t\t => %d\n", _DARWIN_   + 0);
+    } else {
+        strcat(buffer, "_DARWIN_\n");
+    }
+#endif
+#ifdef __DARWIN
+    if ( (__DARWIN   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DARWIN  \t\t => %d\n", __DARWIN   + 0);
+    } else {
+        strcat(buffer, "__DARWIN\n");
+    }
+#endif
+#ifdef __DARWIN__
+    if ( (__DARWIN__   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__DARWIN__  \t\t => %d\n", __DARWIN__   + 0);
+    } else {
+        strcat(buffer, "__DARWIN__\n");
+    }
+#endif
+
+
+
 /* ## DOS ## */
 #ifdef DOS
     if ( (DOS + 1) > 1) {

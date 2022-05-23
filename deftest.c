@@ -1860,6 +1860,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef SINGLE_THREADED
+    if ( (SINGLE_THREADED   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "SINGLE_THREADED  \t\t => %d\n", SINGLE_THREADED + 0);
+    } else {
+        strcat(buffer, "SINGLE_THREADED\n");
+    }
+#endif
+
+
 /* obsolete. replaced by _POSIX_C_SOURCE with a value of 199506L or higher */
 #ifdef _THREAD_SAFE
     if ( (_THREAD_SAFE   + 1) > 1) {
@@ -2113,6 +2122,21 @@ char *get_txt(char * buffer)
     }
 #endif
 
+#ifdef _LFS64__LARGEFILE
+    if ( (_LFS64__LARGEFILE + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LFS64__LARGEFILE\t => %d\n", _LFS64__LARGEFILE + 0);
+    } else {
+        strcat(buffer, "_LFS64__LARGEFILE\n");
+    }
+#endif
+
+#ifdef _LFS64__STDIO
+    if ( (_LFS64__STDIO + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_LFS64__STDIO\t => %d\n", _LFS64__STDIO + 0);
+    } else {
+        strcat(buffer, "_LFS64__STDIO\n");
+    }
+#endif
 
 
 /* posix */
@@ -2186,11 +2210,28 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
 #ifdef _POSIX_VERSION
     if ( (_POSIX_VERSION + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_POSIX_VERSION \t => %ld\n", _POSIX_VERSION + 0);
     } else {
         strcat(buffer, "_POSIX_VERSION\n");
+    }
+#endif
+
+#ifdef __POSIX2_VERSION
+    if ( (__POSIX2_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__POSIX2_VERSION \t => %ld\n", __POSIX2_VERSION + 0);
+    } else {
+        strcat(buffer, "__POSIX2_VERSION\n");
+    }
+#endif
+
+#ifdef __POSIX2_THIS_VERSION
+    if ( (__POSIX2_THIS_VERSION + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__POSIX2_THIS_VERSION \t => %ld\n", __POSIX2_THIS_VERSION + 0);
+    } else {
+        strcat(buffer, "__POSIX2_THIS_VERSION\n");
     }
 #endif
 

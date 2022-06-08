@@ -4396,15 +4396,6 @@ char *get_txt(char * buffer)
     }
 #endif
 
-/* 32 bit mode. 300 for i386 to 600 for p6 or better */
-#ifdef _M_IX86
-    if ( (_M_IX86 + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_M_IX86  \t\t => %d\n", _M_IX86 + 0);
-    } else {
-        strcat(buffer, "_M_IX86\n");
-    }
-#endif
-
 
 
 /* ## i386 for microsoft-compiler ## */
@@ -4931,6 +4922,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "M_IX86\n");
     }
 #endif
+
+/* 32 bit mode. 300 for i386 to 600 for p6 or better */
 #ifdef _M_IX86
     if ( (_M_IX86 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_IX86 \t\t => %d\n", _M_IX86 + 0);

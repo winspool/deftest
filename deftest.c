@@ -1005,6 +1005,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* used by lcc (Windows, 64 bit mode) */
 #ifdef __LCC64__
     if ( (__LCC64__ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__LCC64__\t\t => %d\n", __LCC64__ + 0);
@@ -3384,6 +3385,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* used by lcc (Windows, 64 bit mode) */
+#ifdef _AMD64_
+    if ( (_AMD64_ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_AMD64_\t\t\t => %d\n", _AMD64_ + 0);
+    } else {
+        strcat(buffer, "_AMD64_\n");
+    }
+#endif
+
 
 #ifdef __APCS_32__
     if ( (__APCS_32__ + 1) > 1) {
@@ -4162,7 +4172,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
-
+/* used by lcc (Windows, 64 bit mode) */
 #ifdef _M_AMD64
     if ( (_M_AMD64 + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_M_AMD64\t\t => %d\n", _M_AMD64 + 0);
@@ -5658,6 +5668,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "_X86\n");
     }
 #endif
+
+/* used by lcc (Windows, 32 bit mode) */
 #ifdef _X86_
     if ( (_X86_ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_X86_\t\t\t => %d\n", _X86_ + 0);
@@ -5681,7 +5693,7 @@ char *get_txt(char * buffer)
 #endif
 
 
-
+/* used by lcc (Windows, 64 bit mode) */
 #ifdef _X86AMD64_
     if ( (_X86AMD64_ + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_X86AMD64_\t\t => %d\n", _X86AMD64_ + 0);
@@ -5689,7 +5701,6 @@ char *get_txt(char * buffer)
         strcat(buffer, "_X86AMD64_\n");
     }
 #endif
-
 
 /* different name from intel. see __amd64 */
 #ifdef x86_64
@@ -7135,6 +7146,16 @@ char *get_txt(char * buffer)
         sprintf(buffer + strlen(buffer), "__WIN32__ \t\t => %d\n", __WIN32__  + 0);
     } else {
         strcat(buffer, "__WIN32__\n");
+    }
+#endif
+
+
+/*  Internet Explorer */
+#ifdef _WIN32_IE
+    if ( (_WIN32_IE   + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "_WIN32_IE\t\t => 0x%04x\n", _WIN32_IE   + 0);
+    } else {
+        strcat(buffer, "_WIN32_IE\n");
     }
 #endif
 

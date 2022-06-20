@@ -6169,7 +6169,7 @@ char *get_txt(char * buffer)
 /* (run that with: html in the browser / with node.js or wasm) */
 #ifdef __EMSCRIPTEN__
     if ( (__EMSCRIPTEN__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__EMSCRIPTEN__\t => %d\n", __EMSCRIPTEN__ + 0);
+        sprintf(buffer + strlen(buffer), "__EMSCRIPTEN__\t\t => %d\n", __EMSCRIPTEN__ + 0);
     } else {
         strcat(buffer, "__EMSCRIPTEN__\n");
     }

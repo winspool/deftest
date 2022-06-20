@@ -618,17 +618,21 @@ char *get_txt(char * buffer)
      sprintf(buffer+strlen(buffer), "__FILE__\t\t => '%s'\n", __FILE__ );
 #endif
 
-
+/* used by MSVC: function name */
 #ifdef __FUNCNAME__
      sprintf(buffer+strlen(buffer), "__FUNCNAME__\t\t => '%s'\n", __FUNCNAME__ );
 #endif
+
+/* used by MSVC: decorated function name */
 #ifdef __FUNCDNAME__
      sprintf(buffer+strlen(buffer), "__FUNCDNAME__\t\t => '%s'\n", __FUNCDNAME__ );
 #endif
 
+/* used by MSVC: function signature */
 #ifdef __FUNCSIG__
      sprintf(buffer+strlen(buffer), "__FUNCSIG__\t\t => '%s'\n", __FUNCSIG__ );
 #endif
+
 #ifdef __FUNCTION__
      sprintf(buffer+strlen(buffer), "__FUNCTION__\t\t => '%s'\n", __FUNCTION__ );
 #endif
@@ -3914,6 +3918,15 @@ char *get_txt(char * buffer)
     }
 #endif
 
+
+/* used by MSVC for /favor:ATOM (trimmed down x86 / x86_64 processors) */
+#ifdef __ATOM__
+    if ( (__ATOM__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ATOM__  \t\t => %d\n", __ATOM__ + 0);
+    } else {
+        strcat(buffer, "__ATOM__\n");
+    }
+#endif
 
 /* SIMD instruction sets 7 to 8 */
 #ifdef __AVX__
@@ -7966,6 +7979,8 @@ char *get_txt(char * buffer)
         strcat(buffer, "DEBUG\n");
     }
 #endif
+
+/* defined by MSVC, when compiling as DEBUG version */
 #ifdef _DEBUG
     if ( (_DEBUG + 1) > 1) {
         sprintf(buffer + strlen(buffer), "_DEBUG\t\t\t => %d\n", _DEBUG + 0);

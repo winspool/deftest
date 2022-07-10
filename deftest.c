@@ -9694,6 +9694,38 @@ char *get_txt(char * buffer)
             sizeof( ptrdiff_t ), __my_stringify( ptrdiff_t ));
 #endif
 
+
+
+#ifdef intptr_t
+    sprintf(buffer+strlen(buffer), "intptr_t \t => size is %zd: %s\n",
+            sizeof( intptr_t ), __my_stringify( intptr_t ));
+#endif
+#ifdef uintptr_t
+    sprintf(buffer+strlen(buffer), "uintptr_t \t => size is %zd: %s\n",
+            sizeof( uintptr_t ), __my_stringify( uintptr_t ));
+#endif
+
+
+#ifdef intmax_t
+    sprintf(buffer+strlen(buffer), "intmax_t \t => size is %zd: %s\n",
+            sizeof( intmax_t ), __my_stringify( intmax_t ));
+#endif
+#ifdef uintmax_t
+    sprintf(buffer+strlen(buffer), "uintmax_t \t => size is %zd: %s\n",
+            sizeof( uintmax_t ), __my_stringify( uintmax_t ));
+#endif
+
+
+#ifdef __intmax_t
+    sprintf(buffer+strlen(buffer), "__intmax_t \t => size is %zd: %s\n",
+            sizeof( __intmax_t ), __my_stringify( __intmax_t ));
+#endif
+#ifdef __uintmax_t
+    sprintf(buffer+strlen(buffer), "__uintmax_t \t => size is %zd: %s\n",
+            sizeof( __uintmax_t ), __my_stringify( __uintmax_t ));
+#endif
+
+
 /* C11 */
 #ifdef max_align_t
     sprintf(buffer+strlen(buffer), "max_align_t \t => size is %zd: %s\n",

@@ -3844,6 +3844,7 @@ char *get_txt(char * buffer)
     }
 #endif
 
+/* vectorization code checks for __ARM_NEON__ and __ARM_NEON  */
 #ifdef __ARM_NEON
     if ( (__ARM_NEON + 1) > 1) {
         sprintf(buffer + strlen(buffer), "__ARM_NEON \t\t => %d\n", __ARM_NEON + 0);
@@ -3851,6 +3852,16 @@ char *get_txt(char * buffer)
         strcat(buffer, "__ARM_NEON\n");
     }
 #endif
+
+/* vectorization code checks for __ARM_NEON__ and __ARM_NEON  */
+#ifdef __ARM_NEON__
+    if ( (__ARM_NEON__ + 1) > 1) {
+        sprintf(buffer + strlen(buffer), "__ARM_NEON__ \t\t => %d\n", __ARM_NEON__ + 0);
+    } else {
+        strcat(buffer, "__ARM_NEON__\n");
+    }
+#endif
+
 
 /* ARM in big endian mode */
 #ifdef __ARMEB__
@@ -9693,7 +9704,6 @@ char *get_txt(char * buffer)
     sprintf(buffer+strlen(buffer), "ptrdiff_t \t => size is %zd: %s\n",
             sizeof( ptrdiff_t ), __my_stringify( ptrdiff_t ));
 #endif
-
 
 
 #ifdef intptr_t

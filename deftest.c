@@ -1858,11 +1858,10 @@ char *get_txt(char * buffer)
 
 /* obsolete. replaced by _POSIX_C_SOURCE with a value of 199506L or higher */
 #ifdef _REENTRANT
-    if ( (_REENTRANT   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "_REENTRANT  \t\t => %d\n", _REENTRANT   + 0);
-    } else {
-        strcat(buffer, "_REENTRANT  \n");
-    }
+    strcat(buffer, "_REENTRANT\t\t => is supported\n");
+#endif
+#ifdef __REENTRANT
+    strcat(buffer, "__REENTRANT\t\t => is supported\n");
 #endif
 
 #ifdef SINGLE_THREADED
@@ -3048,8 +3047,17 @@ char *get_txt(char * buffer)
 #endif
 
 
-/* language features: c++ */
+/* language features detection: c / c++ */
 
+#ifdef __has_attribute
+    strcat(buffer, "__has_attribute\t\t => is supported\n");
+#endif
+#ifdef __has_builtin
+    strcat(buffer, "__has_builtin\t\t => is supported\n");
+#endif
+#ifdef __has_c_attribute
+    strcat(buffer, "__has_c_attribute\t => is supported\n");
+#endif
 #ifdef __has_cpp_attribute
     strcat(buffer, "__has_cpp_attribute\t => is supported\n");
 #endif
@@ -3058,8 +3066,7 @@ char *get_txt(char * buffer)
 #endif
 
 
-
-/*  ## is this c or c++? ## */
+/*  ## is this used in c or c++? ## */
 
 #ifdef REDIRECT
     if ( (REDIRECT + 1) > 1) {
@@ -3084,7 +3091,7 @@ char *get_txt(char * buffer)
     }
 #endif
 #ifdef __REDIRECT
-    strcat(buffer, "__REDIRECT\n");
+    strcat(buffer, "__REDIRECT\t\t => is supported\n");
 #endif
 
 #ifdef __REDIRECT__

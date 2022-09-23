@@ -5951,7 +5951,7 @@ char *get_txt(char * buffer)
 /* checked in stb/whereami */
 #ifdef __ANDROID__
     if ( (__ANDROID__   + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__ANDROID__  \t => %d\n", __ANDROID__   + 0);
+        sprintf(buffer + strlen(buffer), "__ANDROID__ \t\t => %d\n", __ANDROID__   + 0);
     } else {
         strcat(buffer, "__ANDROID__\n");
     }
@@ -7448,7 +7448,7 @@ char *get_txt(char * buffer)
 
 #ifdef __BIONIC__
     if ( (__BIONIC__ + 1) > 1) {
-        sprintf(buffer + strlen(buffer), "__BIONIC__ \t\t => 0x%x\n", __BIONIC__ + 0);
+        sprintf(buffer + strlen(buffer), "__BIONIC__ \t\t => %d\n", __BIONIC__ + 0);
     } else {
         strcat(buffer, "__BIONIC__\n");
     }
@@ -9414,7 +9414,7 @@ char *get_txt(char * buffer)
 
 
 #ifdef __BITS_PER_LONG
-    sprintf(buffer+strlen(buffer), "__BITS_PER_LONG\t => %d\n", __BITS_PER_LONG);
+    sprintf(buffer+strlen(buffer), "__BITS_PER_LONG\t\t => %d\n", __BITS_PER_LONG);
 #endif
 
 #ifdef WORD_BIT
